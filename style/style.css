@@ -1,7 +1,41 @@
+:root {
+    --primary-color: #4dbbff;
+    --font-color: #707070;
+    --secondary-font-color: #000000;
+    --accent-color: #ff6900;
+    --background-color: #ffffff;
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: 300;
+    src: url(../public/fonts/Poppins-Light.woff2);
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: 400;
+    src: url(../public/fonts/Poppins-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: 700;
+    src: url(../public/fonts/Poppins-Bold.woff2);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 24px;
+    color: var(--font-color);
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    line-height: 1.25;
+    list-style-type: none;
+}
+
+body {
+    background-color: var(--background-color);
 }
