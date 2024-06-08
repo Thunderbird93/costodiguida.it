@@ -1,10 +1,29 @@
 :root {
-    --primary-color: #4dbbff;
-    --font-color: #707070;
-    --secondary-font-color: #000000;
-    --accent-color: #ff6900;
-    --background-color: #ffffff;
+    --accent: #eb432b;
+    --active: #eb422a;
+    --marker: #fcdf3e;
+
+    --bg-light: #ffffff;
+    --bg-dark: #111111;
+    --bg-light-grey: #f5f7f8;
+    --bg-dark-grey: #363636;
+
+    --font-light: #ffffff;
+    --font-dark: #000000;
+    --font-grey: #707070;
+
+    --text-small: 18px;
+    --text-medium: 24px;
+    --text-large: 36px;
+    --text-xl: 64px;
+    --text-xxl: 72px;
+
+    --nav-height: 60px;
+
+    --blue: #016fb9;
 }
+
+/* fonts */
 
 @font-face {
     font-family: "Poppins";
@@ -20,22 +39,108 @@
 
 @font-face {
     font-family: "Poppins";
+    font-weight: 500;
+    src: url(../public/fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins";
     font-weight: 700;
     src: url(../public/fonts/Poppins-Bold.woff2);
 }
+
+/* reset */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 24px;
-    color: var(--font-color);
+    font-size: var(--text-small);
     font-family: Poppins, sans-serif;
     font-weight: 300;
-    line-height: 1.25;
-    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: 0;
+    padding: 5px;
+    background-color: var(--bg-dark);
+    color: var(--font-light);
+    padding: 12px 24px;
+    border-radius: 12px;
+}
+
+header > .wrapper {
+    height: var(--nav-height);
+    padding: 0 0.75rem;
+    min-height: 72px;
+}
+
+.wrapper > .navbar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#menu {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+}
+
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+
+#subMenuOverlay {
+    margin: auto;
+}
+
+.menuLink {
+    width: 100%;
+    text-align: center;
+    color: var(--font-light);
+    font-size: 22px;
+    padding: 0 0 16px;
+    margin-bottom: 0.3rem;
+    font-size: 400;
+    letter-spacing: 0;
+}
+
+footer > .wrapper {
+    display: flex;
+}
+
+footer > .wrapper > .left {
+    width: 50%;
+}
+
+footer > .wrapper > .right {
+    width: 50%;
+}
+
+footer > .wrapper > div {
+    padding: 0.75rem;
+}
+
+footer > .wrapper > div > li {
+    margin-left: 1rem;
 }
 
 body {
-    background-color: var(--background-color);
+    background-color: var(--bg-light-grey);
 }
