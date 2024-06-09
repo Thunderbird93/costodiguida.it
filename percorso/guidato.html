@@ -20,231 +20,61 @@
         </header>
         <main>
             <section>
-                <div class="content">
-                    <div class="title">
-                        <h3>Titolo</h3>
-                    </div>
-                    <div class="description">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Voluptatem, temporibus!
-                        </p>
-                    </div>
-                </div>
+                <img
+                    src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*JIlBS4rc4-UelKpEExKkTQ.png"
+                    alt=""
+                />
             </section>
-            <section id="s1">
-                <div class="paper">
-                    <div class="subtitle">Inizio</div>
-                    <div class="title">Scegli l'alimentazione</div>
+            <section>
+                <div class="card">
+                    <div class="title">
+                        Seleziona i costi che vuoi calcolare
+                    </div>
                     <div class="selection">
-                        <input type="radio" name="power" value="1" />
-                        <label>Elettrica</label><br />
+                        <div class="choice">
+                            <input id="fuelCost" type="checkbox" />
+                            <label for="fuelCost">Carburante</label><br />
+                        </div>
+                        <div class="choice">
+                            <input id="taxes" type="checkbox" />
 
-                        <input type="radio" name="power" value="2" />
-                        <label>Benzina</label><br />
-
-                        <input type="radio" name="power" value="3" />
-                        <label>Diesel</label><br />
-
-                        <input type="radio" name="power" value="4" />
-                        <label>GPL</label><br />
-
-                        <input type="radio" name="power" value="5" />
-                        <label>Metano</label><br /><br />
+                            <label for="taxes">Tasse</label><br />
+                        </div>
+                        <div class="choice">
+                            <input id="fi" type="checkbox" />
+                            <label for="fi">Finanziamento/Noleggio</label>
+                        </div>
+                        <div class="choice">
+                            <input id="extra" type="checkbox" />
+                            <label for="extra">Spese extra</label>
+                        </div>
                     </div>
                     <div class="cta">
-                        <button id="jump1">Salta</button>
+                        <button id="btnS1">Avanti</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="title">Scegli l'alimentazione</div>
+                    <div class="selection">
+                        <div class="choice">
+                            <input id="fuel1" type="radio" name="power" />
+                            <label for="fuel1">Elettrica</label><br />
+                        </div>
+                        <div class="choice">
+                            <input id="fuel2" type="radio" name="power" />
+
+                            <label for="fuel2">Benzina</label><br />
+                        </div>
+                        <div class="choice">
+                            <input id="fuel3" type="radio" name="power" />
+                            <label for="fuel3">Diesel</label>
+                        </div>
+                    </div>
+                    <div class="cta">
                         <button id="btnS1">Avanti</button>
                     </div>
                 </div>
             </section>
-            <section id="s2">
-                <div class="paper">
-                    <div class="subtitle">Calcoliamo il</div>
-                    <div class="title">Costo dell'alimentazione</div>
-                    <div class="selection">
-                        <input type="number" id="distance" />
-                        <label>km/anno</label><br />
-
-                        <input type="number" id="fuelEconomy" />
-                        <label>L/100km</label><br />
-
-                        <input type="number" id="price" />
-                        <label>€/L</label><br />
-
-                        <div class="cta">
-                            <button>Avanti</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--     <section id="s3">
-                <div class="paper">
-                    <div class="subtitle">Calcoliamo il</div>
-                    <div class="title">Costo del bollo & superbollo</div>
-                    <div class="selection">
-                        <input
-                            type="number"
-                            id="Elettrica"
-                            name="power"
-                            value="1"
-                        />
-                        <label for="power1">kW</label><br />
-
-                        <div class="cta">
-                            <button>Salta</button>
-                            <button>Avanti</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="s4">
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Qui, mollitia.
-                </p>
-                <button>Lorem</button>
-            </section>
-            <section id="s5">
-                <div class="paper">
-                    <div class="subtitle">Lorem</div>
-                    <div class="title">Lorem Ipsum</div>
-                    <div class="selection">
-                        <button>NLT</button>
-                        <button>VFG</button>
-                        <div class="cta">
-                            <button>Salta</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="s6">
-                <div class="paper">
-                    <div class="subtitle">Noleggio a Lungo Termine</div>
-                    <div class="title">NLT</div>
-                    <div class="selection">
-                        <input
-                            type="number"
-                            id="Elettrica"
-                            name="power"
-                            value="1"
-                        />
-                        <label for="power1">Anticipo</label><br />
-
-                        <input
-                            type="number"
-                            id="power2"
-                            name="power"
-                            value="2"
-                        />
-                        <label for="power2">Canone</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle1"
-                            name="vehicle1"
-                            value="Bike"
-                        />
-                        <label for="vehicle1"> RCA</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle2"
-                            name="vehicle2"
-                            value="Car"
-                        />
-                        <label for="vehicle2"> Furto & Incendio</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle3"
-                            name="vehicle3"
-                            value="Boat"
-                        />
-                        <label for="vehicle3">Kasko</label><br /><br />
-                        <div class="cta">
-                            <button>Avanti</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="s7">
-                <div class="paper">
-                    <div class="subtitle">Valore Futuro Garantito</div>
-                    <div class="title">VFG</div>
-                    <div class="selection">
-                        <input
-                            type="number"
-                            id="Elettrica"
-                            name="power"
-                            value="1"
-                        />
-                        <label for="power1">Anticipo</label><br />
-
-                        <input
-                            type="number"
-                            id="power2"
-                            name="power"
-                            value="2"
-                        />
-                        <label for="power2">Rata</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle1"
-                            name="vehicle1"
-                            value="Bike"
-                        />
-                        <label for="vehicle1"> RCA</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle2"
-                            name="vehicle2"
-                            value="Car"
-                        />
-                        <label for="vehicle2"> Furto & Incendio</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle3"
-                            name="vehicle3"
-                            value="Boat"
-                        />
-                        <label for="vehicle3">Kasko</label><br /><br />
-                        <div class="cta">
-                            <button>Avanti</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="s7">
-                <div class="paper">
-                    <div class="subtitle">Aggiungi le altre spese</div>
-                    <div class="title">Altro</div>
-                    <div class="selection">
-                        <input
-                            type="checkbox"
-                            id="vehicle1"
-                            name="vehicle1"
-                            value="Bike"
-                        />
-                        <label for="vehicle1">Manutenzione</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle2"
-                            name="vehicle2"
-                            value="Car"
-                        />
-                        <label for="vehicle2">Assicurazione</label><br />
-                        <input
-                            type="checkbox"
-                            id="vehicle3"
-                            name="vehicle3"
-                            value="Boat"
-                        />
-                        <label for="vehicle3">Altro</label><br /><br />
-                    </div>
-                    <div class="cta">
-                        <button>Calcola</button>
-                    </div>
-                </div>
-            </section> -->
         </main>
     </body>
 </html>

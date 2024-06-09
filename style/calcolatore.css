@@ -6,16 +6,16 @@ body {
     color: var(--font-grey);
 }
 
-section > .content {
+.content {
     text-align: center;
     padding: 0.75rem;
 }
 
-section > .content > .title {
+.content > .title {
     margin-bottom: 25px;
 }
 
-section > .content > .description {
+.content > .description {
     margin-bottom: 25px;
 }
 
@@ -45,13 +45,13 @@ p {
 
 section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.paper {
+.card {
     background-color: var(--bg-light);
-    margin: 1rem 0;
-    width: 90%;
+    margin: 1rem;
     padding: 32px;
     border-radius: 32px;
     box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.02),
@@ -59,18 +59,38 @@ section {
         0px 20px 15px rgba(3, 7, 18, 0.06), 0px 32px 24px rgba(3, 7, 18, 0.08);
 }
 
-.paper > .subtitle {
-    color: var(--font-grey);
-    font-size: 18px;
-    line-height: 1;
-}
-
-.paper > .title {
-    font-size: 18px;
+.card > .title {
+    font-size: 24px;
     padding-bottom: 1rem;
     font-weight: 500;
+    line-height: 1.11;
 }
 
-#s4 {
-    background-color: aqua; /*debug*/
+.choice {
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+
+.choice > input {
+    width: 20px;
+    accent-color: var(--active);
+}
+
+.choice > label {
+    font-size: 20px;
+}
+
+.selection {
+    height: fit-content;
+}
+
+button {
+    cursor: pointer;
+}
+
+section > img {
+    width: 100%;
+    height: 50vw;
 }
