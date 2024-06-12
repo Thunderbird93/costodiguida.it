@@ -90,7 +90,8 @@ button {
     cursor: pointer;
 }
 
-section > img {
-    width: 100%;
-    height: 50vw;
+section > .test {
+    width: 100vw;
+    height: 60vw;
+    background-color: var(--active);
 }

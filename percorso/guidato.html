@@ -20,10 +20,7 @@
         </header>
         <main>
             <section>
-                <img
-                    src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*JIlBS4rc4-UelKpEExKkTQ.png"
-                    alt=""
-                />
+                <div class="test"></div>
             </section>
             <section>
                 <div class="card">
@@ -32,21 +29,20 @@
                     </div>
                     <div class="selection">
                         <div class="choice">
-                            <input id="fuelCost" type="checkbox" />
-                            <label for="fuelCost">Carburante</label><br />
+                            <input name="fuels" id="cost-1" type="checkbox" />
+                            <label for="cost-1">Carburante</label>
                         </div>
                         <div class="choice">
-                            <input id="taxes" type="checkbox" />
-
-                            <label for="taxes">Tasse</label><br />
+                            <input name="fuels" id="cost-2" type="checkbox" />
+                            <label for="cost-2">Tasse</label>
                         </div>
                         <div class="choice">
-                            <input id="fi" type="checkbox" />
-                            <label for="fi">Finanziamento/Noleggio</label>
+                            <input name="fuels" id="cost-3" type="checkbox" />
+                            <label for="cost-3">Finanziamento/Noleggio</label>
                         </div>
                         <div class="choice">
-                            <input id="extra" type="checkbox" />
-                            <label for="extra">Spese extra</label>
+                            <input name="fuels" id="cost-4" type="checkbox" />
+                            <label for="cost-4">Spese extra</label>
                         </div>
                     </div>
                     <div class="cta">
@@ -57,21 +53,56 @@
                     <div class="title">Scegli l'alimentazione</div>
                     <div class="selection">
                         <div class="choice">
-                            <input id="fuel1" type="radio" name="power" />
-                            <label for="fuel1">Elettrica</label><br />
+                            <input id="fuel-1" type="radio" name="power" />
+                            <label for="fuel-1">Elettrica</label>
                         </div>
                         <div class="choice">
-                            <input id="fuel2" type="radio" name="power" />
+                            <input id="fuel-2" type="radio" name="power" />
 
-                            <label for="fuel2">Benzina</label><br />
+                            <label for="fuel-2">Benzina</label>
                         </div>
                         <div class="choice">
-                            <input id="fuel3" type="radio" name="power" />
-                            <label for="fuel3">Diesel</label>
+                            <input id="fuel-3" type="radio" name="power" />
+                            <label for="fuel-3">Diesel</label>
                         </div>
                     </div>
                     <div class="cta">
-                        <button id="btnS1">Avanti</button>
+                        <button id="btnS2">Avanti</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="title">Quanti km percorri in un anno?</div>
+                    <div class="selection">
+                        <input
+                            id="distance"
+                            type="number"
+                            inputmode="numeric"
+                            min="0"
+                            max="1000000"
+                            step="1000"
+                            name="distance"
+                        />
+                        <label for="distance">km</label>
+                    </div>
+                    <div class="cta">
+                        <button id="btnS3">Avanti</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="title">Quanto consuma?</div>
+                    <div class="selection">
+                        <input
+                            id="fuelEficiency"
+                            type="number"
+                            inputmode="numeric"
+                            min="0"
+                            max="100"
+                            step="0.1"
+                            name="fuelEficiency"
+                        />
+                    </div>
+                    <div class="cta">
+                        <button id="btnS4">Avanti</button>
                     </div>
                 </div>
             </section>
