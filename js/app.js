@@ -1,9 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     let isMenuVisible = false;
-    let costsToCalc = []; //costi da calcolare
-    let mainFuel = null; //carburante scelto
-    let distance = null; // km/anno
-    let mainFuelEfficiency = null; // consumo
+
+    let entity = {
+        costsToCalc: [], //costi da calcolare
+        mainFuel: null, //carburante scelto
+        distance: null, // km/anno
+        mainFuelEfficiency: null, // consumo
+        enginePower: null, //potenza motore
+        upfrontPayment: null, //anticipo
+        monthly: null,
+        months: null,
+        services: [],
+    };
 
     //section seleziona i costi da calcolare
     const btnS1 = document.getElementById("btnS1");
@@ -11,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnS1.addEventListener("click", setCostsToCalc);
 
     function setCostsToCalc() {
-        costsToCalc = [];
+        entity.costsToCalc = [];
 
         const checkboxes = ["cost-1", "cost-2", "cost-3", "cost-4"];
 
@@ -19,9 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const checkbox = document.getElementById(id);
             if (checkbox.checked) {
                 const cost = +id.split("-")[1];
-                costsToCalc.push(cost);
+                entity.costsToCalc.push(cost);
             }
         });
+
+        console.log("entity", entity);
     }
 
     //section selezione carburanti
@@ -34,9 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
             'input[name="power"]:checked',
         );
         if (!selectedPower) return;
-        mainFuel = +selectedPower.id.split("-")[1];
+        entity.mainFuel = +selectedPower.id.split("-")[1];
 
         setFuelEfficiencyLabel();
+        console.log("entity", entity);
     }
 
     // km/anno
@@ -45,7 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnS3.addEventListener("click", checkDistance);
 
     function checkDistance() {
-        distance = +document.getElementById("distance").value;
+        entity.distance = +document.getElementById("distance").value;
+        console.log("entity", entity);
     }
 
     // kwh
@@ -59,12 +71,78 @@ document.addEventListener("DOMContentLoaded", () => {
             'input[name="fuelEficiencyChoice"]:checked',
         );
 
-        if (mainFuel === 1 || selectedPower.id === "l100km") {
-            mainFuelEfficiency = fuelEficiency.value;
+        if (entity.mainFuel === 1 || selectedPower.id === "l100km") {
+            entity.mainFuelEfficiency = +fuelEficiency.value;
         } else {
-            mainFuelEfficiency = 100 / fuelEficiency.value;
+            entity.mainFuelEfficiency = 100 / fuelEficiency.value;
         }
+
+        console.log("entity", entity);
     }
+
+    //car power
+    const btnS5 = document.getElementById("btnS5");
+
+    btnS5.addEventListener("click", checkCarPower);
+
+    function checkCarPower() {
+        const enginePower = +document.getElementById("enginePower").value;
+
+        const selectedEnginePower = document.querySelector(
+            'input[name="enginePower"]:checked',
+        );
+        const converter = 0.7355;
+        entity.enginePower =
+            selectedEnginePower.id === "kw"
+                ? enginePower
+                : enginePower * converter;
+
+        console.log("entity", entity);
+    }
+
+    // VFG
+    const btnS6 = document.getElementById("btnS6");
+    btnS6.addEventListener("click", checkFinance);
+
+    function checkFinance() {
+        const upfrontPayment = +document.getElementById("upfrontPayment").value;
+        const monthly = +document.getElementById("monthly").value;
+        const months = +document.getElementById("months").value;
+
+        entity.upfrontPayment = upfrontPayment;
+        entity.monthly = monthly;
+        entity.months = months;
+
+        console.log("entity", entity);
+    }
+
+    // Servizi
+    const btnS7 = document.getElementById("btnS7");
+    btnS7.addEventListener("click", setServices);
+
+    function setServices() {
+        entity.services = [];
+
+        const checkboxes = [
+            "service-1",
+            "service-2",
+            "service-3",
+            "service-4",
+            "service-5",
+        ];
+
+        checkboxes.forEach((id) => {
+            const checkbox = document.getElementById(id);
+            if (checkbox.checked) {
+                const cost = +id.split("-")[1];
+                entity.services.push(cost);
+            }
+        });
+
+        console.log("entity", entity);
+    }
+    //
+    //
 
     function setFuelEfficiencyLabel() {
         const fuelEficiencyInput = document.getElementById("fuelEficiency");
@@ -74,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (element) element.remove();
         }
 
-        if (mainFuel === 1) {
+        if (entity.mainFuel === 1) {
             removeElementById("fuelEficiencyChoice");
 
             if (!document.getElementById("testing")) {
@@ -87,32 +165,32 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             removeElementById("testing");
 
-            if (!document.getElementById("fuelEficiencyChoice")) {
-                const mainDiv = document.createElement("div");
-                mainDiv.id = "fuelEficiencyChoice";
-                fuelEficiencyInput.insertAdjacentElement("afterend", mainDiv);
+            if (document.getElementById("fuelEficiencyChoice")) return;
 
-                const options = [
-                    { id: "l100km", text: "L/100km" },
-                    { id: "kml", text: "km/L" },
-                ];
+            const mainDiv = document.createElement("div");
+            mainDiv.id = "fuelEficiencyChoice";
+            fuelEficiencyInput.insertAdjacentElement("afterend", mainDiv);
 
-                options.forEach((option) => {
-                    const input = document.createElement("input");
-                    input.id = option.id;
-                    input.type = "radio";
-                    input.name = "fuelEficiencyChoice";
-                    if (option.id === "l100km") {
-                        input.checked = true;
-                    }
-                    const label = document.createElement("label");
-                    label.setAttribute("for", option.id);
-                    label.textContent = option.text;
+            const options = [
+                { id: 1, text: "L/100km" },
+                { id: 2, text: "km/L" },
+            ];
 
-                    mainDiv.appendChild(input);
-                    mainDiv.appendChild(label);
-                });
-            }
+            options.forEach((option) => {
+                const input = document.createElement("input");
+                input.id = option.id;
+                input.type = "radio";
+                input.name = "fuelEficiencyChoice";
+                if (option.id === 1) {
+                    input.checked = true;
+                }
+                const label = document.createElement("label");
+                label.setAttribute("for", option.id);
+                label.textContent = option.text;
+
+                mainDiv.appendChild(input);
+                mainDiv.appendChild(label);
+            });
         }
     }
 
