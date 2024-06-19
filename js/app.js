@@ -8,15 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
         mainFuelEfficiency: null, // consumo
         enginePower: null, //potenza motore
         upfrontPayment: null, //anticipo
-        monthly: null,
-        months: null,
-        services: [],
+        monthly: null, //pagamento mensile
+        months: null, //mesi
+        services: [], //servizi inclusi
     };
 
     //section seleziona i costi da calcolare
-    const btnS1 = document.getElementById("btnS1");
+    const servicesToCalc = document.getElementById("servicesToCalc");
 
-    btnS1.addEventListener("click", setCostsToCalc);
+    servicesToCalc.addEventListener("click", setCostsToCalc);
 
     function setCostsToCalc() {
         entity.costsToCalc = [];
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         console.log("entity", entity);
+        console.table(entity);
     }
 
     //section selezione carburanti
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setFuelEfficiencyLabel();
         console.log("entity", entity);
+        console.table(entity);
     }
 
     // km/anno
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkDistance() {
         entity.distance = +document.getElementById("distance").value;
         console.log("entity", entity);
+        console.table(entity);
     }
 
     // kwh
@@ -78,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         console.log("entity", entity);
+        console.table(entity);
     }
 
     //car power
@@ -98,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 : enginePower * converter;
 
         console.log("entity", entity);
+        console.table(entity);
     }
 
     // VFG
@@ -114,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entity.months = months;
 
         console.log("entity", entity);
+        console.table(entity);
     }
 
     // Servizi
@@ -140,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         console.log("entity", entity);
+        console.table(entity);
     }
     //
     //
@@ -196,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //menu
     const menu = document.getElementById("menu");
+    if (!menu) return;
     menu.addEventListener("click", () => {
         isMenuVisible = !isMenuVisible;
 
