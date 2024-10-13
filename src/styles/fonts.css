@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 400;
+    src: url(../../public/fonts/Orbitron-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 500;
+    src: url(../../public/fonts/Orbitron-Medium.woff2);
+}
+
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 600;
+    src: url(../../public/fonts/Orbitron-SemiBold.woff2);
+}
+
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 700;
+    src: url(../../public/fonts/Orbitron-Bold.woff2);
+}
+
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 800;
+    src: url(../../public/fonts/Orbitron-ExtraBold.woff2);
+}
+
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 900;
+    src: url(../../public/fonts/Orbitron-Black.woff2);
+}
