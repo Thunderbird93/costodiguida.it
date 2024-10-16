@@ -4,9 +4,24 @@ const routes = {
         path: "/src/components/homepage.html",
         content: null,
     },
-    test: {
-        name: "test",
-        path: "/src/components/test.html",
+    fuel: {
+        name: "fuel",
+        path: "/src/components/fuel.html",
+        content: null,
+    },
+    "petrol-page": {
+        name: "petrol-page",
+        path: "/src/components/fuelPages/petrol-page.html",
+        content: null,
+    },
+    "diesel-page": {
+        name: "diesel-page",
+        path: "/src/components/fuelPages/diesel-page.html",
+        content: null,
+    },
+    "electric-page": {
+        name: "electric-page",
+        path: "/src/components/fuelPages/electric-page.html",
         content: null,
     },
 };

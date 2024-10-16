@@ -46,16 +46,22 @@
     height: 100vh;
     height: 100dvh;
     background-color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-header {
-    background-color: aqua;
-    min-height: 3rem;
+.main-content {
+    display: flex;
+    flex-direction: column;
+    background-color: coral;
+    min-height: 100vw;
+    max-height: 161.8vw;
 }
 
-footer {
-    background-color: brown;
-    min-height: 3rem;
+.description > p {
+    font-size: 21px;
+    font-weight: 400;
 }
 
 /* width */
@@ -103,6 +109,10 @@ footer {
 
 .m-1-5 {
     margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
 }
 
 /* background */

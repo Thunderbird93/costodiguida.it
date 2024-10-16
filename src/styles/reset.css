@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 400;
+    src: url(../../public/fonts/Orbitron-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 700;
+    src: url(../../public/fonts/Orbitron-Bold.woff2);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +40,7 @@ a {
 }
 
 button {
+    font-family: inherit;
     background-color: var(--accent-color);
     color: var(--primary-color);
     border-color: transparent;
@@ -35,6 +48,10 @@ button {
     justify-content: center;
     align-items: center;
     border: 0;
+    height: 2rem;
+    min-width: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 button:disabled {
@@ -52,10 +69,17 @@ button a {
 }
 
 h1 {
-    font-size: 16;
-    font-weight: 500;
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 1;
 }
 
 header {
+    background-color: aqua;
     max-height: 3rem;
+}
+
+footer {
+    background-color: brown;
+    min-height: 3rem;
 }
