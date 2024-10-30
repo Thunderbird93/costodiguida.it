@@ -1,0 +1,13 @@
+#card {
+    margin: 8px;
+}
+
+section > div {
+    display: flex;
+    flex-direction: column;
+}
+
+input:placeholder-shown {
+    border: 1px solid red;
+    border-radius: 2px;
+}

@@ -1,107 +1,69 @@
-import setContent from "./functions/setContent.js";
-import car from "./car.js";
 import fuelPrices from "./fuelPrices.js";
-
+import regionsTax from "./regionsTax.js";
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM content loaded.");
-    const main = document.querySelector("main");
+    const car = {
+        distance: null,
+        efficiency: null,
+        fuelType: null,
+        ownerResidency: null,
+        enginePower: null,
+        costs: {
+            yearlyFuelConsumption: null,
+            bollo: null,
+            superbollo: null,
+        },
+    };
 
-    const calcCosts = (data, fuelType) => {
-        if (fuelType !== "electric") {
-            const safe = (fn) => {
-                const result = fn();
-                return isNaN(result) ? 0 : result;
-            };
+    const calcFuelConsumption = () => {
+        const litres = car.distance / car.efficiency;
+        const fuelPricePerLitre = fuelPrices[car.fuelType] / 1000; //€
+        car.costs.yearlyFuelConsumption = litres * fuelPricePerLitre;
+    };
 
-            const calcSuperbollo = () => {
-                if (data.power <= 185) {
-                    return 0;
-                }
-                const taxablePower = data.power - 185;
-                const superbollo = Math.trunc(taxablePower * 20);
-                return superbollo;
-            };
-
-            const calcFuelConsumption = () => {
-                const kmYear = data.distance;
-                const kmL = data.efficiency;
-                const litresYear = kmYear / kmL;
-                const eurL = fuelPrices[fuelType] / 1000;
-                const fuelCost = Math.trunc(litresYear * eurL);
-                console.log("Carburante: €", fuelCost, "/anno");
-                return fuelCost;
-            };
-
-            const calcPayments = () => {
-                const { monthly, months, upfront } = data;
-                const totalCosts = Math.trunc(monthly * months + upfront);
-                return (totalCosts / months) * 12;
-            };
-
-            const fuel = safe(calcFuelConsumption);
-            const taxes = safe(calcSuperbollo);
-            const payments = safe(calcPayments);
-            const totalCosts = payments + taxes + fuel;
-            const monthly = Math.trunc(totalCosts / 12);
-            console.log(`Costo effettivo di ${monthly}€/mese`);
+    const calcBollo = () => {
+        if (car.enginePower > 100) {
+            const min = 100 * regionsTax[car.ownerResidency][0];
+            const surplus =
+                (car.enginePower - 100) * regionsTax[car.ownerResidency][1];
+            car.costs.bollo = min + surplus;
         } else {
-            console.log("Work in progress");
+            car.costs.bollo =
+                car.enginePower * regionsTax[car.ownerResidency][0];
         }
     };
 
-    //ottimizzare e spostare fuori da app
-    const actionButton = document.getElementById("action");
-    if (actionButton) {
-        actionButton.addEventListener("click", async () => {
-            await setContent("fuel", main);
-            const fuelOptions = document.querySelectorAll(
-                'input[type="radio"][name="fuel"]',
-            );
-            if (fuelOptions) {
-                const fuels = [...fuelOptions];
-                fuels.forEach((fuelRadioButton) => {
-                    fuelRadioButton.addEventListener(
-                        "change",
-                        async ({ target }) => {
-                            car.fuel.type = target.value;
-                            const content = `${target.value}-page`;
-                            await setContent(content, main);
-                            const calcButton =
-                                document.getElementById("calc-button");
-                            calcButton.addEventListener("click", () => {
-                                function getValueById(id) {
-                                    return (
-                                        Number(
-                                            document.getElementById(id)?.value,
-                                        ) || 0
-                                    );
-                                }
+    const calcSuperbollo = () => {
+        if (car.enginePower > 185) {
+            car.costs.superbollo = (car.enginePower - 185) * 20;
+        } else {
+            car.costs.superbollo = 0;
+        }
+    };
 
-                                const distance = getValueById("distance");
-                                const efficiency = getValueById("efficiency");
-                                const power = getValueById("power");
-                                const upfront = getValueById("upfront");
-                                const monthly = getValueById("monthly");
-                                const months = getValueById("months");
+    const action = document.getElementById("action");
 
-                                const data = {
-                                    distance,
-                                    efficiency,
-                                    power,
-                                    upfront,
-                                    monthly,
-                                    months,
-                                };
+    action.addEventListener("click", () => {
+        car.fuelType = document.querySelector(
+            'input[name="fuelType"]:checked',
+        ).value;
 
-                                calcCosts(data, car.fuel.type);
-                            });
-                        },
-                    );
-                });
-            }
-        });
-    }
+        const region = document.getElementById("regions-select");
+        car.ownerResidency = region.value;
+
+        function parseAndAssignValue(id) {
+            const element = document.getElementById(id);
+            const value = parseInt(element.value);
+            car[id] = isNaN(value) ? 0 : value;
+            element.value = car[id];
+        }
+
+        parseAndAssignValue("distance");
+        parseAndAssignValue("efficiency");
+        parseAndAssignValue("enginePower");
+
+        calcFuelConsumption();
+        calcBollo();
+        calcSuperbollo();
+        console.log("car.costs", car.costs);
+    });
 });
-
-//TODO NEXT
-//Salvare in local i data

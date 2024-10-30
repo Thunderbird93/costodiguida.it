@@ -1,6 +1,11 @@
 :root {
     /* colors */
-    --primary-color: white;
-    --secondary-color: black;
-    --accent-color: orange;
+    --text-dark: #000000;
+    --text-light: #ffffff;
+    --bg: #ffffff;
+    --surface: #e5e5e5;
+    --accent: #fca311;
+    --main: #14213d;
+    /* spaces */
+    --border-radius: 24px;
 }

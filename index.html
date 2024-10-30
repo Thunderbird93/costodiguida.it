@@ -10,25 +10,92 @@
         <title>costodiguida.it</title>
     </head>
     <body>
-        <div class="top-container">
-            <header>Header</header>
-            <main>
-                <div class="main-content">
-                    <div class="mb-2">
-                        <h1>Quanto costa guidare?</h1>
-                    </div>
-                    <div class="description">
-                        <p>
-                            Calcola il costo di guida della tua prossima auto.
-                            Costo del carburante, tasse ed i pagamenti mensili
-                        </p>
-                    </div>
+        <div id="card">
+            <section>
+                <div>Scegli il tipo di motorizzazione</div>
+                <div>
+                    <label>
+                        <input
+                            type="radio"
+                            name="fuelType"
+                            value="petrol"
+                            checked
+                        />
+                        Benzina
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="fuelType" value="diesel" />
+                        Diesel
+                    </label>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label for="distance">
+                        Quanti km percorri annualmente?
+                    </label>
+                    <input
+                        id="distance"
+                        type="number"
+                        inputmode="numeric"
+                        min="0"
+                        max="99000"
+                        step="1000"
+                        value="12000"
+                        placeholder="Inserisci i km"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="efficiency">
+                        Quanto consuma la tua auto?
+                    </label>
                     <div>
-                        <button id="action">Inizia</button>
+                        <input
+                            id="efficiency"
+                            type="number"
+                            inputmode="numeric"
+                            min="0"
+                            max="100"
+                            step="0.1"
+                            value="18.9"
+                            placeholder="Inserisci il consumo"
+                        />
+                        km/L
                     </div>
                 </div>
-            </main>
+            </section>
+            <section>
+                <div>
+                    <label for="regions-select">Scegli la tua regione:</label>
+                    <select name="pets" id="regions-select">
+                        <option value="lazio">Lazio</option>
+                        <option value="lombardia">Lombardia</option>
+                        <option value="campania">Campania</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="enginePower"> Quanti kW ha la tua auto? </label>
+                    <input
+                        id="enginePower"
+                        type="number"
+                        inputmode="numeric"
+                        min="0"
+                        max="1000"
+                        step="1"
+                        value="111"
+                        placeholder="Inserisci i kW"
+                        required
+                    />
+                </div>
+            </section>
+            <section>
+                <div>
+                    <button id="action">Calcola</button>
+                </div>
+            </section>
         </div>
-        <footer>Footer</footer>
     </body>
 </html>
