@@ -92,12 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
             //da fixare, se cancello e riscrivo mi si bugga
             const value = parseFloat(efficiency.value).toFixed(2);
             car.efficiency = !value || isNaN(value) ? 0.1 : value;
-            efficiency.value = car.efficiency;
+            efficiency.value = !value || isNaN(value) ? 0.1 : efficiency.value;
             calcFuelConsumption();
         };
 
         efficiency.addEventListener("input", () => {
-            console.log("efficiency.value", efficiency.value);
             checkAndAssignValue();
         });
 
