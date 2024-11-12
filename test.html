@@ -11,8 +11,25 @@
     </head>
     <body>
         <div id="card">
+            <hr />
+            <hr />
             <section>
+                Per il calcolo del costo del carburante
+                <hr />
                 <ul>
+                    <li>
+                        <label for="distance">
+                            Quanti km percorri annualmente?
+                        </label>
+                        <input
+                            id="distance"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="Inserisci i km"
+                            required
+                            value="12500"
+                        />
+                    </li>
                     <li>
                         <div>Scegli il tipo di motorizzazione</div>
                         <div>
@@ -46,19 +63,6 @@
                                 Elettrica
                             </label>
                         </div>
-                    </li>
-                    <li>
-                        <label for="distance">
-                            Quanti km percorri annualmente?
-                        </label>
-                        <input
-                            id="distance"
-                            type="text"
-                            inputmode="numeric"
-                            placeholder="Inserisci i km"
-                            required
-                            value="12500"
-                        />
                     </li>
                     <li>
                         <label for="efficiency">
@@ -95,14 +99,52 @@
                             </div>
                         </div>
                     </li>
-                    <li>Residenza</li>
                 </ul>
             </section>
+            <hr />
+            <hr />
             <section>
+                Per il calcolo di Bollo e Superbollo
                 <ul>
-                    <li>Potenza</li>
+                    <li>Residenza</li>
+                    <li>
+                        <label for="power">
+                            Inserisci la potenza del motore termico (escludendo
+                            quindi l'eventuale componente elettrica)
+                        </label>
+                        <div>
+                            <input
+                                id="power"
+                                type="text"
+                                inputmode="numeric"
+                                value="110"
+                                placeholder="Inserisci la potenza"
+                            />
+                            <div>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="powerUnit"
+                                        value="cv"
+                                        checked
+                                    />
+                                    cv
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="powerUnit"
+                                        value="kw"
+                                    />
+                                    kW
+                                </label>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </section>
+            <hr />
+            <hr />
             <section>
                 <ul>
                     <li>Anticipo</li>

@@ -6,8 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         fuel: {
             type: null,
-            efficiency: null,
-            efficiencyUnit: null,
+            unit: null,
+            efficiency: {
+                value: null,
+                unit: null,
+            },
+        },
+        power: {
+            value: null,
             unit: null,
         },
     };
@@ -112,8 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             target.value = input;
-            entity.fuel.efficiency = input;
-            console.log("input", input);
+            entity.fuel.efficiency.value = input;
         });
 
         const initialValue = parseFloat(
@@ -123,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isNaN(initialValue)) {
             return;
         }
-        entity.fuel.efficiency = initialValue;
+        entity.fuel.efficiency.value = initialValue;
     }
 
     const efficiencyUnits = document.querySelectorAll(
@@ -133,13 +138,54 @@ document.addEventListener("DOMContentLoaded", () => {
         for (const type of efficiencyUnits) {
             type.addEventListener("change", () => {
                 if (type.checked) {
-                    entity.fuel.efficiencyUnit = type.value;
+                    entity.fuel.efficiency.unit = type.value;
                 }
             });
 
             if (type.checked) {
-                entity.fuel.efficiencyUnit = type.value;
+                entity.fuel.efficiency.unit = type.value;
             }
+        }
+    }
+
+    //Power
+    const power = document.getElementById("power");
+    if (power) {
+        power.addEventListener("keydown", (event) => {
+            checkKeydownData(event);
+        });
+
+        power.addEventListener("input", ({ target }) => {
+            target.value = target.value.replace(",", ".");
+        });
+
+        power.addEventListener("change", ({ target }) => {
+            let input = parseInt(target.value);
+            if (isNaN(input)) {
+                input = 0;
+            }
+
+            target.value = input;
+            entity.power.value = input;
+        });
+
+        let initialValue = parseInt(power.value);
+        if (isNaN(initialValue)) {
+            return;
+        }
+
+        entity.power.value = initialValue;
+    }
+    //Power units
+    const powerUnits = document.querySelectorAll('input[name="powerUnit"]');
+    for (const unit of powerUnits) {
+        unit.addEventListener("change", () => {
+            if (unit.checked) {
+                entity.power.unit = unit.value;
+            }
+        });
+        if (unit.checked) {
+            entity.power.unit = unit.value;
         }
     }
 
