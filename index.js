@@ -4,34 +4,40 @@ document.addEventListener("DOMContentLoaded", () => {
         distance: {
             year: null,
         },
+        finance: {
+            lifetime: {
+                months: null,
+            },
+            payment: {
+                monthly: null,
+                upfront: null,
+            },
+        },
         fuel: {
-            type: null,
-            unit: null,
             efficiency: {
                 value: null,
                 unit: null,
             },
+            type: null,
+            unit: null,
         },
         power: {
-            value: null,
             unit: null,
+            value: null,
         },
     };
 
-    const checkKeydownData = (e) => {
+    const checkKeydownData = (e, int) => {
         const keyValue = parseInt(e.key);
         if (e.target.value.trim() === "0" && !isNaN(keyValue)) {
             e.target.value = "";
         }
 
-        const allowedKeys = new Set([
-            "Backspace",
-            ".",
-            ",",
-            "ArrowLeft",
-            "ArrowRight",
-            "Tab",
-        ]);
+        const allowedKeys = new Set(
+            int
+                ? ["Backspace", "ArrowLeft", "ArrowRight", "Tab"]
+                : ["Backspace", "ArrowLeft", "ArrowRight", "Tab", ".", ","],
+        );
 
         if ((isNaN(e.key) && !allowedKeys.has(e.key)) || e.code === "Space") {
             e.preventDefault();
@@ -42,35 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    //Distance
-    const distance = document.getElementById("distance");
-    if (distance) {
-        distance.addEventListener("keydown", (event) => {
-            checkKeydownData(event);
-        });
-
-        distance.addEventListener("input", ({ target }) => {
-            target.value = target.value.replace(",", ".");
-        });
-
-        distance.addEventListener("change", ({ target }) => {
-            let input = parseInt(target.value);
-            if (isNaN(input)) {
-                input = 0;
-            }
-
-            target.value = input;
-            entity.distance.year = input;
-        });
-
-        let initialValue = parseInt(distance.value);
-        if (isNaN(initialValue)) {
-            return;
-        }
-        entity.distance.year = initialValue;
-    }
-
-    //Fuel units
     const fuels = document.querySelectorAll('input[name="fuelType"]');
     const fuelUnits = document.querySelectorAll(".fuelUnit");
 
@@ -100,11 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    //Efficiency
     const efficiency = document.getElementById("efficiency");
     if (efficiency) {
         efficiency.addEventListener("keydown", (event) => {
-            checkKeydownData(event);
+            checkKeydownData(event, false);
         });
 
         efficiency.addEventListener("input", ({ target }) => {
@@ -148,34 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    //Power
-    const power = document.getElementById("power");
-    if (power) {
-        power.addEventListener("keydown", (event) => {
-            checkKeydownData(event);
-        });
-
-        power.addEventListener("input", ({ target }) => {
-            target.value = target.value.replace(",", ".");
-        });
-
-        power.addEventListener("change", ({ target }) => {
-            let input = parseInt(target.value);
-            if (isNaN(input)) {
-                input = 0;
-            }
-
-            target.value = input;
-            entity.power.value = input;
-        });
-
-        let initialValue = parseInt(power.value);
-        if (isNaN(initialValue)) {
-            return;
-        }
-
-        entity.power.value = initialValue;
-    }
     //Power units
     const powerUnits = document.querySelectorAll('input[name="powerUnit"]');
     for (const unit of powerUnits) {
@@ -189,5 +137,44 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    console.log("entity:", entity);
+    const setupInputListeners = (elementId, entityPropertyPath) => {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+
+        element.addEventListener("keydown", (event) =>
+            checkKeydownData(event, true),
+        );
+        element.addEventListener("input", ({ target }) => {
+            target.value = target.value.replace(",", ".");
+        });
+        element.addEventListener("change", ({ target }) => {
+            let input = parseInt(target.value);
+            if (isNaN(input)) input = 0;
+            target.value = input;
+
+            setNestedProperty(entity, entityPropertyPath, input);
+        });
+
+        let initialValue = parseInt(element.value);
+        if (!isNaN(initialValue)) {
+            setNestedProperty(entity, entityPropertyPath, initialValue);
+        }
+    };
+
+    const setNestedProperty = (obj, path, value) => {
+        const keys = path.split(".");
+        let current = obj;
+        while (keys.length > 1) {
+            const key = keys.shift();
+            if (!current[key]) current[key] = {};
+            current = current[key];
+        }
+        current[keys[0]] = value;
+    };
+
+    setupInputListeners("distance", "distance.year");
+    setupInputListeners("power", "power.value");
+    setupInputListeners("upfront", "finance.payment.upfront");
+    setupInputListeners("monthly", "finance.payment.monthly");
+    setupInputListeners("lifetime", "finance.lifetime.months");
 });

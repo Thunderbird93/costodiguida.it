@@ -147,9 +147,39 @@
             <hr />
             <section>
                 <ul>
-                    <li>Anticipo</li>
-                    <li>Mensilità</li>
-                    <li>Mesi</li>
+                    <li>
+                        <label for="upfront"> Anticipo </label>
+                        <input
+                            id="upfront"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="€"
+                            required
+                            value="0"
+                        />
+                    </li>
+                    <li>
+                        <label for="monthly"> Pagamento mensile </label>
+                        <input
+                            id="monthly"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="€"
+                            required
+                            value="0"
+                        />
+                    </li>
+                    <li>
+                        <label for="lifetime"> Durata (in mesi) </label>
+                        <input
+                            id="lifetime"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="€"
+                            required
+                            value="36"
+                        />
+                    </li>
                 </ul>
             </section>
         </div>
