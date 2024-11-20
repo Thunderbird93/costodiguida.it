@@ -5,166 +5,199 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="./public/favicon.ico" />
-        <link rel="stylesheet" href="./src/styles/index.css" />
-        <script type="module" src="./src/js/app.js" defer></script>
-        <title>costodiguida.it</title>
+        <link rel="stylesheet" href="./index.css" />
+        <script type="module" src="./index.js" defer></script>
+        <title>test</title>
     </head>
     <body>
         <div id="card">
-            <section>
-                <div>Scegli il tipo di motorizzazione</div>
-                <div>
-                    <label>
-                        <input
-                            type="radio"
-                            name="fuelType"
-                            value="petrol"
-                            checked
-                        />
-                        Benzina
-                    </label>
+            <div class="uniquePurpose">
+                <div class="title">Scegli il tipo di motorizzazione</div>
+                <div class="field">
+                    <div>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuelType"
+                                value="petrol"
+                                checked
+                            />
+                            Benzina
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuelType"
+                                value="diesel"
+                            />
+                            Diesel
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuelType"
+                                value="electric"
+                            />
+                            Elettrica
+                        </label>
+                    </div>
                 </div>
-                <div>
-                    <label>
-                        <input type="radio" name="fuelType" value="diesel" />
-                        Diesel
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <input type="radio" name="fuelType" value="electric" />
-                        Elettrica
-                    </label>
-                </div>
-            </section>
-            <section>
-                <div>
+            </div>
+            <div class="uniquePurpose">
+                <div class="title">Per il calcolo del costo del carburante</div>
+                <div class="field">
                     <label for="distance">
                         Quanti km percorri annualmente?
                     </label>
                     <input
                         id="distance"
-                        type="number"
+                        type="text"
                         inputmode="numeric"
-                        min="0"
-                        max="99000"
-                        step="1000"
-                        value="12000"
                         placeholder="Inserisci i km"
                         required
+                        value="12500"
                     />
                 </div>
-                <div>
+                <div class="field">
                     <label for="efficiency">
                         Quanto consuma la tua auto?
                     </label>
-                    <div>
+                    <div class="flex">
                         <input
                             id="efficiency"
-                            type="number"
+                            type="text"
                             inputmode="numeric"
-                            min="0"
-                            max="100"
-                            step="0.1"
-                            value="18.86"
+                            value="18.8"
                             placeholder="Inserisci il consumo"
                         />
-                        <label>
-                            <input
-                                type="radio"
-                                id="unitPer100km"
-                                name="fuelEfficiency"
-                                value="unitPer100km"
-                            />
-                            <span class="fuelUnit"></span>
-                            /100km
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                id="kmPerUnit"
-                                name="fuelEfficiency"
-                                value="kmPerUnit"
-                                checked
-                            />
-                            km/
-                            <span class="fuelUnit"></span>
-                        </label>
+                        <div>
+                            <label>
+                                <input
+                                    type="radio"
+                                    id="unitPer100km"
+                                    name="fuelEfficiency"
+                                    value="unitPer100km"
+                                />
+                                <span class="fuelUnit"></span>/100km
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    id="kmPerUnit"
+                                    name="fuelEfficiency"
+                                    value="kmPerUnit"
+                                    checked
+                                />
+                                km/<span class="fuelUnit"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <section>
-                <div>
-                    <label for="regions-select">Scegli la tua regione:</label>
-                    <select name="pets" id="regions-select">
-                        <option value="lazio">Lazio</option>
-                        <option value="lombardia">Lombardia</option>
+            </div>
+            <div class="uniquePurpose">
+                <div class="title">Per il calcolo di Bollo e Superbollo</div>
+                <div class="field">
+                    <label for="residency"
+                        >Scegli la regione di residenza:</label
+                    >
+                    <select name="regions" id="residency">
+                        <option value="">--Scegli un'opzione--</option>
+                        <option value="abruzzo">Abruzzo</option>
+                        <option value="basilicata">Basilicata</option>
+                        <option value="calabria">Calabria</option>
                         <option value="campania">Campania</option>
+                        <option value="emiliaromania">Emilia-Romania</option>
+                        <option value="friuliveneziagiulia">
+                            Friuli-Venezia Giulia
+                        </option>
+                        <option value="lazio">Lazio</option>
+                        <option value="liguria">Liguria</option>
+                        <option value="lombardia">Lombardia</option>
+                        <option value="marche">Marche</option>
+                        <option value="molise">Molise</option>
+                        <option value="piemonte">Piemonte</option>
+                        <option value="puglia">Puglia</option>
+                        <option value="sardegna">Sardegna</option>
+                        <option value="sicilia">Sicilia</option>
+                        <option value="toscana">Toscana</option>
+                        <option value="bolzano">Trentino-Alto Adige</option>
+                        <option value="umbria">Umbria</option>
+                        <option value="valledaosta">Valle d'Aosta</option>
+                        <option value="veneto">Veneto</option>
                     </select>
                 </div>
-                <div>
-                    <label for="enginePower"> Quanti kW ha la tua auto? </label>
+                <div class="field">
+                    <label for="power"> Potenza del motore termico </label>
+                    <div class="flex">
+                        <input
+                            id="power"
+                            type="text"
+                            inputmode="numeric"
+                            value="110"
+                            placeholder="Inserisci la potenza"
+                        />
+                        <div>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="powerUnit"
+                                    value="cv"
+                                    checked
+                                />
+                                cv
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="powerUnit"
+                                    value="kw"
+                                />
+                                kW
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uniquePurpose">
+                <div class="title">Financing</div>
+                <div class="field">
+                    <label for="upfront"> Anticipo </label>
                     <input
-                        id="enginePower"
-                        type="number"
+                        id="upfront"
+                        type="text"
                         inputmode="numeric"
-                        min="0"
-                        max="1000"
-                        step="1"
-                        value="69"
-                        placeholder="Inserisci i kW"
+                        placeholder="€"
                         required
+                        value="0"
                     />
                 </div>
-            </section>
-            <br />
-            <h2>Spese finanziarie</h2>
-            <hr />
-            <section>
-                <label for="upfront"> Anticipo </label>
-                <input
-                    id="upfront"
-                    type="number"
-                    inputmode="numeric"
-                    min="0"
-                    step="1"
-                    value="1500"
-                    placeholder="€"
-                    required
-                />
-            </section>
-            <section>
-                <label for="monthly"> Pagamento mensile </label>
-                <input
-                    id="monthly"
-                    type="number"
-                    inputmode="numeric"
-                    min="0"
-                    step="100"
-                    value="300"
-                    placeholder="€/mese"
-                    required
-                />
-            </section>
-            <section>
-                <label for="months"> Durata </label>
-                <input
-                    id="months"
-                    type="number"
-                    inputmode="numeric"
-                    min="0"
-                    max="60"
-                    step="1"
-                    value="36"
-                    placeholder="Mesi"
-                    required
-                />
-            </section>
-            <section>
-                <div>
-                    <button id="action">Calcola</button>
+                <div class="field">
+                    <label for="monthly"> Pagamento mensile </label>
+                    <input
+                        id="monthly"
+                        type="text"
+                        inputmode="numeric"
+                        placeholder="€"
+                        required
+                        value="0"
+                    />
                 </div>
-            </section>
+                <div class="field">
+                    <label for="lifetime"> Durata (in mesi) </label>
+                    <input
+                        id="lifetime"
+                        type="text"
+                        inputmode="numeric"
+                        placeholder="€"
+                        required
+                        value="36"
+                    />
+                </div>
+            </div>
         </div>
     </body>
 </html>

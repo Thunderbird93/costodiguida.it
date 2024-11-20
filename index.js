@@ -1,3 +1,4 @@
+import checkKeydownData from "./src/js/functions/keydownDataValidation.js";
 document.addEventListener("DOMContentLoaded", () => {
     console.info("DOM loaded.");
     const entity = {
@@ -25,27 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
             unit: null,
             value: null,
         },
-    };
-
-    const checkKeydownData = (e, int) => {
-        const keyValue = parseInt(e.key);
-        if (e.target.value.trim() === "0" && !isNaN(keyValue)) {
-            e.target.value = "";
-        }
-
-        const allowedKeys = new Set(
-            int
-                ? ["Backspace", "ArrowLeft", "ArrowRight", "Tab"]
-                : ["Backspace", "ArrowLeft", "ArrowRight", "Tab", ".", ","],
-        );
-
-        if ((isNaN(e.key) && !allowedKeys.has(e.key)) || e.code === "Space") {
-            e.preventDefault();
-        }
-
-        if ((e.key === "." || e.key === ",") && e.target.value.includes(".")) {
-            e.preventDefault();
-        }
+        residency: {
+            region: null,
+        },
     };
 
     const fuels = document.querySelectorAll('input[name="fuelType"]');
@@ -135,6 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (unit.checked) {
             entity.power.unit = unit.value;
         }
+    }
+
+    const residency = document.getElementById("residency");
+    if (residency) {
+        residency.addEventListener("change", ({ target }) => {
+            entity.residency.region = target.value;
+        });
     }
 
     const setupInputListeners = (elementId, entityPropertyPath) => {

@@ -1,31 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url(./src/css/fonts.css);
+@import url(./src/css/root.css);
+@import url(./src/css/reset.css);
+
+#card {
+    border: 1px solid red;
+    padding: 4px;
+    margin: 4px;
+    max-width: 500px;
 }
 
-body {
-    font-family: Orbitron, sans-serif;
-    font-weight: 400;
-    color: var(--text-dark);
-    background-color: var(--bg);
+.uniquePurpose {
+    border: 1px solid blue;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+.title {
+    border: 1px solid green;
 }
 
-footer {
-    background-color: var(--main);
-    color: var(--text-light);
+.field {
+    display: flex;
+    flex-direction: column;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    all: unset;
+.flex {
+    display: flex;
 }

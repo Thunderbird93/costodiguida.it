@@ -1,0 +1,13 @@
+/* @font-face {
+    font-family: "Orbitron";
+    font-weight: 400;
+    font-style: regular;
+    src: url("../../public/fonts/Orbitron-Regular.woff2") format("woff2");
+} */
+
+@font-face {
+    font-family: "Helvetica";
+    font-weight: 400;
+    font-style: regular;
+    src: url("../../public/fonts/Helvetica.woff") format("woff");
+}
