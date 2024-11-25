@@ -1,4 +1,8 @@
 :root {
+    /* colors */
     --font-color: black;
     --background-color: white;
+    --accent-color: #ff7f27;
+    --accent-hover: #e66000;
+    --spacing: 16px;
 }

@@ -1,13 +1,35 @@
-/* @font-face {
-    font-family: "Orbitron";
-    font-weight: 400;
-    font-style: regular;
-    src: url("../../public/fonts/Orbitron-Regular.woff2") format("woff2");
-} */
+@font-face {
+    font-family: "Open Sans";
+    font-weight: 300;
+    src: url("../../public/fonts/OpenSans/light.woff2") format("woff2");
+}
 
 @font-face {
-    font-family: "Helvetica";
+    font-family: "Open Sans";
     font-weight: 400;
-    font-style: regular;
-    src: url("../../public/fonts/Helvetica.woff") format("woff");
+    src: url("../../public/fonts/OpenSans/regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-weight: 500;
+    src: url("../../public/fonts/OpenSans/medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-weight: 600;
+    src: url("../../public/fonts/OpenSans/semi-bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-weight: 700;
+    src: url("../../public/fonts/OpenSans/bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-weight: 800;
+    src: url("../../public/fonts/OpenSans/extra-bold.woff2") format("woff2");
 }

@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
             current = current[key];
         }
         current[keys[0]] = value;
+        console.log("ntt:", entity);
     };
 
     setupInputListeners("distance", "distance.year");
