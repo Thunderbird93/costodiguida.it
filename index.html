@@ -12,7 +12,7 @@
     <body>
         <main>
             <div class="container">
-                <div class="h-100 flex column justify-content-between">
+                <div class="flex column justify-content-between">
                     <div class="content">
                         <div class="subtitle">
                             <h5>Benvenuta o benvenuto!</h5>
@@ -46,84 +46,59 @@
                     </div>
                 </div>
             </div>
-            <section class="calculator">
-                <div class="container">
-                    <form>
-                        <div class="form-group">
-                            <label for="distance"> Chilometri annuali </label>
-                            <input
-                                id="distance"
-                                type="text"
-                                inputmode="numeric"
-                                placeholder="Inserisci i km"
-                                required
-                                value="12500"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label>Tipo di Motore</label>
-                            <div class="radio-group">
-                                <div class="radio-button">
-                                    <input
-                                        type="radio"
-                                        id="petrol"
-                                        name="fuelType"
-                                        value="petrol"
-                                        checked
-                                    />
-                                    <label for="petrol">Benzina</label>
-                                </div>
-                                <div class="radio-button">
-                                    <input
-                                        type="radio"
-                                        id="diesel"
-                                        name="fuelType"
-                                        value="diesel"
-                                    />
-                                    <label for="diesel">Diesel</label>
-                                </div>
-                                <div class="radio-button">
-                                    <input
-                                        type="radio"
-                                        id="electric"
-                                        name="fuelType"
-                                        value="electric"
-                                    />
-                                    <label for="electric">Elettrico</label>
-                                </div>
+            <section class="container">
+                <form>
+                    <div class="form-group">
+                        <label>Tipo di Motore</label>
+                        <div class="radio-group">
+                            <div class="radio-button">
+                                <input
+                                    type="radio"
+                                    id="petrol"
+                                    name="fuelType"
+                                    value="petrol"
+                                    checked
+                                />
+                                <label for="petrol">Benzina</label>
+                            </div>
+                            <div class="radio-button">
+                                <input
+                                    type="radio"
+                                    id="diesel"
+                                    name="fuelType"
+                                    value="diesel"
+                                />
+                                <label for="diesel">Diesel</label>
+                            </div>
+                            <div class="radio-button">
+                                <input
+                                    type="radio"
+                                    id="electric"
+                                    name="fuelType"
+                                    value="electric"
+                                />
+                                <label for="electric">Elettrico</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="efficiency">Consumo</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance"> Chilometri annuali </label>
+                        <input
+                            id="distance"
+                            type="text"
+                            inputmode="numeric"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="efficiency">Consumo</label>
+                        <div class="radio-group">
                             <input
                                 id="efficiency"
                                 type="text"
                                 inputmode="numeric"
-                                value="18.8"
-                                placeholder="Inserisci il consumo"
                             />
-                            <div class="unit-toggle">
-                                <span id="consumptionUnit1">L/100km</span>
-                                <div class="toggle-wrapper">
-                                    <div
-                                        class="toggle-switch"
-                                        id="consumptionToggle"
-                                    ></div>
-                                </div>
-                                <span id="consumptionUnit2">km/L</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                <input
-                                    type="radio"
-                                    id="unitPer100km"
-                                    name="fuelEfficiency"
-                                    value="unitPer100km"
-                                />
-                                <span class="fuelUnit"></span>/100km
-                            </label>
-                            <label>
+                            <div class="radio-button">
                                 <input
                                     type="radio"
                                     id="kmPerUnit"
@@ -131,122 +106,116 @@
                                     value="kmPerUnit"
                                     checked
                                 />
-                                km/<span class="fuelUnit"></span>
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="power"
-                                >Potenza del motore termico</label
-                            >
-                            <input
-                                id="power"
-                                type="text"
-                                inputmode="numeric"
-                                value="110"
-                            />
-                            <div class="unit-toggle">
-                                <span>kW</span>
-                                <div class="toggle-wrapper">
-                                    <div
-                                        class="toggle-switch"
-                                        id="powerToggle"
-                                    ></div>
-                                </div>
-                                <span>CV</span>
+                                <label for="kmPerUnit">
+                                    km/<span class="fuelUnit"></span>
+                                </label>
+                            </div>
+                            <div class="radio-button">
+                                <input
+                                    type="radio"
+                                    id="unitPer100km"
+                                    name="fuelEfficiency"
+                                    value="unitPer100km"
+                                />
+                                <label for="unitPer100km">
+                                    <span class="fuelUnit"></span>/100km
+                                </label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="power">Potenza del motore termico</label>
+                        <div class="radio-group">
+                            <input id="power" type="text" inputmode="numeric" />
+                            <div class="radio-button">
                                 <input
+                                    id="cv"
                                     type="radio"
                                     name="powerUnit"
                                     value="cv"
                                     checked
                                 />
-                                cv
-                            </label>
-                            <label>
+                                <label for="cv">cv</label>
+                            </div>
+                            <div class="radio-button">
                                 <input
+                                    id="kW"
                                     type="radio"
                                     name="powerUnit"
                                     value="kw"
                                 />
-                                kW
-                            </label>
+                                <label for="kW">kW</label>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="residency">Regione di Residenza</label>
-                            <select name="regions" id="residency">
-                                <option value="">--Scegli un'opzione--</option>
-                                <option value="abruzzo">Abruzzo</option>
-                                <option value="basilicata">Basilicata</option>
-                                <option value="calabria">Calabria</option>
-                                <option value="campania">Campania</option>
-                                <option value="emiliaromania">
-                                    Emilia-Romania
-                                </option>
-                                <option value="friuliveneziagiulia">
-                                    Friuli-Venezia Giulia
-                                </option>
-                                <option value="lazio">Lazio</option>
-                                <option value="liguria">Liguria</option>
-                                <option value="lombardia">Lombardia</option>
-                                <option value="marche">Marche</option>
-                                <option value="molise">Molise</option>
-                                <option value="piemonte">Piemonte</option>
-                                <option value="puglia">Puglia</option>
-                                <option value="sardegna">Sardegna</option>
-                                <option value="sicilia">Sicilia</option>
-                                <option value="toscana">Toscana</option>
-                                <option value="bolzano">
-                                    Trentino-Alto Adige
-                                </option>
-                                <option value="umbria">Umbria</option>
-                                <option value="valledaosta">
-                                    Valle d'Aosta
-                                </option>
-                                <option value="veneto">Veneto</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="residency">Regione di Residenza</label>
+                        <select name="regions" id="residency">
+                            <option value="">--Scegli un'opzione--</option>
+                            <option value="abruzzo">Abruzzo</option>
+                            <option value="basilicata">Basilicata</option>
+                            <option value="calabria">Calabria</option>
+                            <option value="campania">Campania</option>
+                            <option value="emiliaromania">
+                                Emilia-Romania
+                            </option>
+                            <option value="friuliveneziagiulia">
+                                Friuli-Venezia Giulia
+                            </option>
+                            <option value="lazio">Lazio</option>
+                            <option value="liguria">Liguria</option>
+                            <option value="lombardia">Lombardia</option>
+                            <option value="marche">Marche</option>
+                            <option value="molise">Molise</option>
+                            <option value="piemonte">Piemonte</option>
+                            <option value="puglia">Puglia</option>
+                            <option value="sardegna">Sardegna</option>
+                            <option value="sicilia">Sicilia</option>
+                            <option value="toscana">Toscana</option>
+                            <option value="bolzano">Trentino-Alto Adige</option>
+                            <option value="umbria">Umbria</option>
+                            <option value="valledaosta">Valle d'Aosta</option>
+                            <option value="veneto">Veneto</option>
+                        </select>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="upfront">Anticipo (€)</label>
-                            <input
-                                id="upfront"
-                                type="text"
-                                inputmode="numeric"
-                                placeholder="€"
-                                required
-                                value="0"
-                            />
-                        </div>
+                    <div class="form-group">
+                        <label for="upfront">Anticipo (€)</label>
+                        <input
+                            id="upfront"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="€"
+                            required
+                            value="0"
+                        />
+                    </div>
 
-                        <div class="form-group">
-                            <label for="monthly">Canone Mensile (€)</label>
-                            <input
-                                id="monthly"
-                                type="text"
-                                inputmode="numeric"
-                                placeholder="€"
-                                required
-                                value="0"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="lifetime">Durata (mesi)</label>
-                            <input
-                                id="lifetime"
-                                type="text"
-                                inputmode="numeric"
-                                placeholder="€"
-                                required
-                                value="36"
-                            />
-                        </div>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="monthly">Canone Mensile (€)</label>
+                        <input
+                            id="monthly"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="€"
+                            required
+                            value="0"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="lifetime">Durata (mesi)</label>
+                        <input
+                            id="lifetime"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="€"
+                            required
+                            value="36"
+                        />
+                    </div>
+                </form>
             </section>
         </main>
     </body>
