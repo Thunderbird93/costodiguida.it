@@ -15,7 +15,7 @@
                 <div class="flex column justify-content-between">
                     <div class="content">
                         <div class="subtitle">
-                            <h5>Benvenuta o benvenuto!</h5>
+                            <h5>Ciao!</h5>
                         </div>
                         <div class="title">
                             <h1>
@@ -26,9 +26,9 @@
                         <div class="description">
                             <p>
                                 Un'azienda, ditta o libero professionista
-                                probabilmente sceglierà una formula di guida
+                                statisticamente sceglie una formula di guida
                                 come il noleggio a lungo termine (NLT), leasing
-                                oppure il finanziamento con un valore futurox
+                                oppure il finanziamento con un valore futuro
                                 concordato.
                             </p>
                             <p>
@@ -39,8 +39,8 @@
                             </p>
                             <p>
                                 Se hai un preventivo a portata di mano e vuoi
-                                verificare il costo complessivo o confrontarlo
-                                con un altro, clicca il bottone AVANTI.
+                                verificare il costo complessivo compila il
+                                seguente form.
                             </p>
                         </div>
                     </div>
@@ -90,37 +90,18 @@
                             required
                         />
                     </div>
+                    <select name="regions" id="fuelEfficiency">
+                        <option value="kmL">km/L</option>
+                        <option value="L100km">L/100km</option>
+                    </select>
                     <div class="form-group">
-                        <label for="efficiency">Consumo</label>
+                        <label>Consumo</label>
                         <div class="radio-group">
                             <input
                                 id="efficiency"
                                 type="text"
                                 inputmode="numeric"
                             />
-                            <div class="radio-button">
-                                <input
-                                    type="radio"
-                                    id="kmPerUnit"
-                                    name="fuelEfficiency"
-                                    value="kmPerUnit"
-                                    checked
-                                />
-                                <label for="kmPerUnit">
-                                    km/<span class="fuelUnit"></span>
-                                </label>
-                            </div>
-                            <div class="radio-button">
-                                <input
-                                    type="radio"
-                                    id="unitPer100km"
-                                    name="fuelEfficiency"
-                                    value="unitPer100km"
-                                />
-                                <label for="unitPer100km">
-                                    <span class="fuelUnit"></span>/100km
-                                </label>
-                            </div>
                         </div>
                     </div>
 
