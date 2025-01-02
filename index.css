@@ -22,15 +22,6 @@
     justify-content: space-between;
 }
 
-.subtitle > h5 {
-    font-weight: 700;
-    text-decoration: green wavy underline;
-}
-
-.subtitle {
-    margin-bottom: 16px;
-}
-
 .title {
     margin-bottom: 32px;
 }
@@ -45,34 +36,8 @@ p {
     letter-spacing: -1.5px;
 }
 
-.action-button {
-    background-color: cadetblue;
-}
-
 .debug {
     border: 3px dashed brown;
-}
-
-.form-group {
-    margin-bottom: calc(var(--spacing) * 1.5);
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    -webkit-appearance: none;
-    appearance: none;
 }
 
 input:focus,
@@ -81,46 +46,48 @@ select:focus {
     outline: none;
 }
 
-.radio-group {
-    display: flex;
+.gap-8 {
     gap: 8px;
-    margin-top: 8px;
-    padding-bottom: 4px;
 }
 
-.radio-button {
-    flex: 1;
-    position: relative;
-    min-width: 90px;
-}
-
-.radio-button label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    background: var(--bg-light);
-    border: 2px solid #ddd;
+form {
+    border: 1px solid var(--light-grey);
     border-radius: 8px;
-    font-size: 0.9rem;
-    text-align: center;
-    height: 100%;
+    padding: 8px;
+    .field {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-.radio-button input {
-    position: absolute;
-    opacity: 0;
+.fuels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.radio-button input:checked + label {
-    border-color: var(--accent-color);
-    background: rgba(255, 127, 39, 0.1);
-    color: var(--accent-color);
-}
-
-.unit-toggle {
+.fuels-grid label {
+    border: 1px solid blue;
+    height: 40px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 8px;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.fuels-grid input {
+    display: none;
+}
+
+.fuels-grid input[type="radio"]:checked + label {
+    background-color: blue;
+    color: white;
+}
+
+#hero {
+
+
+#distance {
+    height: 40px;
 }

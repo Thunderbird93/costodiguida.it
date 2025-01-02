@@ -1,8 +1,10 @@
 :root {
     /* colors */
-    --font-color: black;
-    --background-color: white;
-    --accent-color: #ff7f27;
-    --accent-hover: #e66000;
+    --font-color: hsl(0, 0%, 0%);
+    --dark-grey: hsl(0, 0%, 30%);
+    --light-grey: hsl(0, 0%, 70%);
+    --background-color: hsl(0, 0%, 100%);
+    --accent-color: hsl(24, 100%, 58%);
+    --accent-hover: hsl(24, 100%, 45%);
     --spacing: 16px;
 }

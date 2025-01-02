@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             entity.fuel.unit = "L";
         }
+        console.log("type", entity.fuel.type);
     };
 
     const handleFuelUnits = (fuel) => {
@@ -90,23 +91,23 @@ document.addEventListener("DOMContentLoaded", () => {
         entity.fuel.efficiency.value = initialValue;
     }
 
-    // const efficiencyUnits = document.querySelectorAll(
-    //     'input[name="fuelEfficiency"]',
-    // );
+    const efficiencyUnits = document.querySelectorAll(
+        'input[name="fuelEfficiency"]',
+    );
     const fuelEfficiency = document.getElementById("fuelEfficiency");
     if (fuelEfficiency) {
         console.log("fuelEfficiency", fuelEfficiency);
 
-        // for (const type of efficiencyUnits) {
-        //     type.addEventListener("change", () => {
-        //         if (type.checked) {
-        //             entity.fuel.efficiency.unit = type.value;
-        //         }
-        //     });
-        //     if (type.checked) {
-        //         entity.fuel.efficiency.unit = type.value;
-        //     }
-        // }
+        for (const type of efficiencyUnits) {
+            type.addEventListener("change", () => {
+                if (type.checked) {
+                    entity.fuel.efficiency.unit = type.value;
+                }
+            });
+            if (type.checked) {
+                entity.fuel.efficiency.unit = type.value;
+            }
+        }
     }
 
     const kmPerUnit = document.getElementById("kmPerUnit");

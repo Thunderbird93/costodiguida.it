@@ -11,47 +11,36 @@
     </head>
     <body>
         <main>
-            <div class="container">
-                <div class="flex column justify-content-between">
-                    <div class="content">
-                        <div class="subtitle">
-                            <h5>Ciao!</h5>
-                        </div>
-                        <div class="title">
-                            <h1>
-                                Calcola il costo di guida della tua nuova auto
-                            </h1>
-                        </div>
-
-                        <div class="description">
-                            <p>
-                                Un'azienda, ditta o libero professionista
-                                statisticamente sceglie una formula di guida
-                                come il noleggio a lungo termine (NLT), leasing
-                                oppure il finanziamento con un valore futuro
-                                concordato.
-                            </p>
-                            <p>
-                                Queste soluzioni semplificano la gestione dei
-                                costi, integrando numerosi servizi nel
-                                canone/rata e rispondendo a una domanda
-                                cruciale: "Rientra nel mio budget?"
-                            </p>
-                            <p>
-                                Se hai un preventivo a portata di mano e vuoi
-                                verificare il costo complessivo compila il
-                                seguente form.
-                            </p>
-                        </div>
+            <div id="hero" class="container">
+                <div class="content">
+                    <div class="title">
+                        <h1>Calcola il costo di guida della tua nuova auto</h1>
+                    </div>
+                    <div class="description">
+                        <p>Ma quanto mi costerà?</p>
+                        <p>
+                            Carburante, bollo, superbollo, anticipo e canone
+                            mensile.
+                        </p>
+                        <p>
+                            Queste sono le spese più importanti di un libero
+                            professionista o azienda che decide di noleggiare o
+                            finanziare (con maxi-rata) una vettura.
+                        </p>
+                        <p>
+                            Inserisci i dati dell'auto che ti interessa e
+                            calcola i relativi costi:
+                        </p>
                     </div>
                 </div>
             </div>
-            <section class="container">
+
+            <section id="form" class="container">
                 <form>
-                    <div class="form-group">
+                    <div class="field">
                         <label>Tipo di Motore</label>
-                        <div class="radio-group">
-                            <div class="radio-button">
+                        <div class="fuels-grid">
+                            <div>
                                 <input
                                     type="radio"
                                     id="petrol"
@@ -59,30 +48,30 @@
                                     value="petrol"
                                     checked
                                 />
-                                <label for="petrol">Benzina</label>
+                                <label for="petrol"> Benzina </label>
                             </div>
-                            <div class="radio-button">
+                            <div>
                                 <input
                                     type="radio"
                                     id="diesel"
                                     name="fuelType"
                                     value="diesel"
                                 />
-                                <label for="diesel">Diesel</label>
+                                <label for="diesel"> Diesel </label>
                             </div>
-                            <div class="radio-button">
+                            <div>
                                 <input
                                     type="radio"
                                     id="electric"
                                     name="fuelType"
                                     value="electric"
                                 />
-                                <label for="electric">Elettrico</label>
+                                <label for="electric"> Elettrico </label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="distance"> Chilometri annuali </label>
+                    <div class="field">
+                        <label>Chilometri annuali</label>
                         <input
                             id="distance"
                             type="text"
@@ -90,48 +79,42 @@
                             required
                         />
                     </div>
-                    <select name="regions" id="fuelEfficiency">
-                        <option value="kmL">km/L</option>
-                        <option value="L100km">L/100km</option>
-                    </select>
-                    <div class="form-group">
+                    <div class="field">
                         <label>Consumo</label>
-                        <div class="radio-group">
+                        <div>
                             <input
                                 id="efficiency"
                                 type="text"
                                 inputmode="numeric"
                             />
+                            <select name="units" id="fuelEfficiency">
+                                <option value="kmL">km/L</option>
+                                <option value="L100km">L/100km</option>
+                            </select>
                         </div>
                     </div>
-
-                    <div class="form-group">
+                    <div class="field">
                         <label for="power">Potenza del motore termico</label>
-                        <div class="radio-group">
+                        <div>
                             <input id="power" type="text" inputmode="numeric" />
-                            <div class="radio-button">
-                                <input
-                                    id="cv"
-                                    type="radio"
-                                    name="powerUnit"
-                                    value="cv"
-                                    checked
-                                />
-                                <label for="cv">cv</label>
-                            </div>
-                            <div class="radio-button">
-                                <input
-                                    id="kW"
-                                    type="radio"
-                                    name="powerUnit"
-                                    value="kw"
-                                />
-                                <label for="kW">kW</label>
-                            </div>
+                            <input
+                                id="cv"
+                                type="radio"
+                                name="powerUnit"
+                                value="cv"
+                                checked
+                            />
+                            <label for="cv">cv</label>
+                            <input
+                                id="kW"
+                                type="radio"
+                                name="powerUnit"
+                                value="kw"
+                            />
+                            <label for="kW">kW</label>
                         </div>
                     </div>
-
-                    <div class="form-group">
+                    <div class="field">
                         <label for="residency">Regione di Residenza</label>
                         <select name="regions" id="residency">
                             <option value="">--Scegli un'opzione--</option>
@@ -161,8 +144,7 @@
                             <option value="veneto">Veneto</option>
                         </select>
                     </div>
-
-                    <div class="form-group">
+                    <div class="field">
                         <label for="upfront">Anticipo (€)</label>
                         <input
                             id="upfront"
@@ -173,8 +155,7 @@
                             value="0"
                         />
                     </div>
-
-                    <div class="form-group">
+                    <div class="field">
                         <label for="monthly">Canone Mensile (€)</label>
                         <input
                             id="monthly"
@@ -185,7 +166,7 @@
                             value="0"
                         />
                     </div>
-                    <div class="form-group">
+                    <div class="field">
                         <label for="lifetime">Durata (mesi)</label>
                         <input
                             id="lifetime"
