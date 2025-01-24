@@ -2,183 +2,207 @@
 <html lang="it">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="./public/favicon.ico" />
-        <link rel="stylesheet" href="./index.css" />
-        <script type="module" src="./index.js" defer></script>
-        <title>Costo di Guida</title>
+        <meta
+            name="description"
+            content="Calcola il costo di guida della tua prossima auto nuova."
+        />
+        <link
+            rel="shortcut icon"
+            href="./public/favicon/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="./src/styles/index.css" />
+        <title>costodiguida.it</title>
     </head>
     <body>
+        <header class="site-header">
+            <div class="container">
+                <nav>
+                    <img src="./public/logos/logo.png" alt="" />
+                </nav>
+                <nav>
+                    <ul role="list">
+                        <li>
+                            <a id="main-nav-link" href="#"
+                                >Confronta i preventivi &#8594;</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <main>
-            <div id="hero" class="container">
-                <div class="content">
-                    <div class="title">
-                        <h1>Calcola il costo di guida della tua nuova auto</h1>
+            <div class="container">
+                <section id="hero">
+                    <div class="content">
+                        <h1>
+                            Confronta i tuoi preventivi di noleggio, leasing e
+                            finanziamento
+                        </h1>
+                        <div>
+                            <p>
+                                Analizza i costi, servizi e relativi vantaggi
+                                delle offerte che stai valutando per un'auto
+                                nuova.
+                            </p>
+                            <!-- <p>
+                                Valuta se aggiungere i costi di carburante,
+                                bollo o altri.
+                            </p> -->
+                        </div>
+                        <div class="call-to-action">
+                            <a class="primary" href="#product-info"
+                                >Scopri di più &#8595;</a
+                            >
+                            <!-- <a class="secondary" href="#">Inizia &#8594;</a> -->
+                        </div>
                     </div>
-                    <div class="description">
-                        <p>Ma quanto mi costerà?</p>
-                        <p>
-                            Carburante, bollo, superbollo, anticipo e canone
-                            mensile.
-                        </p>
-                        <p>
-                            Queste sono le spese più importanti di un libero
-                            professionista o azienda che decide di noleggiare o
-                            finanziare (con maxi-rata) una vettura.
-                        </p>
-                        <p>
-                            Inserisci i dati dell'auto che ti interessa e
-                            calcola i relativi costi:
-                        </p>
+                    <div class="img">
+                        <div class="ccontainer">
+                            <div class="shape blue-square"></div>
+                            <div class="shape orange-square"></div>
+                            <div class="shape red-circle"></div>
+                            <div class="shape purple-circle"></div>
+                            <div class="shape green-triangle"></div>
+                            <div class="shape yellow-triangle"></div>
+                        </div>
                     </div>
+                </section>
+            </div>
+            <div class="separator-secondary"></div>
+            <div class="mid">
+                <div class="container">
+                    <section id="product-info">
+                        <div class="img"></div>
+                        <div class="content content-wrapper">
+                            <h2>Analizza i dati</h2>
+                            <div class="text">
+                                <div>
+                                    <p>
+                                        <i>
+                                            "L'auto mi piace, ma ho qualcosa che
+                                            mi blocca.
+                                        </i>
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                <i>
+                                                    Mi viene offerto tutto
+                                                    quello che mi serve?
+                                                </i>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <i>
+                                                    Il costo rientra nel mio
+                                                    budget?
+                                                </i>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <i>
+                                                    È l'offerta migliore per
+                                                    me?"
+                                                </i>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p>
+                                        Prendi in esame tutti i dati che hai per
+                                        chiarirti le idee.
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>Inserisci nel calcolo:</p>
+                                    <p>
+                                        <i>
+                                            anticipo, permuta, assicurazione,
+                                            manutenzione, bollo</i
+                                        >
+                                        e qualsiasi altra spesa che pensi possa
+                                        incidere significativamente sul budget
+                                        della tua azienda o famiglia.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- <div class="call-to-action">
+                                <a class="primary" href="#">Inizia &#8594;</a>
+                            </div> -->
+                        </div>
+                    </section>
                 </div>
             </div>
+            <div class="main-cta">
+                <div class="call-to-action center">
+                    <a class="primary" href="#"
+                        >Analizza il tuo primo preventivo &#8594;</a
+                    >
+                </div>
+            </div>
+            <!-- <div class="separator-primary"></div> -->
+            <!-- <div class="container">
+                <section id="how-to">
+                    <div class="content content-wrapper">
+                        <h2>Istruzione all'uso, passo passo</h2>
 
-            <section id="form" class="container">
-                <form>
-                    <div class="field">
-                        <label>Tipo di Motore</label>
-                        <div class="fuels-grid">
-                            <div>
-                                <input
-                                    type="radio"
-                                    id="petrol"
-                                    name="fuelType"
-                                    value="petrol"
-                                    checked
-                                />
-                                <label for="petrol"> Benzina </label>
-                            </div>
-                            <div>
-                                <input
-                                    type="radio"
-                                    id="diesel"
-                                    name="fuelType"
-                                    value="diesel"
-                                />
-                                <label for="diesel"> Diesel </label>
-                            </div>
-                            <div>
-                                <input
-                                    type="radio"
-                                    id="electric"
-                                    name="fuelType"
-                                    value="electric"
-                                />
-                                <label for="electric"> Elettrico </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Chilometri annuali</label>
-                        <input
-                            id="distance"
-                            type="text"
-                            inputmode="numeric"
-                            required
-                        />
-                    </div>
-                    <div class="field">
-                        <label>Consumo</label>
+                        <ol type="I">
+                            <li>
+                                <p>
+                                    Per il calcolo si hanno a disposizione più
+                                    parametri.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Per facilitare l'inserimento e la scelta dei
+                                    dati
+                                    <u>
+                                        tutti i campi sono pre-selezzionati o
+                                        pre-valorizzati, e tutti possono essere
+                                        modificati.</u
+                                    >
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Solo i campi contrassegnati dall'asterisco
+                                    <b>*</b> sono obbligatori per calcolare il
+                                    relativo costo.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    La prima parte sarà dedicata alla scelta del
+                                    servizio (pre-selezionato su
+                                    <i>noleggio a lungo termine</i>) ed al
+                                    calcolo del suo costo.
+                                </p>
+                            </li>
+                        </ol>
+
                         <div>
-                            <input
-                                id="efficiency"
-                                type="text"
-                                inputmode="numeric"
-                            />
-                            <select name="units" id="fuelEfficiency">
-                                <option value="kmL">km/L</option>
-                                <option value="L100km">L/100km</option>
-                            </select>
+                            <p>
+                                Cliccando su <i>Inizia</i> verrai reindirizzato
+                                sulla pagina dedicata al calcolo.
+                            </p>
+                        </div>
+
+                        <div class="call-to-action">
+                            <a class="primary" href="#">Inizia &#8594;</a>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="power">Potenza del motore termico</label>
-                        <div>
-                            <input id="power" type="text" inputmode="numeric" />
-                            <input
-                                id="cv"
-                                type="radio"
-                                name="powerUnit"
-                                value="cv"
-                                checked
-                            />
-                            <label for="cv">cv</label>
-                            <input
-                                id="kW"
-                                type="radio"
-                                name="powerUnit"
-                                value="kw"
-                            />
-                            <label for="kW">kW</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label for="residency">Regione di Residenza</label>
-                        <select name="regions" id="residency">
-                            <option value="">--Scegli un'opzione--</option>
-                            <option value="abruzzo">Abruzzo</option>
-                            <option value="basilicata">Basilicata</option>
-                            <option value="calabria">Calabria</option>
-                            <option value="campania">Campania</option>
-                            <option value="emiliaromania">
-                                Emilia-Romania
-                            </option>
-                            <option value="friuliveneziagiulia">
-                                Friuli-Venezia Giulia
-                            </option>
-                            <option value="lazio">Lazio</option>
-                            <option value="liguria">Liguria</option>
-                            <option value="lombardia">Lombardia</option>
-                            <option value="marche">Marche</option>
-                            <option value="molise">Molise</option>
-                            <option value="piemonte">Piemonte</option>
-                            <option value="puglia">Puglia</option>
-                            <option value="sardegna">Sardegna</option>
-                            <option value="sicilia">Sicilia</option>
-                            <option value="toscana">Toscana</option>
-                            <option value="bolzano">Trentino-Alto Adige</option>
-                            <option value="umbria">Umbria</option>
-                            <option value="valledaosta">Valle d'Aosta</option>
-                            <option value="veneto">Veneto</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="upfront">Anticipo (€)</label>
-                        <input
-                            id="upfront"
-                            type="text"
-                            inputmode="numeric"
-                            placeholder="€"
-                            required
-                            value="0"
-                        />
-                    </div>
-                    <div class="field">
-                        <label for="monthly">Canone Mensile (€)</label>
-                        <input
-                            id="monthly"
-                            type="text"
-                            inputmode="numeric"
-                            placeholder="€"
-                            required
-                            value="0"
-                        />
-                    </div>
-                    <div class="field">
-                        <label for="lifetime">Durata (mesi)</label>
-                        <input
-                            id="lifetime"
-                            type="text"
-                            inputmode="numeric"
-                            placeholder="€"
-                            required
-                            value="36"
-                        />
-                    </div>
-                </form>
-            </section>
+                    <div class="img"></div>
+                </section>
+            </div> -->
         </main>
+        <footer class="site-footer">
+            <div class="container"></div>
+        </footer>
     </body>
 </html>
