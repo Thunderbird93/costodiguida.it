@@ -175,7 +175,7 @@
                   <div class="field">
                     <div class="cost-result">
                       <p>Costo d'uso:</p>
-                      <p><span class="cost-view">0</span> € / mese</p>
+                      <p><span class="fw-700">0</span> € / mese</p>
                     </div>
                   </div>
                 </div>
@@ -240,16 +240,60 @@
                         Plug-In
                       </label>
                     </div>
+                    <!-- TODO - introdure notations in caso si seleziona plugin -->
                     <p class="field-detail fs-300">
                       [Inclusi <i>mild hybrid <b>MHEV</b></i> e
                       <i>full hybrid <b>FHEV</b></i
                       >]
                     </p>
                   </div>
+                  <div class="field">
+                    <label for="fuel-type" class="field-description">
+                      C. <b>Tipo alimentazione</b>
+                    </label>
+                    <div id="fuel-type" class="field-grid">
+                      <label class="label-button grid-column-1-5">
+                        <input
+                          type="radio"
+                          name="fuel-type"
+                          value="benzina"
+                          checked />
+                        Benzina
+                      </label>
+                      <label class="label-button grid-column-5-9">
+                        <input type="radio" name="fuel-type" value="diesel" />
+                        Diesel
+                      </label>
+                      <label class="label-button grid-column-9-13">
+                        <input type="radio" name="fuel-type" value="elettica" />
+                        Elettrica
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- <div  class="field">
+                    <label for="fuels-used-2" class="field-description">
+                      C. <b>Tipo alimentazione</b>
+                    </label>
+                    <div id="fuels-used-2" class="field-grid">
+                      <label class="label-button grid-column-1-7">
+                        <input
+                          type="radio"
+                          name="fuels-used-2"
+                          value="e-b"
+                          checked />
+                        Elettrica - Benzina
+                      </label>
+                      <label class="label-button grid-column-7-13">
+                        <input type="radio" name="fuels-used-2" value="e-d" />
+                        Elettrica - Diesel
+                      </label>
+                    </div>
+                  </div> -->
 
                   <div class="field">
                     <label for="fuel-efficiency" class="field-description">
-                      C. <b>Consumo</b><b class="error">*</b>
+                      D. <b>Consumo</b><b class="error">*</b>
                     </label>
                     <div class="field-grid">
                       <input
@@ -264,7 +308,7 @@
                           <input
                             type="radio"
                             name="fuel-efficiency-unit"
-                            value="kml"
+                            value="kmU"
                             checked />
                           km/L
                         </label>
@@ -272,7 +316,7 @@
                           <input
                             type="radio"
                             name="fuel-efficiency-unit"
-                            value="l100km" />
+                            value="U100km" />
                           L/100km
                         </label>
                       </div>
@@ -282,11 +326,113 @@
                     </p>
                   </div>
 
+                  <!-- <div class="field">
+                    <label for="fuel-efficiency-1" class="field-description">
+                      D-1 <b>Consumo motorizzazione termica</b
+                      ><b class="error">*</b>
+                    </label>
+                    <div class="field-grid">
+                      <input
+                        id="fuel-efficiency-1"
+                        class="grid-column-1-4 input-target"
+                        type="text"
+                        value="14" />
+                      <div
+                        id="fuel-efficiency-unit-1"
+                        class="field-grid grid-column-4-13">
+                        <label class="label-button grid-column-1-7">
+                          <input
+                            type="radio"
+                            name="fuel-efficiency-unit-1"
+                            value="kmU"
+                            checked />
+                          km/L
+                        </label>
+                        <label class="label-button grid-column-7-13">
+                          <input
+                            type="radio"
+                            name="fuel-efficiency-unit-1"
+                            value="U100km" />
+                          L/100km
+                        </label>
+                      </div>
+                    </div>
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
+                  </div> -->
+
+                  <!-- <div class="field">
+                    <label for="fuel-efficiency-2" class="field-description">
+                      D-2 <b>Consumo motorizzazione elettrica</b
+                      ><b class="error">*</b>
+                    </label>
+                    <div class="field-grid">
+                      <input
+                        id="fuel-efficiency-2"
+                        class="grid-column-1-4 input-target"
+                        type="text"
+                        value="14" />
+                      <div
+                        id="fuel-efficiency-unit-2"
+                        class="field-grid grid-column-4-13">
+                        <label class="label-button grid-column-1-7">
+                          <input
+                            type="radio"
+                            name="fuel-efficiency-unit-2"
+                            value="kmU" />
+                          km/kWh
+                        </label>
+                        <label class="label-button grid-column-7-13">
+                          <input
+                            type="radio"
+                            name="fuel-efficiency-unit-2"
+                            value="U100km"
+                            checked />
+                          kWh/100km
+                        </label>
+                      </div>
+                    </div>
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
+                  </div> -->
+
+                  <div class="divider"></div>
+                  <div class="field">
+                    <div id="petrol">
+                      <label for="petrol-price">Prezzo benzina</label>
+                      <input
+                        id="petrol-price"
+                        type="number"
+                        value="1.815"
+                        step="0.001" />
+                      €/L
+                    </div>
+                    <div id="diesel">
+                      <label for="diesel-price">Prezzo diesel</label>
+                      <input
+                        id="diesel-price"
+                        type="number"
+                        value="1.719"
+                        step="0.001" />
+                      €/L
+                    </div>
+                    <div id="electicity">
+                      <label for="electicity-price">Prezzo elettricità</label>
+                      <input
+                        id="electicity-price"
+                        type="number"
+                        value="0.16643"
+                        step="0.00001" />
+                      €/kWh
+                    </div>
+                  </div>
                   <div class="divider"></div>
                   <div class="field">
                     <div class="cost-result">
                       <p>Costo del carburante:</p>
-                      <p><span class="cost-view">0</span> € / mese</p>
+                      <p><span class="fw-700">0</span> € / mese</p>
                     </div>
                   </div>
                 </div>
