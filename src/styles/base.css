@@ -48,6 +48,7 @@
     --clr-lighter-black: hsl(208, 25%, 24%);
 
     --clr-blue-shade: hsla(162, 20%, 80%, 0.3);
+    --clr-blue-shade-strong: hsla(162, 20%, 80%, 0.9);
     --clr-pink-shade: hsla(349, 100%, 93%, 0.75);
 
     --clr-gray-100: hsl(0, 0%, 97%);
@@ -80,15 +81,27 @@
     /* colors */
     --background-color: var(--clr-warm-white);
     --background-color-secondary: var(--clr-blue-shade);
+    --background-color-secondary-strong: var(--clr-blue-shade-strong);
     --font-color: var(--clr-grey-750);
     --button-border-color: var(--clr-light-gold);
     --button-border-color-dark: var(--clr-lighter-black);
     --button-background-color: var(--clr-light-gold);
     --button-font-color: var(--clr-burnt-gold);
     --form-background-color: var(--clr-pink-shade);
-    --form-bborder-color: var(--clr-blue-shade);
+    --input-details-color: var(--clr-burnt-gold);
 
     /* sizes */
+    --form-padding: 8px;
+    --form-field-border-radius: 8px;
+    --form-fields-border-radius: calc(
+      var(--form-field-border-radius) + var(--form-padding)
+    );
+    --form-border-radius: calc(
+      var(--form-fields-border-radius) + var(--form-padding)
+    );
+
+    --min-thumb-size: 44px;
+
     --fs-p: var(--fs-400);
     --fs-h1: var(--fs-800);
     --fs-h2: var(--fs-700);
@@ -127,7 +140,7 @@
       --grid-template-rows: auto;
 
       --fs-p: var(--fs-550);
-      --container-lateral-padding: 8%;
+      --container-lateral-padding: 5rem;
       --grid-gap: 6rem;
       --fs-h1: var(--fs-900);
       --fs-h3: var(--fs-800);
@@ -138,7 +151,7 @@
 
   @media (width >= 1440px) {
     :root {
-      --container-lateral-padding: 10%;
+      --container-lateral-padding: 9rem;
     }
   }
 }
@@ -319,6 +332,25 @@ main {
   gap: 2rem;
 }
 
+.label-button {
+  border: 1px solid var(--input-details-color);
+  border-radius: 4px;
+  min-height: var(--min-thumb-size);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    margin: 4px;
+    accent-color: var(--input-details-color);
+  }
+}
+
+.label-button:has(input:checked) {
+  background-color: var(--clr-light-gold);
+  font-weight: 700;
+}
+
 .grid {
   display: grid;
   grid-template-columns: var(--grid-template-columns);
@@ -387,10 +419,124 @@ hgroup {
   color: red;
 }
 
+.notations {
+  font-size: var(--fs-300);
+}
+
 form {
   background-color: var(--form-background-color);
-  padding: 1rem;
-  border-radius: 16px;
+  padding: var(--form-padding);
+  border-radius: var(--form-border-radius);
+
+  .fields {
+    padding: var(--form-padding);
+    border-radius: var(--form-fields-border-radius);
+
+    .field {
+      padding: var(--form-padding);
+      border-radius: var(--form-field-border-radius);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+
+      input:focus:not([type="radio"]) {
+        outline: 2px solid var(--input-details-color);
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 0.25rem;
+
+        .grid-column-1-4 {
+          grid-column: 1 / 4;
+        }
+        .grid-column-4-13 {
+          grid-column: 4 / 13;
+        }
+        .grid-column-1-5 {
+          grid-column: 1 / 5;
+        }
+        .grid-column-5-9 {
+          grid-column: 5 / 9;
+        }
+        .grid-column-9-13 {
+          grid-column: 9 / 13;
+        }
+        .grid-column-1-7 {
+          grid-column: 1 / 7;
+        }
+        .grid-column-7-13 {
+          grid-column: 7 / 13;
+        }
+        .grid-column-5-13 {
+          grid-column: 5 / 13;
+        }
+      }
+
+      .field-description {
+        display: block;
+        margin-bottom: 4px;
+      }
+    }
+
+    .field > input,
+    .input-target {
+      min-height: var(--min-thumb-size);
+      width: 100%;
+      border: 1px solid var(--input-details-color);
+      margin: 1px;
+      border-radius: 4px;
+      padding: 0 1rem;
+    }
+
+    .field:has(.notations) {
+      background-color: var(--background-color-secondary-strong);
+      margin: 1rem auto;
+    }
+  }
+}
+
+.divider {
+  border-bottom: 1px solid var(--clr-lighter-black);
+  margin: 2px 0;
+}
+
+.cost-result {
+  display: flex;
+  align-content: end;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.cost-view {
+  font-weight: 700;
+}
+
+/* HTML: <div class="wavy-line"></div> */
+.wave {
+  --s: 46px; /* size of the wave */
+  --b: 16px; /* thickness of the line */
+  --m: 0.45; /* curvature of the wave [0 2] */
+
+  background: #008c9e;
+  --R: calc(var(--s) * sqrt(var(--m) * var(--m) + 1) + var(--b) / 2);
+  height: calc(2 * var(--R));
+  width: 100%;
+  --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+  mask: radial-gradient(
+        var(--R) at left 50% bottom calc(-1 * var(--m) * var(--s)),
+        var(--_g)
+      )
+      calc(50% - 2 * var(--s)) calc(50% - var(--s) / 2 - var(--b) / 2) /
+      calc(4 * var(--s)) calc(var(--s) + var(--b)) repeat-x,
+    radial-gradient(
+        var(--R) at left 50% top calc(-1 * var(--m) * var(--s)),
+        var(--_g)
+      )
+      50% calc(50% + var(--s) / 2 + var(--b) / 2) / calc(4 * var(--s))
+      calc(var(--s) + var(--b)) repeat-x;
 }
 
 footer {

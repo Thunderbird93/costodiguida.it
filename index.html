@@ -59,7 +59,9 @@
             </p>
           </hgroup>
           <div>
-            <a href="#" class="cta-button-tertiary">Iniziamo&nbsp;&#8595;</a>
+            <a href="#cost-calculator" class="cta-button-tertiary"
+              >Iniziamo&nbsp;&#8595;</a
+            >
           </div>
         </div>
       </section>
@@ -69,6 +71,10 @@
           <h2>1 di 4 - Costo d'uso</h2>
           <div class="grid">
             <div>
+              <p class="p-brake">
+                In questa prima parte è necessario avere il preventivo dell'auto
+                di tuo interesse.
+              </p>
               <p>
                 <b>Finanziamento</b> con <i>Valore Futuro Garantito</i>,
                 <b>Noleggio</b> a lungo termine, oppure
@@ -77,10 +83,7 @@
               <p class="p-brake">
                 ognuna di queste formule ha i suoi pro e contro.
               </p>
-              <p class="p-brake">
-                In questa prima parte avrai bisogno del preventivo che ti è
-                stato fornito.
-              </p>
+
               <p>
                 Solo i valori contrassegnati con
                 <b class="error">*</b> sono necessari al calcolo del costo
@@ -95,307 +98,203 @@
               <form>
                 <div class="fields">
                   <div class="field">
-                    <input
-                      type="radio"
-                      id="nlt"
-                      name="contract"
-                      value="nlt"
-                      checked />
-                    <label for="nlt">NLT</label>
-                    <input type="radio" id="vfg" name="contract" value="vfg" />
-                    <label for="vfg">VFG</label>
-                    <input
-                      type="radio"
-                      id="leasing"
-                      name="contract"
-                      value="leasing" />
-                    <label for="leasing">Leasing</label>
+                    <label for="contract-choice" class="field-description">
+                      A. <b>Scegli la soluzione di guida</b>
+                    </label>
+                    <div id="contract-choice" class="field-grid">
+                      <label class="label-button grid-column-1-5">
+                        <input
+                          type="radio"
+                          name="contract"
+                          value="nlt"
+                          checked />
+                        NLT
+                      </label>
+                      <label class="label-button grid-column-5-9">
+                        <input type="radio" name="contract" value="vfg" />
+                        VFG
+                      </label>
+                      <label class="label-button grid-column-9-13">
+                        <input type="radio" name="contract" value="leasing" />
+                        Leasing
+                      </label>
+                    </div>
+                    <p class="field-detail fs-300">
+                      [Hai scelto:
+                      <span id="driving-solution">Noleggio a lungo termine</span
+                      >]
+                    </p>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="field">
+                    <p class="notations">
+                      Le seguenti spese sono preselezionate. Sei libero di
+                      cambiarle con un'altro numero maggiore o uguale a
+                      <i>0</i>. Eccezion fatta per "E. <b>Durata</b>", che
+                      dev'essere un numero tra <i>12</i> e <i>60</i>.
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label for="upfront-payment" class="field-description">
+                      B. <b>Anticipo</b><b class="error">*</b>
+                    </label>
+                    <input id="upfront-payment" type="text" value="0" />
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label for="upfront-payment" class="field-description">
+                      C. <b>Canone mensile</b><b class="error">*</b>
+                    </label>
+                    <input id="upfront-payment" type="text" value="0" />
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label for="installment-expenses" class="field-description">
+                      D. <b>Spese d'incasso rata</b><b class="error">*</b>
+                    </label>
+                    <input id="installment-expenses" type="text" value="0" />
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label for="upfront-payment" class="field-description">
+                      E. <b>Durata</b><b class="error">*</b>
+                      <i>(totale, espressa in mesi)</i>
+                    </label>
+                    <input id="upfront-payment" type="text" value="36" />
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno 1.
+                    </p>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="field">
+                    <div class="cost-result">
+                      <p>Costo d'uso:</p>
+                      <p><span class="cost-view">0</span> € / mese</p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="fuel-cost">
+        <div class="container cost">
+          <h2>2 di 4 - Costo del carburante</h2>
+          <div class="grid">
+            <div>
+              <p class="p-brake">
+                Qui calcoleremo il costo effettivo del carburante. Sia esso a
+                singola alimentazione
+                <i class="fs-300">(benzina, diesel, elettrico)</i> oppure a
+                doppia alimentazione <i>Plug-In</i>
+                <i class="fs-300">(benzina-elettrico e diesel-elettrico)</i>
+              </p>
+
+              <p>
+                Solo i valori contrassegnati con
+                <b class="error">*</b> sono necessari al calcolo del costo
+                d'uso,
+              </p>
+              <p>
+                tutti gli altri servono unicamente a scopo riassuntivo per la
+                visualizzazione del grafico finale.
+              </p>
+            </div>
+            <div>
+              <form>
+                <div class="fields">
+                  <div class="field">
+                    <label for="distance" class="field-description">
+                      A. <b>Distanza annua</b><b class="error">*</b>
+                      <i>(espressa in km)</i>
+                    </label>
+                    <input id="distance" type="text" value="15000" />
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
                   </div>
 
                   <div class="field">
-                    <label for="anticipo">A. Anticipo</label>
-                    <input id="anticipo" type="text" />
-                    <span class="error-message"></span>
+                    <label for="fuels-used" class="field-description">
+                      B. <b>Alimentazione</b>
+                    </label>
+                    <div id="fuels-used" class="field-grid">
+                      <label class="label-button grid-column-1-7">
+                        <input
+                          type="radio"
+                          name="fuels-used"
+                          value="1"
+                          checked />
+                        Singola
+                      </label>
+                      <label class="label-button grid-column-7-13">
+                        <input type="radio" name="fuels-used" value="2" />
+                        Plug-In
+                      </label>
+                    </div>
+                    <p class="field-detail fs-300">
+                      [Inclusi <i>mild hybrid <b>MHEV</b></i> e
+                      <i>full hybrid <b>FHEV</b></i
+                      >]
+                    </p>
                   </div>
 
                   <div class="field">
-                    <label for="canone-mensile">B. Canone mensile</label>
-                    <input id="canone-mensile" type="text" />
-                    <span class="error-message"></span>
+                    <label for="fuel-efficiency" class="field-description">
+                      C. <b>Consumo</b><b class="error">*</b>
+                    </label>
+                    <div class="field-grid">
+                      <input
+                        id="fuel-efficiency"
+                        class="grid-column-1-4 input-target"
+                        type="text"
+                        value="14" />
+                      <div
+                        id="fuel-efficiency-unit"
+                        class="field-grid grid-column-4-13">
+                        <label class="label-button grid-column-1-7">
+                          <input
+                            type="radio"
+                            name="fuel-efficiency-unit"
+                            value="kml"
+                            checked />
+                          km/L
+                        </label>
+                        <label class="label-button grid-column-7-13">
+                          <input
+                            type="radio"
+                            name="fuel-efficiency-unit"
+                            value="l100km" />
+                          L/100km
+                        </label>
+                      </div>
+                    </div>
+                    <p hidden class="field-detail error fs-300">
+                      Inserisci almeno zero.
+                    </p>
                   </div>
 
+                  <div class="divider"></div>
                   <div class="field">
-                    <label for="durata">C. Durata (totale mesi)</label>
-                    <input id="durata" type="text" />
-                    <span class="error-message"></span>
+                    <div class="cost-result">
+                      <p>Costo del carburante:</p>
+                      <p><span class="cost-view">0</span> € / mese</p>
+                    </div>
                   </div>
-                </form>
-                </div>
-              </form>
-            </div>
-            <!-- <div>
-            
-
-              <form>
-                <div class="field">
-                  <label for="anticipo">Anticipo (bonifico + contanti)</label>
-                  <input id="anticipo" type="text" />
-                  <span class="error-message"></span>
-                </div>
-                <div class="field">
-                  <label for="canone-mensile">Canone mensile</label>
-                  <input id="canone-mensile" type="text" />
-                  <span class="error-message"></span>
-                </div>
-                <div class="field">
-                  <label for="durata">Durata (totale mesi)</label>
-                  <input id="durata" type="text" />
-                  <span class="error-message"></span>
-                </div>
-                <hr />
-                <div class="field">
-                  <label for="financial-total-cost">Costo</label>
-                  <div id="financial-total-cost">0</div>
-                </div>
-              </form>
-            </div> -->
-          </div>
-        </div>
-      </section>
-      <!-- 
-      <section id="services">
-        <div class="container">
-          <h4>2. Servizi</h4>
-          <div class="grid">
-            <div class="paragraphs">
-              <p>Inserisci tutti i servizi inclusi nell'offerta</p>
-            </div>
-            <form>
-              <label>Manutenzione</label>
-              <div class="field">
-                <input
-                  type="checkbox"
-                  id="manutenzione-ordinaria"
-                  name="manutenzione" />
-                <label for="manutenzione-ordinaria">
-                  Ordinaria <i>(Tagliandi...)</i>
-                </label>
-              </div>
-              <div class="field">
-                <input
-                  type="checkbox"
-                  id="manutenzione-straordinaria"
-                  name="manutenzione" />
-                <label for="manutenzione-straordinaria">
-                  Straordinaria
-                  <i>(Riparazioni e sostituzioni impreviste)</i>
-                </label>
-              </div>
-              <div class="field">
-                <input type="checkbox" id="cambio-gomme" name="manutenzione" />
-                <label for="cambio-gomme"> Cambio gomme </label>
-              </div>
-              <label>Assicurazione</label>
-              <div class="field">
-                <input type="checkbox" id="rca" name="assicurazione" />
-                <label for="rca">
-                  RCA <i>(Responsabilità Civile Auto)</i></label
-                >
-              </div>
-              <div class="field">
-                <input
-                  type="checkbox"
-                  id="furto-incendio"
-                  name="assicurazione" />
-                <label for="furto-incendio"> Furto ed Incendio </label>
-              </div>
-              <label>Altro</label>
-              <div class="field">
-                <input
-                  type="checkbox"
-                  id="estensione-garanzia"
-                  name="assicurazione" />
-                <label for="estensione-garanzia"> Estensione di garanzia</label>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-      <section id="fuel">
-        <div class="container">
-          <h4>3. Carburante</h4>
-          <div class="grid">
-            <div class="paragraphs"></div>
-            <div class="forms">
-              <form>
-                <div class="field">
-                  <input
-                    type="radio"
-                    id="mono"
-                    name="fuel-type"
-                    value="mono"
-                    checked />
-                  <label for="mono">Monofuel</label>
-                  <input type="radio" id="bi" name="fuel-type" value="bi" />
-                  <label for="bi">Bifuel</label>
-                </div>
-              </form>
-              <form>
-                <div class="field">
-                  <input
-                    type="radio"
-                    id="benzina"
-                    name="engine-type-mono"
-                    value="benzina"
-                    checked />
-                  <label for="benzina">Benzina</label>
-                  <input
-                    type="radio"
-                    id="diesel"
-                    name="engine-type-mono"
-                    value="diesel" />
-                  <label for="diesel">diesel</label>
-                  <input
-                    type="radio"
-                    id="elettrico"
-                    name="engine-type-mono"
-                    value="elettrico" />
-                  <label for="elettrico">elettrico</label>
-                </div>
-              </form>
-              <form>
-                <div class="field">
-                  <input
-                    type="radio"
-                    id="benzina-elettrico"
-                    name="engine-type-bi"
-                    value="benzina-elettrico"
-                    checked />
-                  <label for="benzina-elettrico">Benzina-elettrico</label>
-                  <input
-                    type="radio"
-                    id="diesel-elettrico"
-                    name="engine-type-bi"
-                    value="diesel-elettrico" />
-                  <label for="diesel-elettrico">diesel-elettrico</label>
-                </div>
-              </form>
-              <form>
-                <div class="field">
-                  <label for="consumo">Consumo</label>
-                  <input id="consumo" type="text" />
-                  <span class="error-message"></span>
-                </div>
-                <div class="field">
-                  <input
-                    type="radio"
-                    id="kmL"
-                    name="efficiency-unit"
-                    value="kmL"
-                    checked />
-                  <label for="kmL">km/L</label>
-                  <input
-                    type="radio"
-                    id="L100km"
-                    name="efficiency-unit"
-                    value="L100km" />
-                  <label for="L100km">L/100km</label>
-                </div>
-              </form>
-              <form>
-                <div class="field">
-                  <label for="percorrenza">Percorrenza annua <i>(km)</i></label>
-                  <input id="percorrenza" type="text" />
-                  <span class="error-message"></span>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </section>
-      <section id="taxes">
-        <div class="container">
-          <h4>4. Bollo</h4>
-          <div class="grid">
-            <div class="paragraphs">
-              <p>
-                Per il calcolo verrano usati i dati disponibili sul sito
-                dell'ACI.
-              </p>
-            </div>
-            <form>
-              <div class="field">
-                <label for="engine-power">Potenza (motore termico)</label>
-                <input id="engine-power" type="text" />
-                <span class="error-message"></span>
-              </div>
-              <div class="field">
-                <input
-                  type="radio"
-                  id="cv"
-                  name="power-unit"
-                  value="cv"
-                  checked />
-                <label for="L100km">cv</label>
-                <input type="radio" id="kW" name="power-unit" value="kW" />
-                <label for="kW">kW</label>
-              </div>
-              <div class="field">
-                <label for="regione">Regione o Provincia Autonoma</label>
-                <input list="regioni" name="regione" id="regione" />
-                <datalist id="regioni">
-                  <option value="Abruzzo"></option>
-                  <option value="Basilicata"></option>
-                  <option value="Lazio"></option>
-                  <option value="Lombardia"></option>
-                  <option value="Sardegna"></option>
-                </datalist>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-      <section id="other-costs">
-        <div class="container">
-          <h4>5. Altri costi</h4>
-          <div class="grid">
-            <div class="paragraphs">
-              <p>
-                Di seguito puoi inserire altre spese che pensi potranno
-                rientrare nei costi.
-              </p>
-              <p>
-                Esempio costo: "Posto auto", costo "€100", frequenza: "mensile".
-              </p>
-            </div>
-            <form>
-              <div class="field">
-                <label for="cost-name">Descrizione (nome costo)</label>
-                <input id="cost-name" type="text" />
-                <span class="error-message"></span>
-              </div>
-              <div class="field">
-                <label for="cost-value">Costo (€)</label>
-                <input id="cost-value" type="text" />
-                <span class="error-message"></span>
-              </div>
-              <div class="field">
-                <label for="cost-frequency">Frequenza del costo</label>
-                <select name="cost-frequency" id="cost-frequency">
-                  <option value="365">annuale</option>
-                  <option value="365/12">mensile</option>
-                  <option value="7">settimanale</option>
-                  <option value="1">giornaliera</option>
-                </select>
-                <span class="error-message"></span>
-              </div>
-              <button type="button" onclick="console.log('hi!')">
-                Aggiungi costo
-              </button>
-            </form>
-          </div>
-        </div>
-      </section> -->
     </main>
     <footer></footer>
   </body>
