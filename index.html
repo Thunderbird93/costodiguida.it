@@ -33,7 +33,9 @@
                 di <b>finanziamento</b>, <b>noleggio</b> o <b>leasing</b>, ma ci
                 sono anche altri fattori che incidono sul costo di un'auto.
               </p>
-              <a href="#intro" class="cta-button">Scopri di più&nbsp;&#8595;</a>
+              <a href="#intro" class="button-action"
+                >Scopri di più&nbsp;&#8595;</a
+              >
             </div>
             <div class="two">
               <img src="./src/assets/test.png" alt="CAR" />
@@ -42,402 +44,477 @@
         </div>
       </section>
       <section id="intro">
-        <div class="container column">
-          <hgroup>
-            <h3>Tagliandi, assicurazioni, estensioni di garanzia...</h3>
-            <p>
-              Oltre al canone mensile, ci sono molte altre spese legate alla
-              guida di un'auto. Alcune incluse, altre meno.
-            </p>
-            <p>
-              Prendersi un momento per analizzare i propri dati e fare i conti
-              può aiutare ad ottenere una visione più chiara.
-            </p>
-            <p>
-              In ognuna delle seguenti sezioni avrai una piccola guida sul come
-              procedere nel calcolo.
-            </p>
-          </hgroup>
-          <div>
-            <a href="#cost-calculator" class="cta-button-tertiary"
-              >Iniziamo&nbsp;&#8595;</a
-            >
+        <div class="container">
+          <div class="card-contrast">
+            <hgroup>
+              <h3>Tagliandi, assicurazioni, estensioni di garanzia...</h3>
+              <p>
+                Oltre al canone mensile, ci sono molte altre spese legate alla
+                guida di un'auto. Alcune incluse, altre meno.
+              </p>
+              <p>
+                Prendersi un momento per analizzare i propri dati e fare i conti
+                può aiutare ad ottenere una visione più chiara.
+              </p>
+              <p>
+                In ognuna delle seguenti sezioni avrai una piccola guida sul
+                come procedere nel calcolo.
+              </p>
+            </hgroup>
           </div>
         </div>
       </section>
-
-      <section id="car-cost">
-        <div class="container cost">
-          <h2>1 di 4 - Costo d'uso</h2>
-          <div class="grid">
-            <div>
-              <p class="p-brake">
-                In questa prima parte è necessario avere il preventivo dell'auto
-                di tuo interesse.
-              </p>
-              <p>
-                <b>Finanziamento</b> con <i>Valore Futuro Garantito</i>,
-                <b>Noleggio</b> a lungo termine, oppure
-                <b>Leasing</b> finanziario,
-              </p>
-              <p class="p-brake">
-                ognuna di queste formule ha i suoi pro e contro.
-              </p>
-
-              <p>
-                Solo i valori contrassegnati con
-                <b class="error">*</b> sono necessari al calcolo del costo
-                d'uso,
-              </p>
-              <p>
-                tutti gli altri servono unicamente a scopo riassuntivo per la
-                visualizzazione del grafico finale.
-              </p>
-            </div>
-            <div>
+      <section id="cost-calculator">
+        <div class="container forms-wrapper">
+          <div class="card">
+            <div class="grid">
+              <hgroup>
+                <h3 class="squiggly-line">Costo d'uso</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                  nam voluptatibus numquam atque quibusdam natus consequatur
+                  reprehenderit quas nihil minus? Odit laboriosam tempora, ex ea
+                  tempore veniam culpa sapiente quia.
+                </p>
+              </hgroup>
               <form>
                 <div class="fields">
                   <div class="field">
-                    <label for="contract-choice" class="field-description">
-                      A. <b>Scegli la soluzione di guida</b>
-                    </label>
-                    <div id="contract-choice" class="field-grid">
-                      <label class="label-button grid-column-1-5">
+                    <label class="field-label">A. Tipologia di contratto</label>
+                    <div class="field-input field-grid">
+                      <label class="column-1-5">
                         <input
                           type="radio"
                           name="contract"
-                          value="nlt"
+                          value="vfg"
                           checked />
-                        NLT
-                      </label>
-                      <label class="label-button grid-column-5-9">
-                        <input type="radio" name="contract" value="vfg" />
                         VFG
                       </label>
-                      <label class="label-button grid-column-9-13">
+                      <label class="column-5-9">
+                        <input type="radio" name="contract" value="nlt" />
+                        NLT
+                      </label>
+                      <label class="column-9-13">
                         <input type="radio" name="contract" value="leasing" />
                         Leasing
                       </label>
                     </div>
-                    <p class="field-detail fs-300">
-                      [Hai scelto:
-                      <span id="driving-solution">Noleggio a lungo termine</span
-                      >]
-                    </p>
                   </div>
-                  <div class="divider"></div>
+
                   <div class="field">
-                    <p class="notations">
-                      Le seguenti spese sono preselezionate. Sei libero di
-                      cambiarle con un'altro numero maggiore o uguale a
-                      <i>0</i>. Eccezion fatta per "E. <b>Durata</b>", che
-                      dev'essere un numero tra <i>12</i> e <i>60</i>.
-                    </p>
+                    <label for="upfront-payment" class="field-label"
+                      >B. Anticipo</label
+                    >
+                    <div class="field-input field-grid">
+                      <input
+                        id="upfront-payment"
+                        class="column-1-13"
+                        type="number"
+                        value="0" />
+                    </div>
                   </div>
                   <div class="field">
-                    <label for="upfront-payment" class="field-description">
-                      B. <b>Anticipo</b><b class="error">*</b>
+                    <label for="monthly-payment" class="field-label"
+                      >C. Rata mensile</label
+                    >
+                    <div class="field-input field-grid">
+                      <input
+                        id="monthly-payment"
+                        class="column-1-13"
+                        type="number"
+                        value="0" />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="collection-fees" class="field-label"
+                      >D. Spese di incasso rata</label
+                    >
+                    <div class="field-input field-grid">
+                      <input
+                        id="collection-fees"
+                        class="column-1-13"
+                        type="number"
+                        value="0" />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="collection-fees" class="field-label"
+                      >E. Durata del finanziamento (<i>mesi</i>)
                     </label>
-                    <input id="upfront-payment" type="text" value="0" />
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
+                    <div class="field-input field-grid">
+                      <input
+                        id="collection-fees"
+                        class="column-1-13"
+                        value="36"
+                        type="number" />
+                    </div>
                   </div>
+                  <div class="field-separator"></div>
                   <div class="field">
-                    <label for="upfront-payment" class="field-description">
-                      C. <b>Canone mensile</b><b class="error">*</b>
-                    </label>
-                    <input id="upfront-payment" type="text" value="0" />
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
-                  </div>
-                  <div class="field">
-                    <label for="installment-expenses" class="field-description">
-                      D. <b>Spese d'incasso rata</b><b class="error">*</b>
-                    </label>
-                    <input id="installment-expenses" type="text" value="0" />
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
-                  </div>
-                  <div class="field">
-                    <label for="upfront-payment" class="field-description">
-                      E. <b>Durata</b><b class="error">*</b>
-                      <i>(totale, espressa in mesi)</i>
-                    </label>
-                    <input id="upfront-payment" type="text" value="36" />
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno 1.
-                    </p>
-                  </div>
-                  <div class="divider"></div>
-                  <div class="field">
-                    <div class="cost-result">
-                      <p>Costo d'uso:</p>
-                      <p><span class="fw-700">0</span> € / mese</p>
+                    <div class="cost-summary">
+                      <label for="cost-of-use" class="column-1-7"
+                        >Costo mensile:
+                      </label>
+                      <div id="cost-of-use">€ 8888</div>
                     </div>
                   </div>
                 </div>
               </form>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="fuel-cost">
-        <div class="container cost">
-          <h2>2 di 4 - Costo del carburante</h2>
-          <div class="grid">
-            <div>
-              <p class="p-brake">
-                Qui calcoleremo il costo effettivo del carburante. Sia esso a
-                singola alimentazione
-                <i class="fs-300">(benzina, diesel, elettrico)</i> oppure a
-                doppia alimentazione <i>Plug-In</i>
-                <i class="fs-300">(benzina-elettrico e diesel-elettrico)</i>
-              </p>
-
-              <p>
-                Solo i valori contrassegnati con
-                <b class="error">*</b> sono necessari al calcolo del costo
-                d'uso,
-              </p>
-              <p>
-                tutti gli altri servono unicamente a scopo riassuntivo per la
-                visualizzazione del grafico finale.
-              </p>
-            </div>
-            <div>
+          <div class="card">
+            <div class="grid">
+              <hgroup>
+                <h3 class="squiggly-line">Costo del carburante</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                  nam voluptatibus numquam atque quibusdam natus consequatur
+                  reprehenderit quas nihil minus? Odit laboriosam tempora, ex ea
+                  tempore veniam culpa sapiente quia.
+                </p>
+              </hgroup>
               <form>
                 <div class="fields">
                   <div class="field">
-                    <label for="distance" class="field-description">
-                      A. <b>Distanza annua</b><b class="error">*</b>
-                      <i>(espressa in km)</i>
-                    </label>
-                    <input id="distance" type="text" value="15000" />
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
-                  </div>
-
-                  <div class="field">
-                    <label for="fuels-used" class="field-description">
-                      B. <b>Alimentazione</b>
-                    </label>
-                    <div id="fuels-used" class="field-grid">
-                      <label class="label-button grid-column-1-7">
+                    <label class="field-label">A. Tipo di motorizzazione</label>
+                    <div class="field-input field-grid">
+                      <label class="column-1-5">
                         <input
                           type="radio"
-                          name="fuels-used"
-                          value="1"
-                          checked />
-                        Singola
-                      </label>
-                      <label class="label-button grid-column-7-13">
-                        <input type="radio" name="fuels-used" value="2" />
-                        Plug-In
-                      </label>
-                    </div>
-                    <!-- TODO - introdure notations in caso si seleziona plugin -->
-                    <p class="field-detail fs-300">
-                      [Inclusi <i>mild hybrid <b>MHEV</b></i> e
-                      <i>full hybrid <b>FHEV</b></i
-                      >]
-                    </p>
-                  </div>
-                  <div class="field">
-                    <label for="fuel-type" class="field-description">
-                      C. <b>Tipo alimentazione</b>
-                    </label>
-                    <div id="fuel-type" class="field-grid">
-                      <label class="label-button grid-column-1-5">
-                        <input
-                          type="radio"
-                          name="fuel-type"
-                          value="benzina"
+                          name="engine-type"
+                          value="petrol"
                           checked />
                         Benzina
                       </label>
-                      <label class="label-button grid-column-5-9">
-                        <input type="radio" name="fuel-type" value="diesel" />
+                      <label class="column-5-9">
+                        <input type="radio" name="engine-type" value="diesel" />
                         Diesel
                       </label>
-                      <label class="label-button grid-column-9-13">
-                        <input type="radio" name="fuel-type" value="elettica" />
+                      <label class="column-9-13">
+                        <input
+                          type="radio"
+                          name="engine-type"
+                          value="electric" />
                         Elettrica
                       </label>
                     </div>
                   </div>
 
-                  <!-- <div  class="field">
-                    <label for="fuels-used-2" class="field-description">
-                      C. <b>Tipo alimentazione</b>
+                  <div class="field">
+                    <label for="travel-distance" class="field-label"
+                      >B. Consumo
                     </label>
-                    <div id="fuels-used-2" class="field-grid">
-                      <label class="label-button grid-column-1-7">
+                    <div class="field-input field-grid">
+                      <input
+                        id="travel-distance"
+                        class="column-1-5"
+                        type="number"
+                        value="14.5" />
+                      <label class="column-5-9">
                         <input
                           type="radio"
-                          name="fuels-used-2"
-                          value="e-b"
+                          name="efficiency-unit"
+                          value="kmU"
                           checked />
-                        Elettrica - Benzina
+                        km/L
                       </label>
-                      <label class="label-button grid-column-7-13">
-                        <input type="radio" name="fuels-used-2" value="e-d" />
-                        Elettrica - Diesel
+                      <label class="column-9-13">
+                        <input
+                          type="radio"
+                          name="efficiency-unit"
+                          value="U100km" />
+                        L/100km
                       </label>
                     </div>
-                  </div> -->
-
-                  <div class="field">
-                    <label for="fuel-efficiency" class="field-description">
-                      D. <b>Consumo</b><b class="error">*</b>
-                    </label>
-                    <div class="field-grid">
-                      <input
-                        id="fuel-efficiency"
-                        class="grid-column-1-4 input-target"
-                        type="text"
-                        value="14" />
-                      <div
-                        id="fuel-efficiency-unit"
-                        class="field-grid grid-column-4-13">
-                        <label class="label-button grid-column-1-7">
-                          <input
-                            type="radio"
-                            name="fuel-efficiency-unit"
-                            value="kmU"
-                            checked />
-                          km/L
-                        </label>
-                        <label class="label-button grid-column-7-13">
-                          <input
-                            type="radio"
-                            name="fuel-efficiency-unit"
-                            value="U100km" />
-                          L/100km
-                        </label>
-                      </div>
-                    </div>
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
                   </div>
 
-                  <!-- <div class="field">
-                    <label for="fuel-efficiency-1" class="field-description">
-                      D-1 <b>Consumo motorizzazione termica</b
-                      ><b class="error">*</b>
-                    </label>
-                    <div class="field-grid">
-                      <input
-                        id="fuel-efficiency-1"
-                        class="grid-column-1-4 input-target"
-                        type="text"
-                        value="14" />
-                      <div
-                        id="fuel-efficiency-unit-1"
-                        class="field-grid grid-column-4-13">
-                        <label class="label-button grid-column-1-7">
-                          <input
-                            type="radio"
-                            name="fuel-efficiency-unit-1"
-                            value="kmU"
-                            checked />
-                          km/L
-                        </label>
-                        <label class="label-button grid-column-7-13">
-                          <input
-                            type="radio"
-                            name="fuel-efficiency-unit-1"
-                            value="U100km" />
-                          L/100km
-                        </label>
-                      </div>
-                    </div>
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
-                  </div> -->
-
-                  <!-- <div class="field">
-                    <label for="fuel-efficiency-2" class="field-description">
-                      D-2 <b>Consumo motorizzazione elettrica</b
-                      ><b class="error">*</b>
-                    </label>
-                    <div class="field-grid">
-                      <input
-                        id="fuel-efficiency-2"
-                        class="grid-column-1-4 input-target"
-                        type="text"
-                        value="14" />
-                      <div
-                        id="fuel-efficiency-unit-2"
-                        class="field-grid grid-column-4-13">
-                        <label class="label-button grid-column-1-7">
-                          <input
-                            type="radio"
-                            name="fuel-efficiency-unit-2"
-                            value="kmU" />
-                          km/kWh
-                        </label>
-                        <label class="label-button grid-column-7-13">
-                          <input
-                            type="radio"
-                            name="fuel-efficiency-unit-2"
-                            value="U100km"
-                            checked />
-                          kWh/100km
-                        </label>
-                      </div>
-                    </div>
-                    <p hidden class="field-detail error fs-300">
-                      Inserisci almeno zero.
-                    </p>
-                  </div> -->
-
-                  <div class="divider"></div>
                   <div class="field">
-                    <div id="petrol">
-                      <label for="petrol-price">Prezzo benzina</label>
+                    <label for="travel-distance" class="field-label"
+                      >C. Percorrenza annua (<i>km</i>)
+                    </label>
+                    <div class="field-input field-grid">
                       <input
-                        id="petrol-price"
+                        id="travel-distance"
+                        class="column-1-13"
                         type="number"
-                        value="1.815"
-                        step="0.001" />
-                      €/L
-                    </div>
-                    <div id="diesel">
-                      <label for="diesel-price">Prezzo diesel</label>
-                      <input
-                        id="diesel-price"
-                        type="number"
-                        value="1.719"
-                        step="0.001" />
-                      €/L
-                    </div>
-                    <div id="electicity">
-                      <label for="electicity-price">Prezzo elettricità</label>
-                      <input
-                        id="electicity-price"
-                        type="number"
-                        value="0.16643"
-                        step="0.00001" />
-                      €/kWh
+                        value="12500" />
                     </div>
                   </div>
-                  <div class="divider"></div>
+
                   <div class="field">
-                    <div class="cost-result">
-                      <p>Costo del carburante:</p>
-                      <p><span class="fw-700">0</span> € / mese</p>
+                    <label for="travel-distance" class="field-label">
+                      D. Prezzo
+                      <span id="fuel-type-description">della benzina</span>
+                      (<i id="fuel-price-unit-value">€/L</i>)
+                    </label>
+                    <div class="field-input field-grid">
+                      <input
+                        id="travel-distance"
+                        class="column-1-13"
+                        type="number"
+                        value="1.799" />
+                    </div>
+                  </div>
+                  <div class="field-separator"></div>
+                  <div class="field">
+                    <div class="cost-summary">
+                      <label for="cost-of-use" class="column-1-7"
+                        >Costo mensile:
+                      </label>
+                      <div id="cost-of-use">€ 8888</div>
                     </div>
                   </div>
                 </div>
               </form>
             </div>
+          </div>
+
+          <div class="card">
+            <div class="grid">
+              <hgroup>
+                <h3 class="squiggly-line">Tasse</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                  nam voluptatibus numquam atque quibusdam natus consequatur
+                  reprehenderit quas nihil minus? Odit laboriosam tempora, ex ea
+                  tempore veniam culpa sapiente quia.
+                </p>
+              </hgroup>
+              <form>
+                <div class="fields">
+                  <div class="field">
+                    <label for="residence" class="field-label">
+                      A. Residenza (<i>Regione</i>)
+                    </label>
+                    <div class="field-input field-grid">
+                      <input
+                        class="column-1-13"
+                        list="regions"
+                        id="residence"
+                        name="residence" />
+                      <datalist id="regions">
+                        <option value="Abruzzo"></option>
+                        <option value="Basilicata"></option>
+                        <option value="Calabria"></option>
+                        <option value="Campania"></option>
+                        <option value="Emilia-Romagna"></option>
+                        <option value="Friuli-Venezia Giulia"></option>
+                        <option value="Lazio"></option>
+                        <option value="Liguria"></option>
+                        <option value="Lombardia"></option>
+                        <option value="Marche"></option>
+                        <option value="Molise"></option>
+                        <option value="Piemonte"></option>
+                        <option value="Puglia"></option>
+                        <option value="Sardegna"></option>
+                        <option value="Sicilia"></option>
+                        <option value="Toscana"></option>
+                        <option value="Trentino-Alto Adige"></option>
+                        <option value="Umbria"></option>
+                        <option value="Valle d'Aosta"></option>
+                        <option value="Veneto"></option>
+                      </datalist>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="engine-power" class="field-label"
+                      >B. Potenza del motore
+                    </label>
+                    <div class="field-input field-grid">
+                      <input
+                        id="engine-power"
+                        class="column-1-5"
+                        type="number"
+                        value="110" />
+                      <label class="column-5-9">
+                        <input
+                          type="radio"
+                          name="power-unit"
+                          value="cv"
+                          checked />
+                        cv
+                      </label>
+                      <label class="column-9-13">
+                        <input type="radio" name="power-unit" value="kW" />
+                        kW
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="engine-power" class="field-label"
+                      >C. La vettura è ibrida?
+                    </label>
+                    <div class="field-input field-grid">
+                      <label class="column-1-7">
+                        <input
+                          type="radio"
+                          name="is-car-hybrid"
+                          value="false"
+                          checked />
+                        No
+                      </label>
+                      <label class="column-7-13">
+                        <input type="radio" name="is-car-hybrid" value="true" />
+                        Sì
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Il seguente field è da visualizzare solamente se is-car-hybrid === true  -->
+                  <!-- pre-valorizzare   -->
+
+                  <div class="field">
+                    <label for="combustion-engine-power" class="field-label"
+                      >D. Potenza del motore termico
+                    </label>
+                    <div class="field-input field-grid">
+                      <input
+                        id="combustion-engine-power"
+                        class="column-1-5"
+                        type="number"
+                        value="110" />
+                      <label class="column-5-9">
+                        <input
+                          type="radio"
+                          name="combustion-engine-power-unit"
+                          value="cv"
+                          checked />
+                        cv
+                      </label>
+                      <label class="column-9-13">
+                        <input
+                          type="radio"
+                          name="combustion-engine-power-unit"
+                          value="kW" />
+                        kW
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="field-separator"></div>
+                  <div class="field">
+                    <div class="cost-summary">
+                      <label for="cost-of-use" class="column-1-7"
+                        >Costo mensile:
+                      </label>
+                      <div id="cost-of-use">€ 8888</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="grid">
+              <hgroup>
+                <h3 class="squiggly-line">Altri costi</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                  nam voluptatibus numquam atque quibusdam natus consequatur
+                  reprehenderit quas nihil minus? Odit laboriosam tempora, ex ea
+                  tempore veniam culpa sapiente quia.
+                </p>
+              </hgroup>
+              <form>
+                <div class="fields">
+                  <div class="field">
+                    <label for="combustion-engine-power" class="field-label"
+                      >A. Descrizione
+                    </label>
+                    <div class="field-input field-grid">
+                      <input
+                        id="combustion-engine-power"
+                        class="column-1-13"
+                        type="text" />
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="combustion-engine-power" class="field-label"
+                      >B. Frequenza
+                    </label>
+                    <div class="field-input field-grid">
+                      <select
+                        class="column-1-13"
+                        name="expense-frequency"
+                        id="expense-frequency">
+                        <option value="annuale">Annuale</option>
+                        <option value="mensile" selected>Mensile</option>
+                        <option value="settimanale">Settimanale</option>
+                        <option value="giornaliera">Giornaliera</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="combustion-engine-power" class="field-label"
+                      >C. Costo (<i>€</i>)
+                    </label>
+                    <div class="field-input field-grid">
+                      <input
+                        id="combustion-engine-power"
+                        class="column-1-13"
+                        type="number" />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <button type="button" id="add-cost-to-list">
+                      Aggiungi spesa
+                    </button>
+                  </div>
+                  <div class="field-separator"></div>
+
+                  <div class="field extra-costs-summary">
+                    <ol id="recap-extra-cost-list">
+                      <li>Parcheggio, €100 / mese</li>
+                      <li>Lavaggio, €15 / settimana</li>
+                      <li>Pedaggi, €5 / giorno</li>
+                    </ol>
+                  </div>
+
+                  <div class="field-separator"></div>
+                  <div class="field">
+                    <div class="cost-summary">
+                      <label for="cost-of-use" class="column-1-7"
+                        >Costo mensile:
+                      </label>
+                      <div id="cost-of-use">€ 8888</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="container">
+              <h2 class="catch">
+                Il tuo costo di guida è di €
+                <span id="costo-di-guida" class="squiggly-line">8888</span> /
+                mese.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta">
+        <div class="container">
+          <div class="card">
+            <hgroup>
+              <h2>
+                Sei un libero professionista o un imprenditore attento ai costi?
+                Condividi le tue idee!
+              </h2>
+              <br />
+              <p>
+                Condividi le tue esperienze e rispondi a qualche breve domanda
+                per personalizzare l’app secondo le tue necessità.
+              </p>
+            </hgroup>
           </div>
         </div>
       </section>
