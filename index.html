@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Calcola il costo di guida della tua prossima auto." />
@@ -10,36 +10,120 @@
       rel="shortcut icon"
       href="./public/favicon/favicon.ico"
       type="image/x-icon" />
-    <link rel="stylesheet" href="./src/styles/index.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <script type="module" src="./src/js/index.js" defer></script>
     <title>Costo di guida</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <nav class="nav-menu">
+        <a href="#">
+          <img
+            id="hamburger-menu"
+            src="./src/assets/icons/hamburger_icon.svg"
+            alt="Hamburger menu" />
+        </a>
+      </nav>
+    </header>
     <main>
-      <div>
-        <p>
-          Fino a non molto tempo fa, chi acquistava un’auto nuova doveva
-          scegliere tra ricorrere ad un finanziamento oppure attingere a tutti i
-          propri risparmi.
-        </p>
-        <br />
-        <p>
-          Oggi, ci sono più scelte di pagamento, probabilmente la forma di
-          finanziamento di maggior successo è quella con valore futuro garantito
-          (VFG). Permette di pagare più che una rata un costo di guida.
-        </p>
-        <p>
-          Oltre al VFG, prende sempre più piede il noleggio a lungo termine
-          (NLT), non solo tra liberi professionisti ed aziende, ma anche
-          adottato da consumatori privati.
-        </p>
-        <br />
-        <p>
-          Se ti trovi ad un bivio, tra il noleggio ed il finanziamento, potrebbe
-          essere utile confrontare costi, servizi e benefici di entrambi.
-        </p>
-      </div>
+      <section id="hero">
+        <div class="logo">
+          <img src="./src/assets/icons/logo_FFFFFF.svg" alt="" />
+        </div>
+        <div class="content-container hero-content">
+          <h1>Guida consapevole, calcola i costi</h1>
+          <p>
+            Prendi il preventivo di noleggio e scopri in pochi click il costo
+            complessivo di guida della tua prossima auto, inclusi carburante e
+            bollo.
+          </p>
+          <div class="hero-cta">
+            <a
+              class="primary-hero-cta hover-to-accent"
+              href="/src/pages/calculator.html"
+              >CALCOLA&nbsp;<img
+                src="./src/assets/icons/plus_icon_FF5100.svg"
+                alt="" />
+            </a>
+            <a class="secondary-hero-cta hover-to-accent" href="#cta"
+              >Non ho un preventivo&nbsp;<img
+                src="./src/assets/icons/chat_icon_FF5100.svg"
+                alt="" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="info" class="contrast-colors">
+        <div class="content-container info-content">
+          <div class="info-content-left">
+            <h2>
+              Noleggi, leasing e finanziamenti con valore futuro garantito
+            </h2>
+            <p>
+              L'aquisto di un'auto nuova è costoso ed è sempre più difficile e
+              per certi punti poco conveniente l'acquisto in contanti.
+            </p>
+            <p>
+              In passato, per far fronte a questo problema, si optava per il
+              finanziamento classico.
+            </p>
+            <p>
+              Tuttavia, da un ventennio si punta a far pagare mensilmente al
+              cliente solo il "costo di guida" dell'auto, evitando così lunghi
+              finanziamenti.
+            </p>
+            <p>
+              In questo modo, chi compra ha sempre un'auto nuova con tutti i
+              benefici che ne derivano, mentre chi vende finisce per avere una
+              clientela sempre più fidelizzata.
+            </p>
+          </div>
+          <div class="info-content-right">
+            <div class="video"></div>
+          </div>
+        </div>
+      </section>
+      <section id="cta" class="accent-colors">
+        <div class="content-container cta-content">
+          <h3>Contattami, per un supporto gratuito.</h3>
+          <p>
+            Se stai per cambiare auto e ti serve un aiuto a districarti tra
+            offerte e preventivi di noleggio a lungo termine.
+          </p>
+          <div class="cta-form">
+            <form
+              action="mailto:antircristian@gmail.com"
+              method="post"
+              enctype="text/plain">
+              <div class="name-input">
+                <input
+                  type="text"
+                  name="nome"
+                  id="name"
+                  placeholder="Nome e Cognome" />
+                <input type="submit" value="Invia email" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="content-container">
+        <nav class="menu">
+          <ul role="list"></ul>
+        </nav>
+        <nav class="bottom">
+          <ul role="list">
+            <li>
+              <a href="#">Obiettivo del sito</a>
+            </li>
+            <li>
+              <a href="#">Privacy policy</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

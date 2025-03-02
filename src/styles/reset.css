@@ -1,0 +1,167 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+[role="list"],
+[role="menubar"] {
+  list-style: none;
+}
+
+ul,
+ol {
+  list-style-position: inside;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: inline;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+iframe {
+  max-width: 100%;
+  width: inherit;
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: var(--fs);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--font-color-primary);
+  background-color: var(--bg-color-primary);
+  min-height: 100vh;
+  min-width: 360px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+  color: var(--font-color-secondary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  text-wrap: pretty;
+  font-size: var(--fs-p);
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color-secondary);
+  font-size: var(--fs-a);
+  font-weight: 700;
+}
+
+button {
+  background-color: transparent;
+}
+
+section {
+  padding: clamp(72px, 17.5vw, 185px) 0;
+}
+
+header {
+  height: 90px;
+  aspect-ratio: 1 / 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: var(--content-container-lateral-padding);
+  .nav-menu {
+    width: fit-content;
+    height: fit-content;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+main {
+  min-height: 100dvh;
+}
+
+footer {
+  background-color: var(--bg-color-secondary);
+  padding: var(--content-container-lateral-padding) 0;
+
+  .footer-title {
+    color: var(--font-color-secondary);
+    font-weight: 700;
+  }
+
+  a {
+    font-weight: inherit;
+    font-size: inherit;
+    color: var(--clr-dark-grey);
+  }
+
+  .bottom {
+    [role="list"] {
+      display: flex;
+      justify-content: end;
+      gap: 16px;
+    }
+  }
+}
