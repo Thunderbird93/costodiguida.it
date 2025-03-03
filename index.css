@@ -4,7 +4,8 @@
 @import url(./src/styles/utility.css);
 
 #hero {
-  height: 100vh;
+  width: 100%;
+  aspect-ratio: var(--hero-aspect-ratio);
   min-height: fit-content;
   display: flex;
   flex-direction: column;
@@ -81,51 +82,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 1rem;
-    width: var(--cta-content-width);
+    row-gap: var(--fs-h3);
 
     h3,
-    p,
-    .cta-form {
+    p {
       text-align: center;
     }
 
-    .cta-form {
-      width: 100%;
-      max-width: 345px;
+    li {
+      font-size: var(--fs-p);
+    }
 
-      .name-input {
-        height: var(--thumb-size);
-        width: 100%;
-        position: relative;
-        background-color: red;
-        border-radius: calc(var(--thumb-size) / 2);
-        border-color: transparent;
-        margin-top: 16px;
+    p,
+    li {
+      font-size: calc(var(--fs-p) + 4px);
+    }
 
-        input {
-          height: inherit;
-          width: inherit;
-          padding: 0 6.7rem 0 1.5rem;
-          border-radius: inherit;
-          border-color: inherit;
-          color: var(--font-color-secondary-contrast);
-        }
+    .whatsapp-button {
+      display: var(--display-whatsapp-button);
+    }
 
-        input::placeholder {
-          color: var(--font-color-primary-contrast);
-          font-style: italic;
-        }
+    .email-button {
+      display: var(--display-email-button);
+    }
 
-        [type="submit"] {
-          background-color: var(--bg-color-primary);
-          color: var(--font-color-secondary);
-          width: fit-content;
-          padding: 0 0.75rem;
-          position: absolute;
-          right: 0;
-        }
-      }
+    a {
+      min-height: var(--thumb-size);
+      min-width: fit-content;
+      width: 15rem;
+      max-width: 300px;
+      background-color: var(--bg-color-secondary);
+      color: var(--font-color-secondary);
+      font-size: var(--fs-p);
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

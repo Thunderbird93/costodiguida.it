@@ -3,4 +3,9 @@
 
 [[redirects]]
  from = "/test"
- to = "/src/pages/calculator"
+ to = "/"
+
+[[redirects]]
+ from = "*"
+ to = "/not-found"
+ status = 404
