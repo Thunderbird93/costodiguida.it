@@ -5,7 +5,6 @@
 
 #hero {
   width: 100%;
-  aspect-ratio: var(--hero-aspect-ratio);
   min-height: fit-content;
   display: flex;
   flex-direction: column;
@@ -74,6 +73,18 @@
         }
       }
     }
+  }
+}
+
+@media (width < 1024px) {
+  #hero {
+    aspect-ratio: 13/ 21;
+  }
+}
+
+@media (width >= 1024px) {
+  #hero {
+    height: 100vh;
   }
 }
 

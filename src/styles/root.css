@@ -61,8 +61,6 @@
   --info-content-right-grid-column: 1 / 13;
   --info-content-left-grid-row: 2 / 3;
 
-  --hero-aspect-ratio: 13 / 21;
-
   /* views */
   --display-whatsapp-button: flex;
   --display-email-button: none;
@@ -99,8 +97,6 @@
     --info-content-left-grid-column: 1 / 7;
     --info-content-right-grid-column: 7 / 13;
     --info-content-left-grid-row: 1 / 2;
-
-    --hero-aspect-ratio: 21 / 13;
   }
 }
 
