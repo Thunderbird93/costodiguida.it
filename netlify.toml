@@ -6,6 +6,10 @@
  to = "/src/pages/calculator/calculator"
  status = 200
 
+ [[redirects]]
+ from = "/src/pages/calculator/calculator"
+ to = "/calculator"
+
 [[redirects]]
  from = "*"
  to = "/not-found"
