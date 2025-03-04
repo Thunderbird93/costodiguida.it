@@ -2,10 +2,11 @@
  publish = "."
 
 [[redirects]]
+ from = "/calculator"
+ to = "/src/pages/calculator/calculator"
+
+[[redirects]]
  from = "*"
  to = "/not-found"
  status = 404
 
-[[redirects]]
-  from = "/calculator"
-  to = "/src/pages/calculator/calculator"
