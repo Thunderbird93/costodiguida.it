@@ -18,6 +18,19 @@ h4 {
       width: 100%;
       position: relative;
 
+      input {
+        height: var(--thumb-size);
+        width: inherit;
+        border: 1px solid var(--bg-color-primary);
+        border-radius: 4px;
+        padding: 2px 80px 2px 40px;
+      }
+
+      input:focus {
+        outline: 1px solid var(--bg-color-accent);
+        border-color: var(--bg-color-accent);
+      }
+
       .left-box,
       .right-box {
         position: absolute;
@@ -31,7 +44,7 @@ h4 {
         justify-content: center;
         img {
           filter: brightness(0.25);
-          height: 18px;
+          height: 24px;
         }
       }
 
@@ -43,19 +56,6 @@ h4 {
       .right-box {
         right: 0;
         padding-right: 8px;
-      }
-
-      input {
-        height: var(--thumb-size);
-        width: inherit;
-        border: 1px solid var(--bg-color-primary);
-        border-radius: 4px;
-        padding: 2px 80px 2px 32px;
-      }
-
-      input:focus {
-        outline: 1px solid var(--bg-color-accent);
-        border-color: var(--bg-color-accent);
       }
     }
 
@@ -85,17 +85,26 @@ h4 {
       }
     }
 
-    /* .radio-input:has(.choice-3) {
-      label {
-        width: 33.3%;
+    .select {
+      select {
+        width: 100%;
+        height: var(--thumb-size);
+        border: 1px solid var(--bg-color-primary);
+        border-radius: 4px;
       }
-    } */
+      select:has(option:checked:not([value=""])) {
+        outline: 1px solid var(--bg-color-accent);
+        border: 1px solid var(--bg-color-accent);
+      }
+      option {
+        text-align: center;
+      }
+    }
   }
 
-  .field:has(input:focus) .field-title {
+  /* .field:has(:is(input, select):focus) .field-title {
     font-weight: 700;
-    font-size: var(--fs-100);
-  }
+  } */
 }
 
 #hero {
@@ -148,6 +157,7 @@ h4 {
     background-color: var(--bg-color-secondary-contrast);
     padding: 32px 20px 48px 20px;
     border-radius: 2px;
+    max-width: 452px;
 
     .preface {
       padding-bottom: 16px;

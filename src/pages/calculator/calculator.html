@@ -118,7 +118,7 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="field-title">Sì: Tipo di ibrido </label>
+                  <label class="field-title">Sì: Tipologia di ibrido </label>
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
@@ -140,7 +140,7 @@
                 </div>
 
                 <div class="field">
-                  <label class="field-title">No: Tipo di alimentazione </label>
+                  <label class="field-title">No: Alimentazione </label>
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
@@ -157,47 +157,6 @@
                         id="Elettrica"
                         value="Elettrica" />
                       Elettrica
-                    </label>
-                  </div>
-                </div>
-                <!-- se è elettrica finire qui -->
-                <div class="field">
-                  <label class="field-title" for="thermic-engine-power">
-                    Potenza motore (termico)
-                    <!-- se è ibrida "Potenza motore termico"  -->
-                    <!-- se è termica "Potenza motore"  -->
-                  </label>
-                  <div class="input">
-                    <input type="text" id="thermic-engine-power" value="150" />
-                    <div class="left-box">
-                      <img src="/src/assets/icons/bolt.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>cv</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="field-title">
-                    Unità di misura della potenza
-                  </label>
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="thermic-engine-power-unit"
-                        id="cv"
-                        value="cv"
-                        checked />
-                      cv
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="thermic-engine-power-unit"
-                        id="kW"
-                        value="kW" />
-                      kW
                     </label>
                   </div>
                 </div>
@@ -241,9 +200,6 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="field-title">
-                    Unità di misura del consumo
-                  </label>
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
@@ -304,9 +260,6 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="field-title">
-                    Unità di misura del consumo
-                  </label>
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
@@ -335,6 +288,30 @@
             <form>
               <div class="fields">
                 <div class="field">
+                  <label class="field-title">
+                    Sai quanto consumano il motore elettrico e quello termico
+                    individualmente?
+                  </label>
+                  <div class="radio-input">
+                    <label class="choice-1">
+                      <input
+                        type="radio"
+                        name="is-hybrid"
+                        id="is-hybrid"
+                        value="is-hybrid" />
+                      Sì
+                    </label>
+                    <label class="choice-2">
+                      <input
+                        type="radio"
+                        name="is-hybrid"
+                        id="not-hybrid"
+                        value="not-hybrid" />
+                      No
+                    </label>
+                  </div>
+                </div>
+                <div class="field">
                   <label class="field-title" for="annual-distance"
                     >Distanza percorsa annualmente</label
                   >
@@ -348,6 +325,125 @@
                     <div class="right-box">
                       <p>km</p>
                     </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="field-title" for="distance-in-electric">
+                    Distanza percorsa in elettrico
+                  </label>
+                  <div class="input">
+                    <input type="text" id="distance-in-electric" value="50" />
+                    <div class="left-box">
+                      <img
+                        src="/src/assets/icons/electric_car.svg"
+                        alt="Simbolo strada" />
+                    </div>
+                    <div class="right-box">
+                      <p>%</p>
+                    </div>
+                  </div>
+                </div>
+                No
+                <div class="field">
+                  <label class="field-title" for="plug-in-battery-capacity"
+                    >Capacità della batteria Plug-In</label
+                  >
+                  <div class="input">
+                    <input
+                      type="text"
+                      id="plug-in-battery-capacity"
+                      value="20" />
+                    <div class="left-box">
+                      <img src="/src/assets/icons/bolt.svg" alt="" />
+                    </div>
+                    <div class="right-box">
+                      <p>kWh</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="field-title" for="fuel-tank-capacity"
+                    >Capacità del serbatoio</label
+                  >
+                  <div class="input">
+                    <input type="text" id="fuel-tank-capacity" value="40" />
+                    <div class="left-box">
+                      <img src="/src/assets/icons/drop.svg" alt="" />
+                    </div>
+                    <div class="right-box">
+                      <p>litri</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="field-title" for="electric-autonomy-limit"
+                    >Autonomia dichiarate della percorrenza 100% in
+                    elettrico</label
+                  >
+                  <div class="input">
+                    <input
+                      type="text"
+                      id="electric-autonomy-limit"
+                      value="120" />
+                    <div class="left-box">
+                      <img src="/src/assets/icons/road.svg" alt="" />
+                    </div>
+                    <div class="right-box">
+                      <p>km</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="field-title" for="total-autonomy-limit"
+                    >Autonomia dichiarate complessiva (Elettrico +
+                    Termico)</label
+                  >
+                  <div class="input">
+                    <input type="text" id="total-autonomy-limit" value="820" />
+                    <div class="left-box">
+                      <img src="/src/assets/icons/road.svg" alt="" />
+                    </div>
+                    <div class="right-box">
+                      <p>km</p>
+                    </div>
+                  </div>
+                </div>
+                Sì
+                <div class="field">
+                  <label class="field-title" for="fuel-efficiency"
+                    >Consumo di elettricità
+                  </label>
+                  <div class="input">
+                    <input type="text" id="fuel-efficiency" value="6" />
+                    <div class="left-box">
+                      <img
+                        src="/src/assets/icons/ev_station.svg"
+                        alt="Simbolo strada" />
+                    </div>
+                    <div class="right-box">
+                      <p>km/kWh</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="radio-input">
+                    <label class="choice-1">
+                      <input
+                        type="radio"
+                        name="fuel-efficiency-unit"
+                        id="km/kWh"
+                        value="km/kWh"
+                        checked />
+                      km/kWh
+                    </label>
+                    <label class="choice-2">
+                      <input
+                        type="radio"
+                        name="fuel-efficiency-unit"
+                        id="kWh/100km"
+                        value="kWh/100km" />
+                      kWh/100km
+                    </label>
                   </div>
                 </div>
                 <div class="field">
@@ -367,9 +463,6 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="field-title">
-                    Unità di misura del consumo
-                  </label>
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
@@ -387,6 +480,65 @@
                         id="L/100km"
                         value="L/100km" />
                       L/100km
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="info-card">
+            <h4>3. Tasse</h4>
+            <form>
+              <div class="fields">
+                <div class="field">
+                  <label class="field-title" for="regions"
+                    >Regione di residenza / sede legale
+                  </label>
+                  <div class="select">
+                    <select name="regions" id="regions">
+                      <option value="">- Seleziona -</option>
+                      <option value="Abruzzo">Abruzzo</option>
+                      <option value="Basilicata">Basilicata</option>
+                      <option value="Calabria">Calabria</option>
+                      <option value="Campania">Campania</option>
+                      <option value="Emilia-Romagna">Emilia-Romagna</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="field-title" for="thermic-engine-power">
+                    Potenza motore (termico)
+                    <!-- se è ibrida "Potenza motore termico"  -->
+                    <!-- se è termica "Potenza motore"  -->
+                  </label>
+                  <div class="input">
+                    <input type="text" id="thermic-engine-power" value="150" />
+                    <div class="left-box">
+                      <img src="/src/assets/icons/bolt.svg" alt="" />
+                    </div>
+                    <div class="right-box">
+                      <p>cv</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="radio-input">
+                    <label class="choice-1">
+                      <input
+                        type="radio"
+                        name="thermic-engine-power-unit"
+                        id="cv"
+                        value="cv"
+                        checked />
+                      cv
+                    </label>
+                    <label class="choice-2">
+                      <input
+                        type="radio"
+                        name="thermic-engine-power-unit"
+                        id="kW"
+                        value="kW" />
+                      kW
                     </label>
                   </div>
                 </div>

@@ -60,10 +60,6 @@
   --info-content-left-grid-column: 1 / 13;
   --info-content-right-grid-column: 1 / 13;
   --info-content-left-grid-row: 2 / 3;
-
-  /* views */
-  --display-whatsapp-button: flex;
-  --display-email-button: none;
 }
 
 @media (width >= 390px) {
@@ -84,8 +80,6 @@
     --fs-h1: var(--fs-800);
     --content-container-width: var(--small-tablet-content-width);
     --hero-p-width: 33rem;
-    --display-whatsapp-button: none;
-    --display-email-button: flex;
   }
 }
 

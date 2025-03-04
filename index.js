@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelectorAll("#hero");
-  const toggleMenu = document.querySelectorAll("#hamburger-menu");
+  const $$ = (args) => document.querySelectorAll(args);
+  HTMLElement.prototype.$$ = (s) => this.querySelectorAll(s);
+
+  const hero = $$("#hero");
+  const toggleMenu = $$("#hamburger-menu");
 
   const observer = new IntersectionObserver(
     ([entry]) => {

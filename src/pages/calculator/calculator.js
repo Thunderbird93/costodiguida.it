@@ -1,6 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelectorAll("#hero");
-  const toggleMenu = document.querySelectorAll("#hamburger-menu");
+import Store from "../../js/services/Store.js";
+import API from "../../js/services/API.js";
+import Router from "../../js/services/Router.js";
+
+window.app = {};
+app.store = Store;
+app.router = Router;
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const $$ = (args) => document.querySelectorAll(args);
+  HTMLElement.prototype.$$ = (s) => this.querySelectorAll(s);
+
+  const hero = $$("#hero");
+  const toggleMenu = $$("#hamburger-menu");
 
   const observer = new IntersectionObserver(
     ([entry]) => {
