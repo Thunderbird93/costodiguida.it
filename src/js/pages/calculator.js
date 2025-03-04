@@ -1,6 +1,6 @@
-import Store from "../../js/services/Store.js";
-import API from "../../js/services/API.js";
-import Router from "../../js/services/Router.js";
+import Store from "../services/Store.js";
+import API from "../services/API.js";
+import Router from "../services/Router.js";
 
 window.app = {};
 app.store = Store;
