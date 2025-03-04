@@ -114,7 +114,7 @@ button {
 }
 
 section {
-  padding: clamp(72px, 17.5vw, 185px) 0;
+  padding: clamp(64px, 10vw, 185px) 0;
 }
 
 header {

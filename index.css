@@ -1,7 +1,4 @@
-@import url(./src/styles/fonts.css);
-@import url(./src/styles/root.css);
-@import url(./src/styles/reset.css);
-@import url(./src/styles/utility.css);
+@import url(/src/styles/styles.css);
 
 #hero {
   height: 100vh;
@@ -89,20 +86,12 @@
     }
 
     li {
-      font-size: var(--fs-p);
+      font-weight: 700;
     }
 
     p,
     li {
-      font-size: calc(var(--fs-p) + 4px);
-    }
-
-    .whatsapp-button {
-      display: var(--display-whatsapp-button);
-    }
-
-    .email-button {
-      display: var(--display-email-button);
+      font-size: calc(var(--fs-p) + 2px);
     }
 
     a {
@@ -149,6 +138,21 @@
 
     h2 {
       margin-bottom: 28px;
+    }
+
+    .conclusion {
+      margin-bottom: 0;
+    }
+
+    .conclusion::before {
+      --x: 3px;
+      content: "";
+      display: block;
+      height: var(--x);
+      width: calc(var(--fs-a) * 1.4);
+      border-radius: calc(var(--x) / 2);
+      background-color: var(--bg-color-accent);
+      margin-bottom: calc(1vw + 0.5rem);
     }
 
     .video {

@@ -11,7 +11,9 @@
   h2,
   h3,
   h4,
-  a {
+  a,
+  label,
+  input {
     color: var(--font-color-secondary-contrast);
   }
 }
@@ -23,7 +25,9 @@
   h2,
   h3,
   h4,
-  a {
+  a,
+  label,
+  input {
     color: var(--font-color-secondary-contrast);
   }
 }
