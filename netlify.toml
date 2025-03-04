@@ -4,6 +4,7 @@
 [[redirects]]
  from = "/calculator"
  to = "/src/pages/calculator/calculator"
+ status = 200
 
 [[redirects]]
  from = "*"
