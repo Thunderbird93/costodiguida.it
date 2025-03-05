@@ -161,9 +161,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     taxCard.forEach((el) => {
       let display = "none";
 
-      if (car.isItHybrid === true && car.isItPlugIn !== null) {
-        display = "block";
-      } else if (car.isItHybrid === false && car.isItElectric === false) {
+      if (
+        (car.isItHybrid === true && car.isItPlugIn !== null) ||
+        (car.isItHybrid === false && car.isItElectric === false)
+      ) {
         display = "block";
       }
 
