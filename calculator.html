@@ -44,14 +44,15 @@
       </section>
       <section id="calculator" class="contrast-colors">
         <div class="content-container info-cards-organizer">
+          <!-- 1 -->
           <div class="info-card">
             <h4>1. Costo del noleggio</h4>
             <form>
               <div class="fields">
                 <div class="field">
-                  <label class="field-title" for="anticipo">Anticipo</label>
+                  <label class="field-title" for="upfront"> Anticipo </label>
                   <div class="input">
-                    <input type="text" id="anticipo" value="0" />
+                    <input type="text" id="upfront" />
                     <div class="left-box">
                       <img
                         src="./src/assets/icons/euro_symbol.svg"
@@ -60,11 +61,11 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="field-title" for="canone-mensile"
+                  <label class="field-title" for="monthly"
                     >Canone mensile</label
                   >
                   <div class="input">
-                    <input type="text" id="canone-mensile" value="500" />
+                    <input type="text" id="monthly" />
                     <div class="left-box">
                       <img
                         src="./src/assets/icons/euro_symbol.svg"
@@ -73,25 +74,34 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="field-title" for="spese-incasso"
-                    >Spese mensili d'incasso</label
-                  >
+                  <label class="field-title" for="months"> Durata </label>
                   <div class="input">
-                    <input type="text" id="spese-incasso" value="0" />
+                    <input type="text" id="months" value="36" />
                     <div class="left-box">
-                      <img
-                        src="./src/assets/icons/euro_symbol.svg"
-                        alt="Simbolo euro" />
+                      <img src="./src/assets/icons/calendar.svg" alt="" />
+                    </div>
+                    <div class="right-box">
+                      <p>mesi</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="result">
+                    <div class="left">Costo mensile</div>
+                    <div class="right">
+                      €
+                      <div id="monthlyRentalCost">0</div>
                     </div>
                   </div>
                 </div>
               </div>
             </form>
           </div>
+          <!-- pre -->
           <div class="info-card">
             <p class="preface">
-              Prima di preseguire al punto 2 e 3, compila le seguenti
-              infomrazioni necessarie del veicolo.
+              Prima di preseguire, compila le seguenti infomrazioni necessarie
+              del veicolo.
             </p>
             <h4>Dettagli sulla motorizzazione</h4>
             <form>
@@ -100,77 +110,63 @@
                   <label class="field-title">Indica se è Ibrida</label>
                   <div class="radio-input">
                     <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="is-hybrid"
-                        id="is-hybrid"
-                        value="is-hybrid" />
+                      <input type="radio" name="isItHybrid" value="true" />
                       Sì
                     </label>
                     <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="is-hybrid"
-                        id="not-hybrid"
-                        value="not-hybrid" />
+                      <input type="radio" name="isItHybrid" value="false" />
                       No
                     </label>
                   </div>
                 </div>
-                <div class="field">
-                  <label class="field-title">Sì: Tipologia di ibrido </label>
+                <div class="field" id="carIsHybrid">
+                  <label class="field-title">Tipologia di ibrido </label>
                   <div class="radio-input">
                     <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="hybrid-type"
-                        id="Plug-In"
-                        value="Plug-In" />
+                      <input type="radio" name="isItPlugIn" value="true" />
                       Plug-In
                     </label>
                     <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="hybrid-type"
-                        id="other-hybrid"
-                        value="other-hybrid" />
+                      <input type="radio" name="isItPlugIn" value="false" />
                       Full o Mild
                     </label>
                   </div>
                 </div>
 
-                <div class="field">
-                  <label class="field-title">No: Alimentazione </label>
+                <div class="field" id="carIsNotHybrid">
+                  <label class="field-title">Alimentazione </label>
                   <div class="radio-input">
                     <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="fuel-type"
-                        id="Termica"
-                        value="Termica" />
-                      Termica
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="fuel-type"
-                        id="Elettrica"
-                        value="Elettrica" />
+                      <input type="radio" name="isItElectric" value="true" />
                       Elettrica
                     </label>
+                    <label class="choice-2">
+                      <input type="radio" name="isItElectric" value="false" />
+                      Termica
+                    </label>
+                  </div>
+                </div>
+                <div class="field" id="displayPreMessage">
+                  <div class="result">
+                    <div class="left"></div>
+                    <div class="right">
+                      <p>Fantastico! Ora puoi procedere.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </form>
           </div>
-          <div class="info-card">
+          <!-- 2 -->
+          <div class="info-card" id="fuelCostCard">
             <h4>2. Costo del carburante</h4>
             <form>
               <div class="fields">
+                <!-- distance -->
                 <div class="field">
-                  <label class="field-title" for="annual-distance"
-                    >Distanza percorsa annualmente</label
-                  >
+                  <label class="field-title" for="annual-distance">
+                    Distanza percorsa annualmente
+                  </label>
                   <div class="input">
                     <input type="text" id="annual-distance" value="15000" />
                     <div class="left-box">
@@ -183,7 +179,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="field">
+                <!-- thermic -->
+                <div class="field thermic">
                   <label class="field-title" for="fuel-efficiency"
                     >Consumo di carburante</label
                   >
@@ -199,13 +196,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="field">
+                <div class="field thermic">
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
                         type="radio"
                         name="fuel-efficiency-unit"
-                        id="km/L"
                         value="km/L"
                         checked />
                       km/L
@@ -214,36 +210,13 @@
                       <input
                         type="radio"
                         name="fuel-efficiency-unit"
-                        id="L/100km"
                         value="L/100km" />
                       L/100km
                     </label>
                   </div>
                 </div>
-              </div>
-            </form>
-          </div>
-          <div class="info-card">
-            <h4>2. Costo del carburante (Elettrica)</h4>
-            <form>
-              <div class="fields">
-                <div class="field">
-                  <label class="field-title" for="annual-distance"
-                    >Distanza percorsa annualmente</label
-                  >
-                  <div class="input">
-                    <input type="text" id="annual-distance" value="15000" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/road.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="field">
+                <!-- electric -->
+                <div class="field electric">
                   <label class="field-title" for="fuel-efficiency"
                     >Consumo di elettricità
                   </label>
@@ -259,13 +232,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="field">
+                <div class="field electric">
                   <div class="radio-input">
                     <label class="choice-1">
                       <input
                         type="radio"
                         name="fuel-efficiency-unit"
-                        id="km/kWh"
                         value="km/kWh"
                         checked />
                       km/kWh
@@ -274,60 +246,13 @@
                       <input
                         type="radio"
                         name="fuel-efficiency-unit"
-                        id="kWh/100km"
                         value="kWh/100km" />
                       kWh/100km
                     </label>
                   </div>
                 </div>
-              </div>
-            </form>
-          </div>
-          <div class="info-card">
-            <h4>2. Costo del carburante (Plug-In)</h4>
-            <form>
-              <div class="fields">
-                <div class="field">
-                  <label class="field-title">
-                    Sai quanto consumano il motore elettrico e quello termico
-                    individualmente?
-                  </label>
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="is-hybrid"
-                        id="is-hybrid"
-                        value="is-hybrid" />
-                      Sì
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="is-hybrid"
-                        id="not-hybrid"
-                        value="not-hybrid" />
-                      No
-                    </label>
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="field-title" for="annual-distance"
-                    >Distanza percorsa annualmente</label
-                  >
-                  <div class="input">
-                    <input type="text" id="annual-distance" value="15000" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/road.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="field">
+                <!-- plug-in -->
+                <div class="field plugIn">
                   <label class="field-title" for="distance-in-electric">
                     Distanza percorsa in elettrico
                   </label>
@@ -343,8 +268,7 @@
                     </div>
                   </div>
                 </div>
-                No
-                <div class="field">
+                <div class="field plugIn">
                   <label class="field-title" for="plug-in-battery-capacity"
                     >Capacità della batteria Plug-In</label
                   >
@@ -361,7 +285,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="field">
+                <div class="field plugIn">
                   <label class="field-title" for="fuel-tank-capacity"
                     >Capacità del serbatoio</label
                   >
@@ -375,7 +299,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="field">
+                <div class="field plugIn">
                   <label class="field-title" for="electric-autonomy-limit"
                     >Autonomia dichiarate della percorrenza 100% in
                     elettrico</label
@@ -393,7 +317,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="field">
+                <div class="field plugIn">
                   <label class="field-title" for="total-autonomy-limit"
                     >Autonomia dichiarate complessiva (Elettrico +
                     Termico)</label
@@ -408,85 +332,11 @@
                     </div>
                   </div>
                 </div>
-                Sì
-                <div class="field">
-                  <label class="field-title" for="fuel-efficiency"
-                    >Consumo di elettricità
-                  </label>
-                  <div class="input">
-                    <input type="text" id="fuel-efficiency" value="6" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/ev_station.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km/kWh</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="fuel-efficiency-unit"
-                        id="km/kWh"
-                        value="km/kWh"
-                        checked />
-                      km/kWh
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="fuel-efficiency-unit"
-                        id="kWh/100km"
-                        value="kWh/100km" />
-                      kWh/100km
-                    </label>
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="field-title" for="fuel-efficiency"
-                    >Consumo di carburante termico
-                  </label>
-                  <div class="input">
-                    <input type="text" id="fuel-efficiency" value="14.5" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/gas_station.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km/L</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="fuel-efficiency-unit"
-                        id="km/L"
-                        value="km/L"
-                        checked />
-                      km/L
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="fuel-efficiency-unit"
-                        id="L/100km"
-                        value="L/100km" />
-                      L/100km
-                    </label>
-                  </div>
-                </div>
               </div>
             </form>
           </div>
-          <div class="info-card">
+
+          <div class="info-card" id="taxCard">
             <h4>3. Tasse</h4>
             <form>
               <div class="fields">
@@ -527,7 +377,6 @@
                       <input
                         type="radio"
                         name="thermic-engine-power-unit"
-                        id="cv"
                         value="cv"
                         checked />
                       cv
@@ -536,7 +385,6 @@
                       <input
                         type="radio"
                         name="thermic-engine-power-unit"
-                        id="kW"
                         value="kW" />
                       kW
                     </label>

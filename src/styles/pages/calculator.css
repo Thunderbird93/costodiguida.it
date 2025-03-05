@@ -101,10 +101,6 @@ h4 {
       }
     }
   }
-
-  /* .field:has(:is(input, select):focus) .field-title {
-    font-weight: 700;
-  } */
 }
 
 #hero {
@@ -165,4 +161,28 @@ h4 {
       border-bottom: 1px solid var(--bg-color-primary);
     }
   }
+}
+
+.result {
+  padding-top: 8px;
+  border-top: 1px solid var(--bg-color-primary);
+  display: flex;
+  justify-content: space-between;
+  .right {
+    display: flex;
+    div {
+      margin-left: 4px;
+    }
+  }
+}
+
+#carIsHybrid,
+#carIsNotHybrid,
+#displayPreMessage,
+#fuelCostCard,
+#taxCard,
+.field.thermic,
+.field.electric,
+.field.plugIn {
+  display: none;
 }
