@@ -9,11 +9,32 @@ const Store = {
   isItElectric: null,
   displayPreMessage: false,
   //
+  distance: null,
+  //
+  thermicFuelEfficiency: null,
+  thermicFuelEfficiencyUnit: null,
+  //
+  electricFuelEfficiency: null,
+  electricFuelEfficiencyUnit: null,
+  //
+  distanceInElectric: null,
+  batteryCapacity: null,
+  tankCapacity: null,
+  electricAutonomy: null,
+  fullAutonomy: null,
+  monthlyFuelCost: 0,
+  //
+  region: null,
+  thermicEnginePower: null,
+  enginePowerUnit: null,
 };
 
 const proxiedStore = new Proxy(Store, {
   set(target, property, value) {
     target[property] = value;
+
+    // window.dispatchEvent(new Event("storechange"));
+
     if (property === "upfront") {
       window.dispatchEvent(new Event("upfrontchange"));
     }
@@ -38,7 +59,49 @@ const proxiedStore = new Proxy(Store, {
     if (property === "displayPreMessage") {
       window.dispatchEvent(new Event("displayPreMessagechange"));
     }
+    if (property === "distance") {
+      window.dispatchEvent(new Event("distancechange"));
+    }
+    if (property === "thermicFuelEfficiency") {
+      window.dispatchEvent(new Event("thermicFuelEfficiencychange"));
+    }
+    if (property === "thermicFuelEfficiencyUnit") {
+      window.dispatchEvent(new Event("thermicFuelEfficiencyUnitchange"));
+    }
+    if (property === "electricFuelEfficiency") {
+      window.dispatchEvent(new Event("electricFuelEfficiencychange"));
+    }
+    if (property === "electricFuelEfficiencyUnit") {
+      window.dispatchEvent(new Event("electricFuelEfficiencyUnitchange"));
+    }
+    if (property === "distanceInElectric") {
+      window.dispatchEvent(new Event("distanceInElectricchange"));
+    }
 
+    if (property === "batteryCapacity") {
+      window.dispatchEvent(new Event("batteryCapacitychange"));
+    }
+    if (property === "tankCapacity") {
+      window.dispatchEvent(new Event("tankCapacitychange"));
+    }
+    if (property === "electricAutonomy") {
+      window.dispatchEvent(new Event("electricAutonomychange"));
+    }
+    if (property === "fullAutonomy") {
+      window.dispatchEvent(new Event("fullAutonomychange"));
+    }
+    if (property === "monthlyFuelCost") {
+      window.dispatchEvent(new Event("monthlyFuelCostchange"));
+    }
+    if (property === "region") {
+      window.dispatchEvent(new Event("regionchange"));
+    }
+    if (property === "thermicEnginePower") {
+      window.dispatchEvent(new Event("thermicEnginePowerchange"));
+    }
+    if (property === "enginePowerUnit") {
+      window.dispatchEvent(new Event("enginePowerUnitchange"));
+    }
     return true;
   },
 

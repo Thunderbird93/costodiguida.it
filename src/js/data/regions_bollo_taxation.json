@@ -1,0 +1,212 @@
+{
+  "Abruzzo": {
+    "payment": {
+      "minimum": 23.12,
+      "fares": {
+        "base": 3.12,
+        "surplus": 4.69
+      }
+    },
+    "source": null
+  },
+  "Basilicata": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Calabria": {
+    "payment": {
+      "minimum": 21.02,
+      "fares": {
+        "base": 2.84,
+        "surplus": 4.26
+      }
+    },
+    "source": null
+  },
+  "Campania": {
+    "payment": {
+      "minimum": 23.12,
+      "fares": {
+        "base": 3.12,
+        "surplus": 4.69
+      }
+    },
+    "source": null
+  },
+  "Emilia-Romagna": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Friuli-Venezia Giulia": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Lazio": {
+    "payment": {
+      "minimum": 21.02,
+      "fares": {
+        "base": 2.84,
+        "surplus": 4.26
+      }
+    },
+    "source": null
+  },
+  "Liguria": {
+    "payment": {
+      "minimum": null,
+      "fares": {
+        "base": 2.84,
+        "surplus": 4.26
+      }
+    },
+    "source": null
+  },
+  "Lombardia": {
+    "payment": {
+      "minimum": 20,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Marche": {
+    "payment": {
+      "minimum": null,
+      "fares": {
+        "base": 2.79,
+        "surplus": 4.18
+      }
+    },
+    "source": null
+  },
+  "Molise": {
+    "payment": {
+      "minimum": null,
+      "fares": {
+        "base": 2.76,
+        "surplus": 4.14
+      }
+    },
+    "source": null
+  },
+  "Piemonte": {
+    "payment": {
+      "minimum": null,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Provincia autonoma di Bolzano - Alto Adige": {
+    "payment": {
+      "minimum": 17.2,
+      "fares": {
+        "base": 1.96,
+        "surplus": 2.94
+      }
+    },
+    "source": null
+  },
+  "Provincia autonoma di Trento": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 1.96,
+        "surplus": 2.95
+      }
+    },
+    "source": null
+  },
+  "Puglia": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Sardegna": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Sicilia": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Toscana": {
+    "payment": {
+      "minimum": 23.12,
+      "fares": {
+        "base": 2.71,
+        "surplus": 4.26
+      }
+    },
+    "source": null
+  },
+  "Umbria": {
+    "payment": {
+      "minimum": 19.11,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Valle d'Aosta": {
+    "payment": {
+      "minimum": null,
+      "fares": {
+        "base": 2.58,
+        "surplus": 3.87
+      }
+    },
+    "source": null
+  },
+  "Veneto": {
+    "payment": {
+      "minimum": null,
+      "fares": {
+        "base": 2.84,
+        "surplus": 4.26
+      }
+    },
+    "source": null
+  }
+}

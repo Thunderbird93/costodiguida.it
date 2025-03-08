@@ -1,0 +1,11 @@
+{
+  "petrol": {
+    "price": 1.799
+  },
+  "diesel": {
+    "price": 1.701
+  },
+  "electricity": {
+    "price": 0.16643
+  }
+}

@@ -33,7 +33,6 @@
 }
 
 .hover-to-accent {
-  color: inherit;
   transition: color 250ms;
 }
 .hover-to-accent:hover {
