@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const thermicEnginePower = $$("#thermicEnginePower")[0];
   const enginePowerUnit = $$('input[name="enginePowerUnit"]');
 
-  const annualTaxes = $$("annualTaxes")[0];
+  const bollo = $$("#bollo")[0];
+  const superbollo = $$("#superbollo")[0];
 
   enginePowerUnit.forEach((el) => {
     el.addEventListener("change", () => {
@@ -113,29 +114,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     const region = app.store.region;
     const unit = app.store.enginePowerUnit;
     let power = app.store.thermicEnginePower;
-    let bollo;
+    let tax_bollo;
     if (region !== null && power !== null && unit !== null) {
-      //calcolo bollo
-      console.time();
+      //calcolo tax_bollo
 
       if (unit === "cv") {
         power = Math.round(power * 0.735);
       }
       if (regionsTaxation[region].payment.minimum !== null) {
-        bollo = regionsTaxation[region].payment.minimum;
+        tax_bollo = regionsTaxation[region].payment.minimum;
       }
       if (power <= 100) {
-        bollo = power * regionsTaxation[region].payment.fares.base;
+        tax_bollo = power * regionsTaxation[region].payment.fares.base;
       } else {
         const base = 100 * regionsTaxation[region].payment.fares.base;
         const surplus =
           (power - 100) * regionsTaxation[region].payment.fares.surplus;
-        bollo = base + surplus;
+        tax_bollo = base + surplus;
+        displayAnnualTaxes("bollo", tax_bollo);
       }
-      bollo = Math.round(bollo);
-      let superBollo = 0;
+      tax_bollo = Math.round(tax_bollo);
+      let tax_superBollo = 0;
       if (power >= 185) {
-        superBollo = (power - 185) * 20;
+        tax_superBollo = (power - 185) * 20;
+        displayAnnualTaxes("superbollo", tax_superBollo);
       }
     }
   };
@@ -159,6 +161,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     monthlyRentalCost[0].innerText = num;
   };
 
+  const displayAnnualTaxes = (type, value) => {
+    if (!type) return;
+    if (type === "bollo") {
+      bollo.innerText = value;
+    } else {
+      superbollo.innerText = value;
+    }
+  };
+
   const calcRent = () => {
     const i = app.store;
     if (
@@ -176,8 +187,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const calcFuelConsumption = () => {
-    console.log("entro");
-
     const distance = app.store.distance;
     if (!distance) return;
     let cost = 0;

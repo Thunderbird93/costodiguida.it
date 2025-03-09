@@ -12,19 +12,11 @@
       type="image/x-icon" />
     <link rel="stylesheet" href="./src/styles/pages/calculator.css" />
     <script type="module" src="./src/js/pages/calculator.js" defer></script>
+    <script type="module" src="./src/components/index.js"></script>
     <title>Calcolatore | Costo di guida</title>
   </head>
   <body>
-    <header>
-      <nav class="nav-menu">
-        <a href="#">
-          <img
-            id="hamburger-menu"
-            src="./src/assets/icons/hamburger_icon.svg"
-            alt="Hamburger menu" />
-        </a>
-      </nav>
-    </header>
+    <main-header> </main-header>
     <main>
       <section id="hero">
         <div class="content-container hero-content">
@@ -52,7 +44,7 @@
                 <div class="field">
                   <label class="field-title" for="upfront"> Anticipo </label>
                   <div class="input">
-                    <input type="text" id="upfront" />
+                    <input inputmode="numeric" type="text" id="upfront" />
                     <div class="left-box">
                       <img
                         src="./src/assets/icons/euro_symbol.svg"
@@ -65,7 +57,7 @@
                     >Canone mensile
                   </label>
                   <div class="input">
-                    <input type="text" id="monthly" />
+                    <input inputmode="numeric" type="text" id="monthly" />
                     <div class="left-box">
                       <img
                         src="./src/assets/icons/euro_symbol.svg"
@@ -76,7 +68,11 @@
                 <div class="field">
                   <label class="field-title" for="months"> Durata </label>
                   <div class="input">
-                    <input type="text" id="months" value="36" />
+                    <input
+                      inputmode="numeric"
+                      type="text"
+                      id="months"
+                      value="36" />
                     <div class="left-box">
                       <img src="./src/assets/icons/calendar.svg" alt="" />
                     </div>
@@ -404,22 +400,6 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="content-container">
-        <nav class="menu">
-          <ul role="list"></ul>
-        </nav>
-        <nav class="bottom">
-          <ul role="list">
-            <li>
-              <a href="#">Obiettivo del sito</a>
-            </li>
-            <li>
-              <a href="#">Privacy policy</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+    <main-footer></main-footer>
   </body>
 </html>
