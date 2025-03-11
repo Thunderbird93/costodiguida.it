@@ -12,7 +12,7 @@
       type="image/x-icon" />
     <link rel="stylesheet" href="./src/styles/pages/calculator.css" />
     <script type="module" src="./src/js/pages/calculator.js" defer></script>
-    <script type="module" src="./src/components/index.js"></script>
+    <script type="module" src="./src/components/index.js" defer></script>
     <title>Calcolatore | Costo di guida</title>
   </head>
   <body>
@@ -43,54 +43,30 @@
               <div class="fields">
                 <div class="field">
                   <label class="field-title" for="upfront"> Anticipo </label>
-                  <div class="input">
-                    <input inputmode="numeric" type="text" id="upfront" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/euro_symbol.svg"
-                        alt="Simbolo euro" />
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="upfront"
+                    icon="euro_symbol"></input-number>
                 </div>
                 <div class="field">
-                  <label class="field-title" for="monthly"
-                    >Canone mensile
+                  <label class="field-title" for="monthly">
+                    Canone mensile
                   </label>
-                  <div class="input">
-                    <input inputmode="numeric" type="text" id="monthly" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/euro_symbol.svg"
-                        alt="Simbolo euro" />
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="monthly"
+                    icon="euro_symbol"></input-number>
                 </div>
                 <div class="field">
-                  <label class="field-title" for="months"> Durata </label>
-                  <div class="input">
-                    <input
-                      inputmode="numeric"
-                      type="text"
-                      id="months"
-                      value="36" />
-                    <div class="left-box">
-                      <img src="./src/assets/icons/calendar.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>mesi</p>
-                    </div>
-                  </div>
+                  <label class="field-title" for="monthly">
+                    Durata del noleggio
+                  </label>
+                  <input-number
+                    storepath="months"
+                    icon="calendar"
+                    value="36"
+                    detail="mesi"></input-number>
                 </div>
                 <div class="field">
-                  <div class="result">
-                    <div class="left">
-                      Costo effettivo mensile considerando l'anticipo
-                    </div>
-                    <div class="right">
-                      €
-                      <div id="monthlyRentalCost">0</div>
-                    </div>
-                  </div>
+                  <fields-rent-result result="test"></fields-rent-result>
                 </div>
               </div>
             </form>
@@ -106,51 +82,27 @@
               <div class="fields">
                 <div class="field">
                   <label class="field-title">Indica se è Ibrida</label>
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input type="radio" name="isItHybrid" value="true" />
-                      Sì
-                    </label>
-                    <label class="choice-2">
-                      <input type="radio" name="isItHybrid" value="false" />
-                      No
-                    </label>
-                  </div>
+                  <radio-button
+                    labels="Sì.No"
+                    values="true.false"
+                    storepath="isItHybrid"></radio-button>
                 </div>
                 <div class="field" id="carIsHybrid">
                   <label class="field-title">Tipologia di ibrido </label>
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input type="radio" name="isItPlugIn" value="true" />
-                      Plug-In
-                    </label>
-                    <label class="choice-2">
-                      <input type="radio" name="isItPlugIn" value="false" />
-                      Full o Mild
-                    </label>
-                  </div>
+                  <radio-button
+                    labels="Plug-In.Full o Mild"
+                    values="true.false"
+                    storepath="isItPlugIn"></radio-button>
                 </div>
-
                 <div class="field" id="carIsNotHybrid">
                   <label class="field-title">Alimentazione </label>
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input type="radio" name="isItElectric" value="true" />
-                      Elettrica
-                    </label>
-                    <label class="choice-2">
-                      <input type="radio" name="isItElectric" value="false" />
-                      Termica
-                    </label>
-                  </div>
+                  <radio-button
+                    labels="Elettrica.Termica"
+                    values="true.false"
+                    storepath="isItElectric"></radio-button>
                 </div>
                 <div class="field" id="displayPreMessage">
-                  <div class="result">
-                    <div class="left"></div>
-                    <div class="right">
-                      <p>Fantastico! Ora puoi procedere.</p>
-                    </div>
-                  </div>
+                  <fields-message-result></fields-message-result>
                 </div>
               </div>
             </form>
@@ -165,173 +117,93 @@
                   <label class="field-title" for="distance">
                     Distanza percorsa annualmente
                   </label>
-                  <div class="input">
-                    <input type="text" id="distance" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/road.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="distance"
+                    icon="road"
+                    detail="km"></input-number>
                 </div>
                 <!-- thermic -->
                 <div class="field thermic">
                   <label class="field-title" for="thermicFuelEfficiency">
                     Consumo di carburante
                   </label>
-                  <div class="input">
-                    <input type="text" id="thermicFuelEfficiency" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/gas_station.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km/L</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="thermicFuelEfficiency"
+                    icon="gas_station"
+                    detail="km/L"></input-number>
+                  <radio-button
+                    labels="km/L.L/100km"
+                    values="km/L.L/100km"
+                    storepath="thermicFuelEfficiencyUnit"
+                    checked="km/L"></radio-button>
                 </div>
-                <div class="field thermic">
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="thermicFuelEfficiencyUnit"
-                        value="km/L"
-                        checked />
-                      km/L
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="thermicFuelEfficiencyUnit"
-                        value="L/100km" />
-                      L/100km
-                    </label>
-                  </div>
-                </div>
+
                 <!-- electric -->
                 <div class="field electric">
                   <label class="field-title" for="electricFuelEfficiency"
                     >Consumo di elettricità
                   </label>
-                  <div class="input">
-                    <input type="text" id="electricFuelEfficiency" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/ev_station.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>km/kWh</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="field electric">
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="electricFuelEfficiencyUnit"
-                        value="km/kWh"
-                        checked />
-                      km/kWh
-                    </label>
-                    <label class="choice-2">
-                      <input
-                        type="radio"
-                        name="electricFuelEfficiencyUnit"
-                        value="kWh/100km" />
-                      kWh/100km
-                    </label>
-                  </div>
+                  <input-number
+                    storepath="electricFuelEfficiency"
+                    icon="ev_station"
+                    detail="kWh/100km"></input-number>
+                  <radio-button
+                    labels="km/kWh.kWh/100km"
+                    values="km/kWh.kWh/100km"
+                    storepath="electricFuelEfficiencyUnit"
+                    checked="kWh/100km"></radio-button>
                 </div>
                 <!-- plug-in -->
                 <div class="field plugIn">
                   <label class="field-title" for="distanceInElectric">
                     Distanza percorsa in elettrico
                   </label>
-                  <div class="input">
-                    <input type="text" id="distanceInElectric" value="50" />
-                    <div class="left-box">
-                      <img
-                        src="./src/assets/icons/electric_car.svg"
-                        alt="Simbolo strada" />
-                    </div>
-                    <div class="right-box">
-                      <p>%</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="distanceInElectric"
+                    icon="electric_car"
+                    detail="%"
+                    value="50"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="batteryCapacity"
                     >Capacità della batteria Plug-In</label
                   >
-                  <div class="input">
-                    <input type="text" id="batteryCapacity" />
-                    <div class="left-box">
-                      <img src="./src/assets/icons/bolt.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>kWh</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="batteryCapacity"
+                    icon="bolt"
+                    detail="kWh"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="tankCapacity"
                     >Capacità del serbatoio</label
                   >
-                  <div class="input">
-                    <input type="text" id="tankCapacity" />
-                    <div class="left-box">
-                      <img src="./src/assets/icons/drop.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>litri</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="tankCapacity"
+                    icon="drop"
+                    detail="litri"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="electricAutonomy"
                     >Autonomia dichiarate della percorrenza 100% in
                     elettrico</label
                   >
-                  <div class="input">
-                    <input type="text" id="electricAutonomy" />
-                    <div class="left-box">
-                      <img src="./src/assets/icons/road.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>km</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="electricAutonomy"
+                    icon="road"
+                    detail="km"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="fullAutonomy"
                     >Autonomia dichiarate complessiva (Elettrico +
                     Termico)</label
                   >
-                  <div class="input">
-                    <input type="text" id="fullAutonomy" />
-                    <div class="left-box">
-                      <img src="./src/assets/icons/road.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>km</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="fullAutonomy"
+                    icon="road"
+                    detail="km"></input-number>
                 </div>
                 <div class="field">
-                  <div class="result">
-                    <div class="left">Costo mensile</div>
-                    <div class="right">
-                      €
-                      <div id="monthlyFuelCost">0</div>
-                    </div>
-                  </div>
+                  <fields-fuel-result></fields-fuel-result>
                 </div>
               </div>
             </form>
@@ -345,54 +217,25 @@
                     >Residenza / sede legale
                   </label>
                   <div class="select">
-                    <select name="regions" id="regions"></select>
+                    <drop-down storepath="region"></drop-down>
                   </div>
                 </div>
                 <div class="field">
                   <label class="field-title" for="thermicEnginePower">
                     Potenza motore (termico)
-                    <!-- se è ibrida "Potenza motore termico"  -->
-                    <!-- se è termica "Potenza motore"  -->
                   </label>
-                  <div class="input">
-                    <input type="text" id="thermicEnginePower" />
-                    <div class="left-box">
-                      <img src="./src/assets/icons/bolt.svg" alt="" />
-                    </div>
-                    <div class="right-box">
-                      <p>cv</p>
-                    </div>
-                  </div>
+                  <input-number
+                    storepath="thermicEnginePower"
+                    icon="bolt"
+                    detail="cv"></input-number>
+                  <radio-button
+                    labels="cv.kW"
+                    values="cv.kW"
+                    storepath="enginePowerUnit"
+                    checked="cv"></radio-button>
                 </div>
                 <div class="field">
-                  <div class="radio-input">
-                    <label class="choice-1">
-                      <input
-                        type="radio"
-                        name="enginePowerUnit"
-                        value="cv"
-                        checked />
-                      cv
-                    </label>
-                    <label class="choice-2">
-                      <input type="radio" name="enginePowerUnit" value="kW" />
-                      kW
-                    </label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="result">
-                    <div class="left">Costo annuo "Bollo"</div>
-                    <div class="right">
-                      €
-                      <div id="bollo">0</div>
-                    </div>
-                    <div class="left">Costo annuo "Superbollo"</div>
-                    <div class="right">
-                      €
-                      <div id="superbollo">0</div>
-                    </div>
-                  </div>
+                  <fields-tax-result></fields-tax-result>
                 </div>
               </div>
             </form>
