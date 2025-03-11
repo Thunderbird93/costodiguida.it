@@ -27,7 +27,7 @@ const Store = {
   fuelCost: 0,
   //
   region: "",
-  thermicEnginePower: null,
+  enginePower: null,
   enginePowerUnit: "cv",
   taxes: 0,
   bollo: 0,
@@ -62,7 +62,7 @@ const proxiedStore = new Proxy(Store, {
 
     if (
       property === "region" ||
-      property === "thermicEnginePower" ||
+      property === "enginePower" ||
       property === "enginePowerUnit"
     ) {
       window.dispatchEvent(new Event("taxDataChange"));
@@ -135,8 +135,8 @@ const proxiedStore = new Proxy(Store, {
     if (property === "region") {
       window.dispatchEvent(new Event("regionchange"));
     }
-    if (property === "thermicEnginePower") {
-      window.dispatchEvent(new Event("thermicEnginePowerchange"));
+    if (property === "enginePower") {
+      window.dispatchEvent(new Event("enginePowerchange"));
     }
     if (property === "enginePowerUnit") {
       window.dispatchEvent(new Event("enginePowerUnitchange"));
