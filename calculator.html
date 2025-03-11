@@ -130,7 +130,8 @@
                   <input-number
                     storepath="thermicFuelEfficiency"
                     icon="gas_station"
-                    detail="km/L"></input-number>
+                    detail="km/L"
+                    inputmode="decimal"></input-number>
                   <radio-button
                     labels="km/L.L/100km"
                     values="km/L.L/100km"
@@ -146,7 +147,8 @@
                   <input-number
                     storepath="electricFuelEfficiency"
                     icon="ev_station"
-                    detail="kWh/100km"></input-number>
+                    detail="kWh/100km"
+                    inputmode="decimal"></input-number>
                   <radio-button
                     labels="km/kWh.kWh/100km"
                     values="km/kWh.kWh/100km"
@@ -165,7 +167,10 @@
                     value="50"></input-number>
                 </div>
                 <div class="field plugIn">
-                  <label class="field-title" for="batteryCapacity"
+                  <label
+                    class="field-title"
+                    for="batteryCapacity"
+                    inputmode="decimal"
                     >Capacità della batteria Plug-In</label
                   >
                   <input-number

@@ -37,11 +37,19 @@ class InputNumber extends HTMLElement {
   set icon(val) {
     return this.setAttribute("icon", val);
   }
+
   get detail() {
     return this.getAttribute("detail");
   }
   set detail(val) {
     return this.setAttribute("detail", val);
+  }
+
+  get inputmode() {
+    return this.getAttribute("inputmode");
+  }
+  set inputmode(val) {
+    return this.setAttribute("inputmode", val);
   }
 
   filterValueToNumber(val) {
@@ -58,9 +66,11 @@ class InputNumber extends HTMLElement {
   }
 
   setElement() {
+    const inputmode = this.inputmode ? this.inputmode : "numeric";
     const val = this.value ? `value="${this.value}"` : "";
-    const input = `<input id="${this.storepath}" inputmode="numeric" type="text" ${val}>`;
+    const input = `<input id="${this.storepath}" inputmode="${inputmode}" type="text" ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
+
     this.innerHTML = `
          <div class="input">
                 ${input}

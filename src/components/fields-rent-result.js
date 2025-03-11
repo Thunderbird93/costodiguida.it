@@ -23,7 +23,7 @@ class FieldsRentResult extends HTMLElement {
         store.monthly !== null &&
         store.months !== null
       ) {
-        const deferredUpfrontPayment = +Number.parseFloat(
+        const deferredUpfrontPayment = Number.parseFloat(
           (store.upfront / store.months) * 12,
         ).toFixed(2);
         console.log("deferredUpfrontPayment", deferredUpfrontPayment);
@@ -45,7 +45,7 @@ class FieldsRentResult extends HTMLElement {
     this.innerHTML = `
         <div class="result">
           <div class="left">
-            Costo annuo (considerando l'anticipo)
+            Costo annuo
           </div>
           <div class="right">
             €${annualCost}
