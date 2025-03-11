@@ -23,16 +23,18 @@ class FieldsRentResult extends HTMLElement {
         store.monthly !== null &&
         store.months !== null
       ) {
-        const deferredUpfrontPayment = Number.parseFloat(
+        const deferredUpfrontPayment = +Number.parseFloat(
           (store.upfront / store.months) * 12,
         ).toFixed(2);
         console.log("deferredUpfrontPayment", deferredUpfrontPayment);
 
         const yearlyRent = store.monthly * 12;
         const fullYearly = yearlyRent + deferredUpfrontPayment;
-        store.rentCost = Number.parseFloat(fullYearly).toFixed(2);
+        store.rentCost = +Number.parseFloat(fullYearly).toFixed(2);
+        console.log("store.rentCost", store.rentCost);
+
         const monthly = store.rentCost / 12;
-        store.rentMonthlyCost = Number.parseFloat(monthly).toFixed(2);
+        store.rentMonthlyCost = +Number.parseFloat(monthly).toFixed(2);
 
         return store.rentCost;
       }

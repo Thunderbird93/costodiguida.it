@@ -80,8 +80,8 @@ class FieldsFuelResult extends HTMLElement {
         cost = annualPrice / 12;
       }
 
-      store.monthlyFuelCost = Number.parseFloat(cost).toFixed(2);
-      store.fuelCost = Number.parseFloat(cost * 12).toFixed(2);
+      store.monthlyFuelCost = +Number.parseFloat(cost).toFixed(2);
+      store.fuelCost = +Number.parseFloat(cost * 12).toFixed(2);
 
       return store.fuelCost;
     }

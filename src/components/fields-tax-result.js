@@ -34,13 +34,13 @@ class FieldsTaxResult extends HTMLElement {
     }
 
     const tax = power * baseEuroPerKw;
-    return minPayment > tax ? minPayment : Number.parseFloat(tax).toFixed(2);
+    return minPayment > tax ? minPayment : +Number.parseFloat(tax).toFixed(2);
   }
 
   calcSuperbollo(power) {
     const kwLimit = 185;
     return power > kwLimit
-      ? Number.parseFloat(Math.round((power - kwLimit) * 20)).toFixed(2)
+      ? +Number.parseFloat(Math.round((power - kwLimit) * 20)).toFixed(2)
       : 0;
   }
 
@@ -56,7 +56,7 @@ class FieldsTaxResult extends HTMLElement {
         window.app.store.bollo = await this.calcBollo(engineKwPower);
         window.app.store.superbollo = this.calcSuperbollo(engineKwPower);
 
-        window.app.store.taxes = Number.parseFloat(
+        window.app.store.taxes = +Number.parseFloat(
           window.app.store.bollo + window.app.store.superbollo,
         ).toFixed(2);
         return window.app.store.taxes;
