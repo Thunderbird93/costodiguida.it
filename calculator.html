@@ -54,7 +54,9 @@
                   <label class="field-title" for="upfront"> Anticipo </label>
                   <input-number
                     storepath="upfront"
-                    icon="euro_symbol"></input-number>
+                    icon="euro_symbol"
+                    min="0"
+                    step="100"></input-number>
                 </div>
                 <div class="field">
                   <label class="field-title" for="monthly">
@@ -62,7 +64,9 @@
                   </label>
                   <input-number
                     storepath="monthly"
-                    icon="euro_symbol"></input-number>
+                    icon="euro_symbol"
+                    min="0"
+                    step="10"></input-number>
                 </div>
                 <div class="field">
                   <label class="field-title" for="monthly">
@@ -72,7 +76,10 @@
                     storepath="months"
                     icon="calendar"
                     value="36"
-                    detail="mesi"></input-number>
+                    detail="mesi"
+                    min="12"
+                    max="60"
+                    step="1"></input-number>
                 </div>
                 <div class="field">
                   <fields-footer calc="rent"></fields-footer>
@@ -130,7 +137,9 @@
                   <input-number
                     storepath="distance"
                     icon="road"
-                    detail="km"></input-number>
+                    detail="km"
+                    min="0"
+                    step="500"></input-number>
                 </div>
                 <!-- thermic -->
                 <div class="field thermic">
@@ -140,7 +149,9 @@
                   <input-number
                     storepath="thermicFuelEfficiency"
                     icon="gas_station"
-                    inputmode="decimal"></input-number>
+                    inputmode="decimal"
+                    min="0.1"
+                    step="0.1"></input-number>
                   <radio-button
                     labels="km/L.L/100km"
                     values="km/L.L/100km"
@@ -156,7 +167,9 @@
                   <input-number
                     storepath="electricFuelEfficiency"
                     icon="ev_station"
-                    inputmode="decimal"></input-number>
+                    inputmode="decimal"
+                    min="0.1"
+                    step="0.1"></input-number>
                   <radio-button
                     labels="km/kWh.kWh/100km"
                     values="km/kWh.kWh/100km"
@@ -172,7 +185,9 @@
                     storepath="distanceInElectric"
                     icon="electric_car"
                     detail="%"
-                    value="50"></input-number>
+                    value="50"
+                    min="0"
+                    max="100"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label
@@ -184,7 +199,9 @@
                   <input-number
                     storepath="batteryCapacity"
                     icon="bolt"
-                    detail="kWh"></input-number>
+                    detail="kWh"
+                    min="1"
+                    step="0.1"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="tankCapacity"
@@ -193,7 +210,9 @@
                   <input-number
                     storepath="tankCapacity"
                     icon="drop"
-                    detail="litri"></input-number>
+                    detail="litri"
+                    min="10"
+                    step="1"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="electricAutonomy"
@@ -203,7 +222,8 @@
                   <input-number
                     storepath="electricAutonomy"
                     icon="road"
-                    detail="km"></input-number>
+                    detail="km"
+                    min="10"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="fullAutonomy"
@@ -213,7 +233,8 @@
                   <input-number
                     storepath="fullAutonomy"
                     icon="road"
-                    detail="km"></input-number>
+                    detail="km"
+                    min="100"></input-number>
                 </div>
                 <div class="field">
                   <fields-footer calc="fuel"></fields-footer>
@@ -239,7 +260,8 @@
                   </label>
                   <input-number
                     storepath="enginePower"
-                    icon="bolt"></input-number>
+                    icon="bolt"
+                    min="1"></input-number>
                   <radio-button
                     labels="cv.kW"
                     values="cv.kW"

@@ -19,7 +19,7 @@ class InputNumber extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["storepath", "icon", "detail"];
+    return ["storepath", "icon", "detail", "min", "max", "step", "inputmode"];
   }
 
   get value() {
@@ -57,6 +57,27 @@ class InputNumber extends HTMLElement {
     return this.setAttribute("inputmode", val);
   }
 
+  get min() {
+    return this.getAttribute("min");
+  }
+  set min(val) {
+    return this.setAttribute("min", val);
+  }
+
+  get max() {
+    return this.getAttribute("max");
+  }
+  set max(val) {
+    return this.setAttribute("max", val);
+  }
+
+  get step() {
+    return this.getAttribute("step");
+  }
+  set step(val) {
+    return this.setAttribute("step", val);
+  }
+
   filterValueToNumber(val) {
     if (!val) return null;
     return +val;
@@ -69,19 +90,21 @@ class InputNumber extends HTMLElement {
   }
 
   filterKeys(e) {
-    if (["KeyE", "Slash"].includes(e.code)) {
-      e.preventDefault();
-    }
-
-    if (this.inputmode !== "decimal" && ["Comma", "Period"].includes(e.code)) {
+    if (
+      ["KeyE", "Slash"].includes(e.code) ||
+      (this.inputmode !== "decimal" && ["Comma", "Period"].includes(e.code))
+    ) {
       e.preventDefault();
     }
   }
 
   setElement() {
+    const min = this.min ? `min="${this.min}"` : "";
+    const max = this.max ? `max="${this.max}"` : "";
+    const step = this.step ? `step="${this.step}"` : "";
     const inputmode = this.inputmode ? this.inputmode : "numeric";
     const val = this.value ? `value="${this.value}"` : "";
-    const input = `<input id="${this.storepath}"  inputmode="${inputmode}" type="number"  ${val}>`;
+    const input = `<input type="number" id="${this.storepath}"  inputmode="${inputmode}" ${min} ${max} ${step} ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
     const detail = this.detail ? `<p>${this.detail}</p>` : "";
 
