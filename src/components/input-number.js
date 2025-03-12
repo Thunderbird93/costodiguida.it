@@ -6,11 +6,16 @@ class InputNumber extends HTMLElement {
   connectedCallback() {
     this.render();
     this.inputElement = this.querySelector("input");
+    this.inputElement.addEventListener("keydown", this.filterKeys.bind(this));
     this.inputElement.addEventListener("input", this.updateStore.bind(this));
   }
 
   disconnectedCallback() {
     this.inputElement.removeEventListener("input", this.updateStore.bind(this));
+    this.inputElement.removeEventListener(
+      "keydown",
+      this.filterKeys.bind(this),
+    );
   }
 
   static get observedAttributes() {
@@ -58,17 +63,25 @@ class InputNumber extends HTMLElement {
   }
 
   updateStore({ target }) {
-    console.log("target.value", target);
-
     if (window.app && window.app.store) {
       window.app.store[this.storepath] = this.filterValueToNumber(target.value);
+    }
+  }
+
+  filterKeys(e) {
+    if (["KeyE", "Slash"].includes(e.code)) {
+      e.preventDefault();
+    }
+
+    if (this.inputmode !== "decimal" && ["Comma", "Period"].includes(e.code)) {
+      e.preventDefault();
     }
   }
 
   setElement() {
     const inputmode = this.inputmode ? this.inputmode : "numeric";
     const val = this.value ? `value="${this.value}"` : "";
-    const input = `<input id="${this.storepath}"  inputmode="${inputmode}" type="number" ${val}>`;
+    const input = `<input id="${this.storepath}"  inputmode="${inputmode}" type="number"  ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
     const detail = this.detail ? this.detail : "";
 
