@@ -57,18 +57,18 @@ class InputNumber extends HTMLElement {
     return +val;
   }
 
-  updateStore(event) {
+  updateStore({ target }) {
+    console.log("target.value", target);
+
     if (window.app && window.app.store) {
-      window.app.store[this.storepath] = this.filterValueToNumber(
-        event.target.value,
-      );
+      window.app.store[this.storepath] = this.filterValueToNumber(target.value);
     }
   }
 
   setElement() {
     const inputmode = this.inputmode ? this.inputmode : "numeric";
     const val = this.value ? `value="${this.value}"` : "";
-    const input = `<input id="${this.storepath}" inputmode="${inputmode}" type="text" ${val}>`;
+    const input = `<input id="${this.storepath}"  inputmode="${inputmode}" type="number" ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
     const detail = this.detail ? this.detail : "";
 
