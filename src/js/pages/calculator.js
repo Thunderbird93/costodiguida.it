@@ -24,33 +24,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   observer.observe(hero[0]);
 
-  // Filter data to numbers
-  const filterElementsValueToNumber = (el) => {
-    if (el == null || el.value == null) {
-      return null;
-    }
-    return +el.value;
-  };
-
-  filterElementsValueToNumber();
-
-  // 1 - Data
-  // const upfront = $$("#upfront");
-  // const monthly = $$("#monthly");
-  // const months = $$("#months");
-  const thermicFuelEfficiencyUnit = $$(
-    'input[name="thermicFuelEfficiencyUnit"',
-  );
-  thermicFuelEfficiencyUnit.forEach((el) => {
-    if (el.checked === true) {
-      app.store.thermicFuelEfficiencyUnit = el.value;
-    }
-
-    el.addEventListener("change", () => {
-      app.store.thermicFuelEfficiencyUnit = el.value;
-    });
-  });
-
   // pre - Data
 
   const carIsHybrid = $$("#carIsHybrid")[0];
@@ -65,25 +38,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const electric = $$(".electric");
   const plugIn = $$(".plugIn");
   const taxCard = $$("#taxCard");
-
-  const fuelPrices = await app.api.fetchFuelPrices();
-  window.app.store.petrolPrice = fuelPrices.petrol.price;
-  window.app.store.dieselPrice = fuelPrices.diesel.price;
-  window.app.store.electricityPrice = fuelPrices.electricity.price;
-
-  const regionsTaxation = await app.api.fetchRegionsTaxation();
-
-  const bollo = $$("#bollo")[0];
-  const superbollo = $$("#superbollo")[0];
-
-  const displayAnnualTaxes = (type, value) => {
-    if (!type) return;
-    if (type === "bollo") {
-      bollo.innerText = value;
-    } else {
-      superbollo.innerText = value;
-    }
-  };
 
   // pre - functions
   const setRadioButtonsToDefineCarEngine = () => {
@@ -175,20 +129,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
   // pre - listeners
-  window.addEventListener("isItHybridchange", () => {
+  window.addEventListener("isItHybridChange", () => {
     setRadioButtonsToDefineCarEngine();
     setDisplayPreMessageInStore();
     displayTaxCardAndFieldsInFuelCard();
   });
-  window.addEventListener("isItPlugInchange", () => {
+  window.addEventListener("isItPlugInChange", () => {
     setDisplayPreMessageInStore();
     displayTaxCardAndFieldsInFuelCard();
   });
-  window.addEventListener("isItElectricchange", () => {
+  window.addEventListener("isItElectricChange", () => {
     setDisplayPreMessageInStore();
     displayTaxCardAndFieldsInFuelCard();
   });
-  window.addEventListener("displayPreMessagechange", () => {
+  window.addEventListener("displayPreMessageChange", () => {
     displayPreMessageOnPage();
     displayFuelCostCard();
   });

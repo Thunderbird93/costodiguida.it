@@ -34,6 +34,16 @@
           </div>
         </div>
       </section>
+      <section id="info" class="contrast-colors">
+        <div class="content-container">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+          nulla modi, quos laudantium laborum, totam doloribus debitis quod qui
+          eius repudiandae soluta consequuntur maxime accusantium, optio vitae
+          quibusdam exercitationem. Quaerat, possimus suscipit? Aspernatur rem
+          voluptate ad quia quidem placeat rerum necessitatibus dolorum.
+          Accusantium rem iusto blanditiis necessitatibus totam in illo.
+        </div>
+      </section>
       <section id="calculator" class="contrast-colors">
         <div class="content-container info-cards-organizer">
           <!-- 1 -->
@@ -66,7 +76,7 @@
                     detail="mesi"></input-number>
                 </div>
                 <div class="field">
-                  <fields-rent-result result="test"></fields-rent-result>
+                  <fields-footer calc="rent"></fields-footer>
                 </div>
               </div>
             </form>
@@ -102,7 +112,8 @@
                     storepath="isItElectric"></radio-button>
                 </div>
                 <div class="field" id="displayPreMessage">
-                  <fields-message-result></fields-message-result>
+                  <fields-footer
+                    message="Fantastico! Ora puoi procedere."></fields-footer>
                 </div>
               </div>
             </form>
@@ -206,7 +217,7 @@
                     detail="km"></input-number>
                 </div>
                 <div class="field">
-                  <fields-fuel-result></fields-fuel-result>
+                  <fields-footer calc="fuel"></fields-footer>
                 </div>
               </div>
             </form>
@@ -237,7 +248,7 @@
                     checked="cv"></radio-button>
                 </div>
                 <div class="field">
-                  <fields-tax-result></fields-tax-result>
+                  <fields-footer calc="tax"></fields-footer>
                 </div>
               </div>
             </form>
