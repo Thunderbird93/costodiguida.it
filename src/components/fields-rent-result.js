@@ -1,9 +1,12 @@
 class FieldsRentResult extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
+    this.render();
     this.handleDataChange = this.handleDataChange.bind(this);
     window.addEventListener("financeDataChange", this.handleDataChange);
-    this.render();
   }
 
   disconnectedCallback() {

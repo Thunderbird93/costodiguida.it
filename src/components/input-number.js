@@ -6,67 +6,55 @@ class InputNumber extends HTMLElement {
   connectedCallback() {
     this.render();
     this.inputElement = this.querySelector("input");
-
-    this.boundUpdateStore = this.updateStore.bind(this);
-    this.inputElement.addEventListener("input", this.boundUpdateStore);
-
-    if (this.detail?.includes(this.storepath)) {
-      const eventName = `${this.detail}change`;
-      this.boundRender = this.render.bind(this);
-      window.addEventListener(eventName, this.boundRender);
-    }
+    this.inputElement.addEventListener("input", this.updateStore.bind(this));
   }
 
   disconnectedCallback() {
-    this.inputElement.removeEventListener("input", this.boundUpdateStore);
-    if (this.detail?.includes(this.storepath) && this.boundRender) {
-      const eventName = `${this.detail}change`;
-      window.removeEventListener(eventName, this.boundRender);
-    }
+    this.inputElement.removeEventListener("input", this.updateStore.bind(this));
   }
 
   static get observedAttributes() {
     return ["storepath", "icon", "detail"];
   }
 
-  // Getters and setters for attributes
   get value() {
     return this.getAttribute("value");
   }
   set value(val) {
-    this.setAttribute("value", val);
+    return this.setAttribute("value", val);
   }
 
   get storepath() {
     return this.getAttribute("storepath");
   }
   set storepath(val) {
-    this.setAttribute("storepath", val);
+    return this.setAttribute("storepath", val);
   }
 
   get icon() {
     return this.getAttribute("icon");
   }
   set icon(val) {
-    this.setAttribute("icon", val);
+    return this.setAttribute("icon", val);
   }
 
   get detail() {
     return this.getAttribute("detail");
   }
   set detail(val) {
-    this.setAttribute("detail", val);
+    return this.setAttribute("detail", val);
   }
 
   get inputmode() {
     return this.getAttribute("inputmode");
   }
   set inputmode(val) {
-    this.setAttribute("inputmode", val);
+    return this.setAttribute("inputmode", val);
   }
 
   filterValueToNumber(val) {
-    return val ? +val : null;
+    if (!val) return null;
+    return +val;
   }
 
   updateStore(event) {
@@ -78,26 +66,22 @@ class InputNumber extends HTMLElement {
   }
 
   setElement() {
-    const inputmode = this.inputmode || "numeric";
+    const inputmode = this.inputmode ? this.inputmode : "numeric";
     const val = this.value ? `value="${this.value}"` : "";
     const input = `<input id="${this.storepath}" inputmode="${inputmode}" type="text" ${val}>`;
-    const img = `<img src="./src/assets/icons/${this.icon}.svg" alt="" />`;
-    let detailText = "";
-    if (window.app.store) {
-      const { store } = window.app;
-      detailText = store[this.detail] ?? this.detail ?? "";
-    }
+    const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
+    const detail = this.detail ? this.detail : "";
 
     this.innerHTML = `
-      <div class="input">
-        ${input}
-        <div class="left-box">
-          ${img}
+         <div class="input">
+                ${input}
+                <div class="left-box">
+                  ${img}
+                </div>
+                <div class="right-box">
+                  <p>${detail}</p>
+                </div>
         </div>
-        <div class="right-box">
-          <p>${detailText}</p>
-        </div>
-      </div>
     `;
   }
 
