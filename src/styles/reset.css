@@ -54,7 +54,7 @@ html {
 
 body {
   font-family: var(--ff);
-  font-size: calc(var(--fs) + 0.1px);
+  font-size: var(--fs);
   line-height: 1.5;
   font-weight: 400;
   color: var(--font-color-primary);
