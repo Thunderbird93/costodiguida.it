@@ -85,7 +85,7 @@ class InputNumber extends HTMLElement {
     let detailText = "";
     if (window.app.store) {
       const { store } = window.app;
-      detailText = store[this.detail] ?? this.detail;
+      detailText = store[this.detail] ?? this.detail ?? "";
     }
 
     this.innerHTML = `
