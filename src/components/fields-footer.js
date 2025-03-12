@@ -89,7 +89,6 @@ class FieldsFooter extends HTMLElement {
         const yearlyRent = store.monthly * 12;
         const fullYearly = yearlyRent + deferredUpfrontPayment;
         store.rentCost = this.num(fullYearly);
-        console.log("store.rentCost", store.rentCost);
 
         const monthly = store.rentCost / 12;
         store.rentMonthlyCost = this.num(monthly);
