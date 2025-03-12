@@ -83,7 +83,7 @@ class InputNumber extends HTMLElement {
     const val = this.value ? `value="${this.value}"` : "";
     const input = `<input id="${this.storepath}"  inputmode="${inputmode}" type="number"  ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
-    const detail = this.detail ? this.detail : "";
+    const detail = this.detail ? `<p>${this.detail}</p>` : "";
 
     this.innerHTML = `
          <div class="input">
@@ -92,7 +92,7 @@ class InputNumber extends HTMLElement {
                   ${img}
                 </div>
                 <div class="right-box">
-                  <p>${detail}</p>
+                  ${detail}
                 </div>
         </div>
     `;
