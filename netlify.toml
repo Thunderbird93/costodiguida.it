@@ -4,9 +4,10 @@
 
 
 [[redirects]]
-  from = "/test"
-  to = "/src/pages/test.html"
+  from = "/(?<page>(?!index$)[^/]+)"
+  to = "/src/pages/:page.html"
   status = 200
+
 
 [[redirects]]
  from = "*"
