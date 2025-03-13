@@ -1,12 +1,11 @@
 [build]
  publish = "."
 
-
-
 [[redirects]]
-  from = "/(?<page>(?!index$)[^/]+)"
-  to = "/src/pages/:page.html"
+  from = "/*"
+  to = "/src/pages/:splat.html"
   status = 200
+
 
 
 [[redirects]]
