@@ -6,3 +6,8 @@
  to = "/not-found"
  status = 404
 
+[[redirects]]
+  from = "/test"
+  to = "/src/pages/test.html"
+  status = 200
+
