@@ -3,7 +3,7 @@
     "pagesList": ["Home", "Calcolatore", "Missione", "Privacy"],
     "pages": {
       "Home": {
-        "href": "/index.html"
+        "href": "/"
       },
       "Calcolatore": {
         "href": "/calculator.html"

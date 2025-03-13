@@ -74,7 +74,7 @@ class MainHeader extends HTMLElement {
   }
 
   setNavMenu() {
-    if (!window.app.navigationList) return "<div>Hello</div>";
+    if (!window.app.navigationList) return;
 
     //parent div
     const div = document.createElement("div");
