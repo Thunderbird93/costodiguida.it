@@ -148,6 +148,8 @@ header {
       flex-direction: column;
       gap: 80px;
       justify-content: center;
+      max-width: 450px;
+      margin: 0 auto;
 
       .nav-menu-list {
         display: flex;
@@ -156,6 +158,10 @@ header {
         a {
           font-size: 2.5rem;
         }
+        a:hover {
+          color: var(--font-color-accent);
+        }
+
         .currentPage {
           text-decoration: underline;
           text-decoration-color: var(--font-color-accent);

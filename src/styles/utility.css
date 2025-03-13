@@ -38,3 +38,7 @@
 .hover-to-accent:hover {
   color: var(--font-color-accent);
 }
+
+.pt-40 {
+  padding-top: 40px;
+}

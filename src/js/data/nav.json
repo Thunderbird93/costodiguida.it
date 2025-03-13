@@ -1,7 +1,10 @@
 {
   "menu": {
-    "pagesList": ["Calcolatore", "Missione", "Privacy", "Altro"],
+    "pagesList": ["Home", "Calcolatore", "Missione", "Privacy"],
     "pages": {
+      "Home": {
+        "href": "/index.html"
+      },
       "Calcolatore": {
         "href": "/calculator.html"
       },
@@ -10,9 +13,6 @@
       },
       "Privacy": {
         "href": "/privacy.html"
-      },
-      "Altro": {
-        "href": "/other.html"
       }
     }
   }

@@ -9,10 +9,10 @@ class MainFooter extends HTMLElement {
              <nav class="bottom">
               <ul role="list">
                <li>
-                <a href="#">Obiettivo del sito</a>
+                <a href="/mission.html">Obiettivo del sito</a>
                </li>
                <li>
-                  <a href="#">Privacy policy</a>
+                  <a href="/privacy.html">Privacy policy</a>
                  </li>
               </ul>
           </nav>

@@ -6,10 +6,10 @@ class MainHeader extends HTMLElement {
   connectedCallback() {
     this.setNavList();
     this.render();
-    this.setObserver();
     this.headerTag = this.querySelector("header");
     this.toggleMenu = document.getElementById("toggle-menu");
     this.toggleMenu.addEventListener("click", this.updateTag.bind(this));
+    this.setObserver();
   }
 
   disconnectedCallback() {
@@ -53,15 +53,18 @@ class MainHeader extends HTMLElement {
 
   setObserver() {
     this.hero = document.getElementById("hero");
-
-    this.observer = new IntersectionObserver(
-      ([entry]) => {
-        const int = entry.isIntersecting ? 1 : 0;
-        this.toggleMenu.style.filter = `invert(${int})`;
-      },
-      { root: null, threshold: 0.05 },
-    );
-    this.observer.observe(this.hero);
+    if (this.hero) {
+      this.observer = new IntersectionObserver(
+        ([entry]) => {
+          const int = entry.isIntersecting ? 1 : 0;
+          this.toggleMenu.style.filter = `invert(${int})`;
+        },
+        { root: null, threshold: 0.05 },
+      );
+      this.observer.observe(this.hero);
+    } else {
+      this.toggleMenu.style.filter = "brightness(0) invert(1)";
+    }
   }
 
   async setNavList() {
@@ -88,7 +91,7 @@ class MainHeader extends HTMLElement {
       const page = window.app.navigationList.menu.pagesList[i];
       const li = document.createElement("li");
       const a = document.createElement("a");
-      const href = window.app.navigationList.menu.pages[page].href;
+      const href = window.app.navigationList.menu.pages[page]?.href;
       a.href = href;
       a.innerText = page;
       if (currentPage === href) {
