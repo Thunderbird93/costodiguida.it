@@ -2,6 +2,7 @@ const API = {
   fuelUrl: "/src/js/data/fuel_costs.json",
   regionsUrl: "/src/js/data/italian_regions.json",
   regionsTaxesUrl: "/src/js/data/regions_bollo_taxation.json",
+  nav: "/src/js/data/nav.json",
 
   fetchFuelPrices: async () => {
     const result = await fetch(API.fuelUrl);
@@ -13,6 +14,10 @@ const API = {
   },
   fetchRegionsTaxation: async () => {
     const result = await fetch(API.regionsTaxesUrl);
+    return await result.json();
+  },
+  fetchNav: async () => {
+    const result = await fetch(API.nav);
     return await result.json();
   },
 };

@@ -1,0 +1,19 @@
+{
+  "menu": {
+    "pagesList": ["Calcolatore", "Missione", "Privacy", "Altro"],
+    "pages": {
+      "Calcolatore": {
+        "href": "/calculator.html"
+      },
+      "Missione": {
+        "href": "/mission.html"
+      },
+      "Privacy": {
+        "href": "/privacy.html"
+      },
+      "Altro": {
+        "href": "/other.html"
+      }
+    }
+  }
+}

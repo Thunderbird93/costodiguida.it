@@ -100,6 +100,24 @@ h4 {
 }
 
 #hero {
+  position: relative;
+
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--content-container-lateral-padding);
+    img {
+      display: block;
+      margin: 0 auto;
+      height: inherit;
+    }
+  }
   .hero-content {
     display: flex;
     flex-direction: column;

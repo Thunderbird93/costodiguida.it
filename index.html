@@ -12,25 +12,16 @@
       type="image/x-icon" />
     <link rel="stylesheet" href="./src/styles/pages/index.css" />
     <script type="module" src="./src/js/pages/index.js" defer></script>
+    <script type="module" src="./src/components/index.js" defer></script>
     <title>Costo di guida</title>
   </head>
-  <body>
-    <header>
-      <nav class="nav-menu">
-        <a href="#">
-          <img
-            loading="lazy"
-            id="hamburger-menu"
-            src="./src/assets/icons/hamburger_icon.svg"
-            alt="Hamburger menu" />
-        </a>
-      </nav>
-    </header>
+   <main-header> </main-header>
     <main>
       <section id="hero">
         <div class="logo">
           <img loading="lazy" src="./src/assets/icons/logo_FFFFFF.svg" alt="" />
         </div>
+      <a href="mailto:"></a>
         <div class="content-container hero-content">
           <h1>Guida consapevole, calcola i costi</h1>
           <p>
@@ -106,22 +97,6 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="content-container">
-        <nav class="menu">
-          <ul role="list"></ul>
-        </nav>
-        <nav class="bottom">
-          <ul role="list">
-            <li>
-              <a href="#">Obiettivo del sito</a>
-            </li>
-            <li>
-              <a href="#">Privacy policy</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+    <main-footer></main-footer>
   </body>
 </html>
