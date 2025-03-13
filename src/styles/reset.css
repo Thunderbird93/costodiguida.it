@@ -28,6 +28,7 @@ textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+  color: inherit;
 }
 
 img,
@@ -200,6 +201,10 @@ footer {
     font-weight: inherit;
     font-size: inherit;
     color: var(--clr-dark-grey);
+  }
+
+  a:hover {
+    color: var(--font-color-primary);
   }
 
   .bottom {
