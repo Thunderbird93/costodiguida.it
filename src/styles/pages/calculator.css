@@ -13,89 +13,6 @@ h4 {
     display: flex;
     flex-direction: column;
     gap: 0.125rem;
-
-    .input {
-      width: 100%;
-      position: relative;
-
-      input {
-        height: var(--thumb-size);
-        width: inherit;
-        border: 1px solid var(--bg-color-primary);
-        border-radius: 4px;
-        padding: 2px 80px 2px 40px;
-        font-size: var(--fs-300);
-      }
-
-      input:focus {
-        outline: 1px solid var(--bg-color-accent);
-        border-color: var(--bg-color-accent);
-      }
-
-      .left-box,
-      .right-box {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        height: inherit;
-        width: fit-content;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img {
-          filter: brightness(0.25);
-          height: 24px;
-        }
-      }
-
-      .left-box {
-        left: 0;
-        padding-left: 8px;
-      }
-
-      .right-box {
-        right: 0;
-        padding-right: 8px;
-      }
-    }
-
-    .radio-input {
-      width: 100%;
-      display: flex;
-      gap: 4px;
-
-      label {
-        height: var(--thumb-size);
-        width: 50%;
-        background-color: var(--bg-color-primary-contrast);
-        display: flex;
-        align-items: center;
-        border: 1px solid var(--bg-color-primary);
-        border-radius: 4px;
-        font-size: var(--fs-200);
-
-        input {
-          margin: 4px;
-        }
-      }
-    }
-
-    .select {
-      select {
-        width: 100%;
-        height: var(--thumb-size);
-        border: 1px solid var(--bg-color-primary);
-        border-radius: 4px;
-      }
-      /* select:has(option:checked:not([value=""])) {
-        outline: 1px solid var(--bg-color-accent);
-        border: 1px solid var(--bg-color-accent);
-      } */
-      option {
-        text-align: center;
-      }
-    }
   }
 }
 
@@ -164,7 +81,7 @@ h4 {
   gap: 48px;
 
   .info-card {
-    background-color: var(--bg-color-secondary-contrast);
+    border: 1px solid red;
     padding: 32px 20px 48px 20px;
     border-radius: 2px;
     max-width: 452px;

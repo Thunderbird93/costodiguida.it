@@ -107,15 +107,16 @@ class InputNumber extends HTMLElement {
     const input = `<input type="number" id="${this.storepath}"  inputmode="${inputmode}" ${min} ${max} ${step} ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
     const detail = this.detail ? `<p>${this.detail}</p>` : "";
+    const feedback = `<img src="./src/assets/icons/check_circle.svg"  alt="" />`;
 
     this.innerHTML = `
-         <div class="input">
+         <div>
                 ${input}
                 <div class="left-box">
                   ${img}
                 </div>
                 <div class="right-box">
-                  ${detail}
+                  ${feedback}
                 </div>
         </div>
     `;

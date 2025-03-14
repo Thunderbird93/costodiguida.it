@@ -73,13 +73,13 @@ class RadioButton extends HTMLElement {
                 <input type="radio" name="${this.storepath}" value="${
       values[0]
     }" ${this.checked && this.checked === values[0] ? 'checked="true"' : ""}/>
-                ${labels[0]}
+               <span>${labels[0]}</span>
             </label>
             <label class="choice-2">
                 <input type="radio" name="${this.storepath}" value="${
       values[1]
     }" ${this.checked && this.checked === values[1] ? 'checked="true"' : ""} />
-                ${labels[1]}
+                <span>${labels[1]}</span>
             </label>
         </div>
     `;

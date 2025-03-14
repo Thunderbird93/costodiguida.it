@@ -142,7 +142,8 @@
                     icon="road"
                     detail="km"
                     min="0"
-                    step="500"></input-number>
+                    step="500"
+                    inputmode="decimal"></input-number>
                 </div>
                 <!-- thermic -->
                 <div class="field thermic">
@@ -193,10 +194,7 @@
                     max="100"></input-number>
                 </div>
                 <div class="field plugIn">
-                  <label
-                    class="field-title"
-                    for="batteryCapacity"
-                    inputmode="decimal"
+                  <label class="field-title" for="batteryCapacity"
                     >Capacità della batteria Plug-In</label
                   >
                   <input-number
@@ -204,7 +202,8 @@
                     icon="bolt"
                     detail="kWh"
                     min="1"
-                    step="0.1"></input-number>
+                    step="0.1"
+                    inputmode="decimal"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="tankCapacity"
@@ -253,9 +252,8 @@
                   <label class="field-title" for="regions"
                     >Residenza / sede legale
                   </label>
-                  <div class="select">
-                    <drop-down storepath="region"></drop-down>
-                  </div>
+
+                  <drop-down storepath="region"></drop-down>
                 </div>
                 <div class="field">
                   <label class="field-title" for="enginePower">
