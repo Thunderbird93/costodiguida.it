@@ -79,5 +79,6 @@ drop-down {
     border-radius: calc(var(--thumb-size) / 2);
     text-align: center;
     text-align-last: center;
+    background-color: var(--bg-color-primary-contrast);
   }
 }
