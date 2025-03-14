@@ -42,3 +42,24 @@
 .pt-40 {
   padding-top: 40px;
 }
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .field-title {
+    font-size: calc(var(--fs-200) + 1px);
+  }
+
+  .field-subheading {
+    color: var(--clr-dark-grey);
+    font-size: var(--fs-200);
+  }
+}

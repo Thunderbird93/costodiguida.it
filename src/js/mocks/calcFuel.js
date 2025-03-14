@@ -13,14 +13,6 @@ export function calcElectric() {
     kW = (distance / 100) * efficiency;
   }
 
-  console.log("efficiency", efficiency);
-  console.log("unit", unit);
-  console.log("kW", kW);
-  console.log(
-    "window.app.store.electricityPrice",
-    window.app.store.electricityPrice,
-  );
-
   return kW * window.app.store.electricityPrice;
 }
 

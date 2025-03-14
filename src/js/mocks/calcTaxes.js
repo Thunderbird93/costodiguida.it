@@ -2,6 +2,7 @@ import { num, getEngineKwPower } from "../mocks/helpers.js";
 
 export async function calcBollo(power) {
   const { store } = window.app;
+
   if (!store.italianRegionsTaxation) {
     store.italianRegionsTaxation = await app.api.fetchRegionsTaxation();
   }
@@ -30,7 +31,7 @@ export function calcSuperbollo(power) {
 export async function calcTaxes() {
   if (window.app && window.app.store && window.app.api) {
     const store = window.app.store;
-    if (store.region && store.region !== "") {
+    if (store.region && store.region !== "" && store.enginePower !== null) {
       let engineKwPower = getEngineKwPower(
         store.enginePower,
         store.enginePowerUnit,

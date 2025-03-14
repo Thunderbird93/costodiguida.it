@@ -72,9 +72,8 @@
                     step="10"></input-number>
                 </div>
                 <div class="field">
-                  <label class="field-title" for="monthly">
-                    Durata del noleggio
-                  </label>
+                  <label class="field-title" for="monthly"> Durata </label>
+                  <label class="field-subheading" for="months">mesi</label>
                   <input-number
                     storepath="months"
                     icon="calendar"
@@ -137,13 +136,13 @@
                   <label class="field-title" for="distance">
                     Distanza percorsa annualmente
                   </label>
+                  <label class="field-subheading" for="distance">km</label>
                   <input-number
                     storepath="distance"
                     icon="road"
                     detail="km"
                     min="0"
-                    step="500"
-                    inputmode="decimal"></input-number>
+                    step="500"></input-number>
                 </div>
                 <!-- thermic -->
                 <div class="field thermic">
@@ -185,17 +184,24 @@
                   <label class="field-title" for="distanceInElectric">
                     Distanza percorsa in elettrico
                   </label>
+                  <label class="field-subheading" for="distanceInElectric"
+                    >%</label
+                  >
                   <input-number
                     storepath="distanceInElectric"
                     icon="electric_car"
                     detail="%"
                     value="50"
                     min="0"
-                    max="100"></input-number>
+                    max="100"
+                    inputmode="decimal"></input-number>
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="batteryCapacity"
                     >Capacità della batteria Plug-In</label
+                  >
+                  <label class="field-subheading" for="distanceInElectric"
+                    >kW</label
                   >
                   <input-number
                     storepath="batteryCapacity"
@@ -208,6 +214,9 @@
                 <div class="field plugIn">
                   <label class="field-title" for="tankCapacity"
                     >Capacità del serbatoio</label
+                  >
+                  <label class="field-subheading" for="distanceInElectric"
+                    >litri</label
                   >
                   <input-number
                     storepath="tankCapacity"
@@ -229,8 +238,10 @@
                 </div>
                 <div class="field plugIn">
                   <label class="field-title" for="fullAutonomy"
-                    >Autonomia dichiarate complessiva (Elettrico +
-                    Termico)</label
+                    >Autonomia dichiarate complessiva</label
+                  >
+                  <label class="field-subheading" for="distanceInElectric"
+                    >Elettrico + Termico</label
                   >
                   <input-number
                     storepath="fullAutonomy"
@@ -257,8 +268,9 @@
                 </div>
                 <div class="field">
                   <label class="field-title" for="enginePower">
-                    Potenza motore (termico)
-                  </label>
+                    Potenza motore</label
+                  >
+                  <label class="field-subheading" for="months">termico</label>
                   <input-number
                     storepath="enginePower"
                     icon="bolt"

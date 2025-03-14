@@ -92,7 +92,8 @@ class InputNumber extends HTMLElement {
   filterKeys(e) {
     if (
       ["KeyE", "Slash"].includes(e.code) ||
-      (this.inputmode !== "decimal" && ["Comma", "Period"].includes(e.code))
+      (["Comma", "Period"].includes(e.code) &&
+        (!this.inputmode || this.inputmode !== "decimal"))
     ) {
       e.preventDefault();
     }
