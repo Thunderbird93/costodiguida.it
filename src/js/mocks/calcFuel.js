@@ -25,7 +25,6 @@ export function calcPlugIn() {
     electricAutonomy: eAutonomy,
     fullAutonomy: autonomy,
     electricityPrice,
-    petrolPrice,
   } = window.app.store;
 
   if (
@@ -34,7 +33,7 @@ export function calcPlugIn() {
     !tank ||
     !eAutonomy ||
     !autonomy ||
-    autonomy < eAutonomy
+    autonomy <= eAutonomy
   ) {
     return 0;
   }
@@ -50,7 +49,8 @@ export function calcPlugIn() {
   const thermicAutonomy = autonomy - eAutonomy;
   const fuelEfficiency = thermicAutonomy / tank;
   const requiredLitres = thermicDistance / fuelEfficiency;
-  const thermicCost = petrolPrice * requiredLitres;
+  const fuelType = `${window.app.store.thermicFuelType}Price`;
+  const thermicCost = window.app.store[fuelType] * requiredLitres;
 
   return electricityCost + thermicCost;
 }
@@ -68,13 +68,17 @@ export function calcThermic() {
   } else {
     litres = (distance / 100) * efficiency;
   }
+  const fuelType = `${window.app.store.thermicFuelType}Price`;
+  const thermicCost = window.app.store[fuelType];
 
-  return litres * window.app.store.petrolPrice;
+  return litres * thermicCost;
 }
 
 export function calcFuel() {
   if (window.app?.store) {
-    if (!window.app.store.distance) return 0;
+    if (window.app.store.distance == null || window.app.store.distance === 0) {
+      return 0;
+    }
 
     let annualCost = 0;
     if (window.app.store.isItPlugIn === true) {

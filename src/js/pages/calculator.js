@@ -9,11 +9,18 @@ app.api = API;
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.info("Page loaded.");
+
+  const prices = await app.api.fetchFuelPrices();
+  app.store.petrolPrice = prices.petrol.price;
+  app.store.dieselPrice = prices.diesel.price;
+  app.store.electricityPrice = prices.electricity.price;
+
   const $$ = (args) => document.querySelectorAll(args);
   HTMLElement.prototype.$$ = (s) => this.querySelectorAll(s);
 
   const carIsHybrid = $$("#carIsHybrid")[0];
   const carIsNotHybrid = $$("#carIsNotHybrid")[0];
+  const thermicChoice = $$("#thermicChoice")[0];
   const isItPlugIn = $$("input[name='isItPlugIn']");
   const isItElectric = $$("input[name='isItElectric']");
   const displayPreMessage = $$("#displayPreMessage");
@@ -114,6 +121,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       app.store.isItElectric = el.value === "true";
     });
   });
+
+  const setThermicFuelType = () => {
+    if (
+      (app.store.isItPlugIn == null && app.store.isItElectric == null) ||
+      app.store.isItElectric === true
+    ) {
+      thermicChoice.style.display = "none";
+      return;
+    }
+
+    thermicChoice.style.display = "flex";
+  };
+
   // pre - listeners
   window.addEventListener("isItHybridChange", () => {
     setRadioButtonsToDefineCarEngine();
@@ -123,10 +143,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.addEventListener("isItPlugInChange", () => {
     setDisplayPreMessageInStore();
     displayTaxCardAndFieldsInFuelCard();
+    setThermicFuelType();
   });
   window.addEventListener("isItElectricChange", () => {
     setDisplayPreMessageInStore();
     displayTaxCardAndFieldsInFuelCard();
+    setThermicFuelType();
   });
   window.addEventListener("displayPreMessageChange", () => {
     displayPreMessageOnPage();

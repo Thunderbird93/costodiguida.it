@@ -11,9 +11,6 @@ class FieldsFooter extends HTMLElement {
     this.render();
     this.handleDataChange = this.handleDataChange.bind(this);
     this.handleListeners("add");
-    if (this.calc === "fuel") {
-      this.getFuelsPrices();
-    }
   }
 
   disconnectedCallback() {
@@ -40,15 +37,6 @@ class FieldsFooter extends HTMLElement {
 
   num(val) {
     return +Number.parseFloat(val).toFixed(2);
-  }
-
-  async getFuelsPrices() {
-    if (window.app?.api && window.app?.store) {
-      const prices = await window.app.api.fetchFuelPrices();
-      window.app.store.petrolPrice = prices.petrol.price;
-      window.app.store.dieselPrice = prices.diesel.price;
-      window.app.store.electricityPrice = prices.electricity.price;
-    }
   }
 
   handleListeners(action) {

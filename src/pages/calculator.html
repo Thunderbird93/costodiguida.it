@@ -91,10 +91,10 @@
           </div>
           <!-- pre -->
           <div class="info-card">
-            <p class="preface">
+            <!-- <p class="preface">
               Prima di preseguire, compila le seguenti infomrazioni necessarie
               del veicolo.
-            </p>
+            </p> -->
             <h4>Dettagli sulla motorizzazione</h4>
             <form>
               <div class="fields">
@@ -118,6 +118,14 @@
                     labels="Elettrica.Termica"
                     values="true.false"
                     storepath="isItElectric"></radio-button>
+                </div>
+                <div class="field" id="thermicChoice">
+                  <label class="field-title">Alimentazione termica</label>
+                  <radio-button
+                    labels="Benzina.Diesel"
+                    values="petrol.diesel"
+                    storepath="thermicFuelType"
+                    checked="petrol"></radio-button>
                 </div>
                 <div class="field" id="displayPreMessage">
                   <fields-footer
@@ -248,6 +256,19 @@
                     icon="road"
                     detail="km"
                     min="100"></input-number>
+                </div>
+                <div class="field">
+                  <label class="field-title" for="petrolPrice"
+                    >Prezzo Benzina</label
+                  >
+                  <label class="field-subheading" for="distanceInElectric"
+                    >Prezzo medio. Modificabile</label
+                  >
+                  <input-number
+                    storepath="petrolPrice"
+                    icon="euro_symbol"
+                    min="0.001"
+                    step="0.001"></input-number>
                 </div>
                 <div class="field">
                   <fields-footer calc="fuel"></fields-footer>

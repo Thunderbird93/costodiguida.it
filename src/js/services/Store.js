@@ -9,6 +9,7 @@ const Store = {
   isItPlugIn: null,
   isItElectric: null,
   displayPreMessage: false,
+  thermicFuelType: "petrol",
   //
   distance: null,
   //
@@ -78,7 +79,8 @@ const proxiedStore = new Proxy(Store, {
       property === "batteryCapacity" ||
       property === "tankCapacity" ||
       property === "electricAutonomy" ||
-      property === "fullAutonomy"
+      property === "fullAutonomy" ||
+      property === "thermicFuelType"
     ) {
       window.dispatchEvent(new Event("fuelDataChange"));
     }
