@@ -121,7 +121,7 @@ main-header {
     height: 80px;
     position: relative;
 
-     {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
