@@ -18,296 +18,330 @@
   <body>
     <main-header> </main-header>
     <main>
-      <section id="hero">
-        <div class="content-container hero-content pt-40">
-          <h1>Quanto mi costa?</h1>
-          <p>
-            Calcola di seguito<br />
-            il costo di guida<br />
-            della tua prossiama auto.
-          </p>
-          <div class="hero-cta">
-            <a href="/">
-              <p>Cos'è il costo di guida?</p>
-              <img src="/src/assets/icons/chevron_right_FF5100.svg" alt="" />
-            </a>
-          </div>
-        </div>
-      </section>
-      <section id="info" class="contrast-colors">
+      <section id="hero-calc">
         <div class="content-container">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-          nulla modi, quos laudantium laborum, totam doloribus debitis quod qui
-          eius repudiandae soluta consequuntur maxime accusantium, optio vitae
-          quibusdam exercitationem. Quaerat, possimus suscipit? Aspernatur rem
-          voluptate ad quia quidem placeat rerum necessitatibus dolorum.
+          <div class="hero-card bgLightYellow">
+            <h1 class="heading">Quanto mi costa?</h1>
+            <p>
+              Calcola di seguito il costo di guida della tua prossiama auto.
+            </p>
+          </div>
         </div>
       </section>
       <section id="calculator" class="contrast-colors">
-        <div class="content-container info-cards-organizer">
-          <!-- 1 -->
-          <div class="info-card">
-            <h4>1. Costo del noleggio</h4>
-            <form>
-              <div class="fields">
-                <div class="field">
-                  <label class="field-title" for="upfront"> Anticipo </label>
-                  <input-number
-                    storepath="upfront"
-                    icon="euro_symbol"
-                    min="0"
-                    step="100"></input-number>
-                </div>
-                <div class="field">
-                  <label class="field-title" for="monthly">
-                    Canone mensile
-                  </label>
-                  <input-number
-                    storepath="monthly"
-                    icon="euro_symbol"
-                    min="0"
-                    step="10"></input-number>
-                </div>
-                <div class="field">
-                  <label class="field-title" for="monthly"> Durata </label>
-                  <label class="field-subheading" for="months">mesi</label>
-                  <input-number
-                    storepath="months"
-                    icon="calendar"
-                    value="36"
-                    detail="mesi"
-                    min="12"
-                    max="60"
-                    step="1"></input-number>
-                </div>
-                <div class="field">
-                  <fields-footer calc="rent"></fields-footer>
-                </div>
+        <div class="content-container">
+          <div class="info-display">
+            <div class="info-cards-organizer">
+              <!-- 1 -->
+              <div class="info-card">
+                <h4 class="heading">
+                  <div class="dot"></div>
+                  Costo del noleggio
+                </h4>
+                <form>
+                  <div class="fields">
+                    <div class="field">
+                      <label class="field-title" for="upfront">
+                        Anticipo
+                      </label>
+                      <input-number
+                        storepath="upfront"
+                        icon="euro_symbol"
+                        min="0"
+                        step="100"></input-number>
+                    </div>
+                    <div class="field">
+                      <label class="field-title" for="monthly">
+                        Canone mensile
+                      </label>
+                      <input-number
+                        storepath="monthly"
+                        icon="euro_symbol"
+                        min="0"
+                        step="10"></input-number>
+                    </div>
+                    <div class="field">
+                      <label class="field-title" for="monthly"> Durata </label>
+                      <label class="field-subheading" for="months">mesi</label>
+                      <input-number
+                        storepath="months"
+                        icon="calendar"
+                        value="36"
+                        detail="mesi"
+                        min="12"
+                        max="60"
+                        step="1"></input-number>
+                    </div>
+                    <div class="field">
+                      <fields-footer calc="rent"></fields-footer>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-          <!-- pre -->
-          <div class="info-card">
-            <!-- <p class="preface">
-              Prima di preseguire, compila le seguenti infomrazioni necessarie
-              del veicolo.
-            </p> -->
-            <h4>Dettagli sulla motorizzazione</h4>
-            <form>
-              <div class="fields">
-                <div class="field">
-                  <label class="field-title">Indica se è Ibrida</label>
-                  <radio-button
-                    labels="Sì.No"
-                    values="true.false"
-                    storepath="isItHybrid"></radio-button>
-                </div>
-                <div class="field" id="carIsHybrid">
-                  <label class="field-title">Tipologia di ibrido </label>
-                  <radio-button
-                    labels="Plug-In.Full o Mild"
-                    values="true.false"
-                    storepath="isItPlugIn"></radio-button>
-                </div>
-                <div class="field" id="carIsNotHybrid">
-                  <label class="field-title">Alimentazione </label>
-                  <radio-button
-                    labels="Elettrica.Termica"
-                    values="true.false"
-                    storepath="isItElectric"></radio-button>
-                </div>
-                <div class="field" id="thermicChoice">
-                  <label class="field-title">Alimentazione termica</label>
-                  <radio-button
-                    labels="Benzina.Diesel"
-                    values="petrol.diesel"
-                    storepath="thermicFuelType"
-                    checked="petrol"></radio-button>
-                </div>
-                <div class="field" id="displayPreMessage">
-                  <fields-footer
-                    message="Fantastico! Ora puoi procedere."></fields-footer>
-                </div>
+              <!-- pre -->
+              <div class="info-card">
+                <h4 class="heading">
+                  <div class="dot"></div>
+                  Dettagli sulla motorizzazione
+                </h4>
+                <form>
+                  <div class="fields">
+                    <div class="field">
+                      <label class="field-title">Indica se è Ibrida</label>
+                      <radio-button
+                        labels="Sì.No"
+                        values="true.false"
+                        storepath="isItHybrid"></radio-button>
+                    </div>
+                    <div class="field" id="carIsHybrid">
+                      <label class="field-title">Tipologia di ibrido </label>
+                      <radio-button
+                        labels="Plug-In.Full o Mild"
+                        values="true.false"
+                        storepath="isItPlugIn"></radio-button>
+                    </div>
+                    <div class="field" id="carIsNotHybrid">
+                      <label class="field-title">Alimentazione </label>
+                      <radio-button
+                        labels="Elettrica.Termica"
+                        values="true.false"
+                        storepath="isItElectric"></radio-button>
+                    </div>
+                    <div class="field" id="thermicChoice">
+                      <label class="field-title">Alimentazione termica</label>
+                      <radio-button
+                        labels="Benzina.Diesel"
+                        values="petrol.diesel"
+                        storepath="thermicFuelType"
+                        checked="petrol"></radio-button>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-          <!-- 2 -->
-          <div class="info-card" id="fuelCostCard">
-            <h4>2. Costo del carburante</h4>
-            <form>
-              <div class="fields">
-                <!-- distance -->
-                <div class="field">
-                  <label class="field-title" for="distance">
-                    Distanza percorsa annualmente
-                  </label>
-                  <label class="field-subheading" for="distance">km</label>
-                  <input-number
-                    storepath="distance"
-                    icon="road"
-                    detail="km"
-                    min="0"
-                    step="500"></input-number>
-                </div>
-                <!-- thermic -->
-                <div class="field thermic">
-                  <label class="field-title" for="thermicFuelEfficiency">
-                    Consumo di carburante
-                  </label>
-                  <input-number
-                    storepath="thermicFuelEfficiency"
-                    icon="gas_station"
-                    inputmode="decimal"
-                    min="0.1"
-                    step="0.1"></input-number>
-                  <radio-button
-                    labels="km/L.L/100km"
-                    values="km/L.L/100km"
-                    storepath="thermicFuelEfficiencyUnit"
-                    checked="km/L"></radio-button>
-                </div>
+              <!-- 2 -->
+              <div class="info-card" id="fuelCostCard">
+                <h4 class="heading">
+                  <div class="dot"></div>
+                  Costo del carburante
+                </h4>
+                <form>
+                  <div class="fields">
+                    <!-- distance -->
+                    <div class="field">
+                      <label class="field-title" for="distance">
+                        Distanza percorsa annualmente
+                      </label>
+                      <label class="field-subheading" for="distance">km</label>
+                      <input-number
+                        storepath="distance"
+                        icon="road"
+                        detail="km"
+                        min="0"
+                        step="500"></input-number>
+                    </div>
+                    <!-- thermic -->
+                    <div class="field thermic">
+                      <label class="field-title" for="thermicFuelEfficiency">
+                        Consumo di carburante
+                      </label>
+                      <input-number
+                        storepath="thermicFuelEfficiency"
+                        icon="gas_station"
+                        inputmode="decimal"
+                        min="0.1"
+                        step="0.1"></input-number>
+                      <radio-button
+                        labels="km/L.L/100km"
+                        values="km/L.L/100km"
+                        storepath="thermicFuelEfficiencyUnit"
+                        checked="km/L"></radio-button>
+                    </div>
 
-                <!-- electric -->
-                <div class="field electric">
-                  <label class="field-title" for="electricFuelEfficiency"
-                    >Consumo di elettricità
-                  </label>
-                  <input-number
-                    storepath="electricFuelEfficiency"
-                    icon="ev_station"
-                    inputmode="decimal"
-                    min="0.1"
-                    step="0.1"></input-number>
-                  <radio-button
-                    labels="km/kWh.kWh/100km"
-                    values="km/kWh.kWh/100km"
-                    storepath="electricFuelEfficiencyUnit"
-                    checked="kWh/100km"></radio-button>
-                </div>
-                <!-- plug-in -->
-                <div class="field plugIn">
-                  <label class="field-title" for="distanceInElectric">
-                    Distanza percorsa in elettrico
-                  </label>
-                  <label class="field-subheading" for="distanceInElectric"
-                    >%</label
-                  >
-                  <input-number
-                    storepath="distanceInElectric"
-                    icon="electric_car"
-                    detail="%"
-                    value="50"
-                    min="0"
-                    max="100"
-                    inputmode="decimal"></input-number>
-                </div>
-                <div class="field plugIn">
-                  <label class="field-title" for="batteryCapacity"
-                    >Capacità della batteria Plug-In</label
-                  >
-                  <label class="field-subheading" for="distanceInElectric"
-                    >kW</label
-                  >
-                  <input-number
-                    storepath="batteryCapacity"
-                    icon="bolt"
-                    detail="kWh"
-                    min="1"
-                    step="0.1"
-                    inputmode="decimal"></input-number>
-                </div>
-                <div class="field plugIn">
-                  <label class="field-title" for="tankCapacity"
-                    >Capacità del serbatoio</label
-                  >
-                  <label class="field-subheading" for="distanceInElectric"
-                    >litri</label
-                  >
-                  <input-number
-                    storepath="tankCapacity"
-                    icon="drop"
-                    detail="litri"
-                    min="10"
-                    step="1"></input-number>
-                </div>
-                <div class="field plugIn">
-                  <label class="field-title" for="electricAutonomy"
-                    >Autonomia dichiarate della percorrenza 100% in
-                    elettrico</label
-                  >
-                  <input-number
-                    storepath="electricAutonomy"
-                    icon="road"
-                    detail="km"
-                    min="10"></input-number>
-                </div>
-                <div class="field plugIn">
-                  <label class="field-title" for="fullAutonomy"
-                    >Autonomia dichiarate complessiva</label
-                  >
-                  <label class="field-subheading" for="distanceInElectric"
-                    >Elettrico + Termico</label
-                  >
-                  <input-number
-                    storepath="fullAutonomy"
-                    icon="road"
-                    detail="km"
-                    min="100"></input-number>
-                </div>
-                <div class="field">
-                  <label class="field-title" for="petrolPrice"
-                    >Prezzo Benzina</label
-                  >
-                  <label class="field-subheading" for="distanceInElectric"
-                    >Prezzo medio. Modificabile</label
-                  >
-                  <input-number
-                    storepath="petrolPrice"
-                    icon="euro_symbol"
-                    min="0.001"
-                    step="0.001"></input-number>
-                </div>
-                <div class="field">
-                  <fields-footer calc="fuel"></fields-footer>
-                </div>
+                    <!-- electric -->
+                    <div class="field electric">
+                      <label class="field-title" for="electricFuelEfficiency"
+                        >Consumo di elettricità
+                      </label>
+                      <input-number
+                        storepath="electricFuelEfficiency"
+                        icon="ev_station"
+                        inputmode="decimal"
+                        min="0.1"
+                        step="0.1"></input-number>
+                      <radio-button
+                        labels="km/kWh.kWh/100km"
+                        values="km/kWh.kWh/100km"
+                        storepath="electricFuelEfficiencyUnit"
+                        checked="kWh/100km"></radio-button>
+                    </div>
+                    <!-- plug-in -->
+                    <div class="field plugIn">
+                      <label class="field-title" for="distanceInElectric">
+                        Distanza percorsa in elettrico
+                      </label>
+                      <label class="field-subheading" for="distanceInElectric"
+                        >%</label
+                      >
+                      <input-number
+                        storepath="distanceInElectric"
+                        icon="electric_car"
+                        detail="%"
+                        value="50"
+                        min="0"
+                        max="100"
+                        inputmode="decimal"></input-number>
+                    </div>
+                    <div class="field plugIn">
+                      <label class="field-title" for="batteryCapacity"
+                        >Capacità della batteria Plug-In</label
+                      >
+                      <label class="field-subheading" for="distanceInElectric"
+                        >kW</label
+                      >
+                      <input-number
+                        storepath="batteryCapacity"
+                        icon="bolt"
+                        detail="kWh"
+                        min="1"
+                        step="0.1"
+                        inputmode="decimal"></input-number>
+                    </div>
+                    <div class="field plugIn">
+                      <label class="field-title" for="tankCapacity"
+                        >Capacità del serbatoio</label
+                      >
+                      <label class="field-subheading" for="distanceInElectric"
+                        >litri</label
+                      >
+                      <input-number
+                        storepath="tankCapacity"
+                        icon="drop"
+                        detail="litri"
+                        min="10"
+                        step="1"></input-number>
+                    </div>
+                    <div class="field plugIn">
+                      <label class="field-title" for="electricAutonomy"
+                        >Autonomia dichiarate della percorrenza 100% in
+                        elettrico</label
+                      >
+                      <input-number
+                        storepath="electricAutonomy"
+                        icon="road"
+                        detail="km"
+                        min="10"></input-number>
+                    </div>
+                    <div class="field plugIn">
+                      <label class="field-title" for="fullAutonomy"
+                        >Autonomia dichiarate complessiva</label
+                      >
+                      <label class="field-subheading" for="distanceInElectric"
+                        >Elettrico + Termico</label
+                      >
+                      <input-number
+                        storepath="fullAutonomy"
+                        icon="road"
+                        detail="km"
+                        min="100"></input-number>
+                    </div>
+                    <div class="field">
+                      <label class="field-title" for="petrolPrice"
+                        >Prezzo Benzina</label
+                      >
+                      <label class="field-subheading" for="distanceInElectric"
+                        >Prezzo medio. Modificabile</label
+                      >
+                      <input-number
+                        storepath="petrolPrice"
+                        icon="euro_symbol"
+                        min="0.001"
+                        step="0.001"></input-number>
+                    </div>
+                    <div class="field">
+                      <fields-footer calc="fuel"></fields-footer>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-          <div class="info-card" id="taxCard">
-            <h4>3. Tasse</h4>
-            <form>
-              <div class="fields">
-                <div class="field">
-                  <label class="field-title" for="regions"
-                    >Residenza / sede legale
-                  </label>
+              <div class="info-card" id="taxCard">
+                <h4 class="heading">
+                  <div class="dot"></div>
+                  Tasse
+                </h4>
+                <form>
+                  <div class="fields">
+                    <div class="field">
+                      <label class="field-title" for="regions"
+                        >Residenza / sede legale
+                      </label>
 
-                  <drop-down storepath="region"></drop-down>
+                      <drop-down storepath="region"></drop-down>
+                    </div>
+                    <div class="field">
+                      <label class="field-title" for="enginePower">
+                        Potenza motore</label
+                      >
+                      <label class="field-subheading" for="months"
+                        >termico</label
+                      >
+                      <input-number
+                        storepath="enginePower"
+                        icon="bolt"
+                        min="1"></input-number>
+                      <radio-button
+                        labels="cv.kW"
+                        values="cv.kW"
+                        storepath="enginePowerUnit"
+                        checked="cv"></radio-button>
+                    </div>
+                    <div class="field">
+                      <fields-footer calc="tax"></fields-footer>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="sticky-wrapper">
+              <div class="info-result-cta">
+                <div class="primary-result">
+                  <h2 class="heading">Il tuo costo di guida è</h2>
+                  <div class="result">
+                    <span class="number">€12</span>
+                    <span class="text">al giorno</span>
+                  </div>
                 </div>
-                <div class="field">
-                  <label class="field-title" for="enginePower">
-                    Potenza motore</label
-                  >
-                  <label class="field-subheading" for="months">termico</label>
-                  <input-number
-                    storepath="enginePower"
-                    icon="bolt"
-                    min="1"></input-number>
-                  <radio-button
-                    labels="cv.kW"
-                    values="cv.kW"
-                    storepath="enginePowerUnit"
-                    checked="cv"></radio-button>
+                <div class="secondary-result">
+                  <p>
+                    Questo include tutte le spese annuali stimate, suddivise per
+                    la tua comodità.
+                  </p>
+                  <div class="results">
+                    <div class="result">
+                      <span class="number">€365</span>
+                      <span class="text">al mese</span>
+                    </div>
+                    <div class="result">
+                      <span class="number">€4380</span>
+                      <span class="text">all'anno</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="field">
-                  <fields-footer calc="tax"></fields-footer>
+                <div class="results-cta">
+                  <p>
+                    Vuoi maggiori dettagli sui calcoli o hai bisogno di
+                    assistenza?
+                  </p>
+                  <a class="action-button-primary" href="mailto:"
+                    >Contattaci Via E-Mail
+                    <img src="/src/assets/icons/chat.svg" alt="" />
+                  </a>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </section>
     </main>
-    <main-footer></main-footer>
+    <main-footer> </main-footer>
   </body>
 </html>

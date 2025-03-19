@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const displayFuelCostCard = () => {
     const display = app.store.displayPreMessage;
     fuelCostCard.forEach((el) => {
-      el.style.display = display ? "block" : "none";
+      el.style.display = display ? "flex" : "none";
     });
   };
 

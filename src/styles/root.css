@@ -2,108 +2,115 @@
   --ff: "Mulish", sans-serif;
 
   /* colors */
-  --clr-pure-white: hsl(0, 0%, 100%);
-  --clr-platinum: hsl(0, 0%, 90%);
-  --clr-seasalt: hsl(0, 0%, 96%);
-  --clr-orange: hsl(19, 100%, 51%);
-  --clr-light-black: hsl(30, 3%, 12%);
-  --clr-dark-black: hsl(0, 0%, 7%);
-  --clr-pure-black: hsl(0, 0%, 0%);
-  --clr-dark-grey: hsl(0, 0%, 50%);
+  --clr-black: hsl(0, 0%, 20%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-orange: hsl(20, 100%, 56%);
+  --clr-orange-dark: hsl(20, 88%, 52%);
+  --clr-floral-white: hsl(53, 36%, 95%);
+  --clr-mint-cream: hsl(127, 36%, 95%);
+  --clr-alice-blue: hsl(207, 36%, 95%);
+  --clr-gray-dark: hsl(0, 0%, 40%);
+  --clr-gray-medium: hsl(0, 0%, 46%);
+  --clr-gray-light: hsl(0, 0%, 62%);
+  --clr-red: hsl(0, 88%, 39%);
+  --clr-green: hsl(133, 73%, 38%);
 
   /* font sizes */
   --fs-100: 0.875rem;
   --fs-200: 1rem;
-  --fs-250: 1.1875rem;
   --fs-300: 1.25rem;
-  --fs-700: 2.1rem;
-  --fs-800: 3.75rem;
-  --fs-900: 4.5rem;
+  --fs-400: 1.5rem;
+  --fs-500: 2.5rem;
+  --fs-600: 3rem;
+  --fs-700: 4rem;
+  --fs-800: 5.25rem;
+  --fs-900: 6rem;
 
   /* screen content sizes */
-  --smartphone-content-width: 100%;
-  --small-tablet-content-width: 728px;
-  --large-tablet-content-width: 960px;
-  --small-pc-content-width: 1080px;
-  --large-pc-content-width: 1200px;
+  --content-width-default: 100%;
+  --content-width-small-tablet: 728px;
+  --content-width-large-tablet: 960px;
+  --content-width-small-pc: 1080px;
+  --content-width-large-pc: 1200px;
+  --content-width-xl-pc: 1440px;
+
+  /* other sizes */
+  --thumb-size: 46px;
+  --content-container-padding: 20px;
 }
 
 :root {
   /* font colors */
-  --font-color-primary: var(--clr-platinum);
-  --font-color-secondary: var(--clr-pure-white);
-  --font-color-primary-contrast: var(--clr-dark-black);
-  --font-color-secondary-contrast: var(--clr-pure-black);
+  --font-color-primary: var(--clr-black);
+  --font-color-contrast: var(--clr-white);
   --font-color-accent: var(--clr-orange);
+  --font-color-secondary-dark: var(--clr-gray-dark);
+  --font-color-secondary-medium: var(--clr-gray-medium);
+  --font-color-secondary-light: var(--clr-gray-light);
 
   /* background colors */
-  --bg-color-primary: var(--clr-light-black);
-  --bg-color-secondary: var(--clr-dark-black);
-  --bg-color-primary-contrast: var(--clr-pure-white);
-  --bg-color-secondary-contrast: var(--clr-seasalt);
+  --bg-color-primary: var(--clr-white);
   --bg-color-accent: var(--clr-orange);
+  --bg-color-secondary: var(--clr-black);
+  --bg-color-accent-hover: var(--clr-orange-dark);
+  --bg-color-light-green: var(--clr-mint-cream);
+  --bg-color-light-blue: var(--clr-alice-blue);
+  --bg-color-light-yellow: var(--clr-floral-white);
+  --bg-color-error: var(--clr-red);
+  --bg-color-success: var(--clr-green);
 
   /* sizes */
-
-  --thumb-size: 44px;
-
   --fs: var(--fs-200);
-  --fs-p: var(--fs-200);
-  --fs-h1: var(--fs-700);
-  --fs-h2: calc(var(--fs-p) * 1.6);
-  --fs-h3: calc(var(--fs-p) * 2);
-  --fs-a: var(--fs-200);
+  --fs-a: var(--fs-300);
+  --fs-h1: var(--fs-600);
+  --fs-heading-small: var(--fs-400);
+  --fs-cta-main-heading: var(--fs-600);
+  --fs-cta-heading: var(--fs-600);
+  --fs-heading-large: var(--fs-600);
+  --fs-about-text: var(--fs-400);
+  --fs-menu-link: var(--fs-600);
+  --fs-field-label: var(--fs-100);
+  --fs-input-text: var(--fs-300);
+  --fs-fields-footer: var(--fs-300);
+  --fs-fields-footer-display: var(--fs-600);
+  --fs-cost-display-primary: var(--fs-800);
+  --fs-cost-display-secondary: var(--fs-700);
+  --fs-cost-display-label: var(--fs-300);
 
-  --content-container-width: var(--smartphone-content-width);
-  --content-container-lateral-padding: 24px;
-  --hero-p-width: 19.1rem;
-
-  --info-content-left-grid-column: 1 / 13;
-  --info-content-right-grid-column: 1 / 13;
-  --info-content-left-grid-row: 2 / 3;
-}
-
-@media (width >= 390px) {
-  :root {
-    --fs-h1: 2.3rem;
-  }
-}
-
-@media (width >= 440px) {
-  :root {
-    --fs-h1: 2.65rem;
-  }
+  --content-container-width: var(--content-width-default);
 }
 
 @media (width >= 768px) {
   :root {
-    --fs-p: var(--fs-300);
-    --fs-h1: var(--fs-800);
-    --content-container-width: var(--small-tablet-content-width);
-    --hero-p-width: 33rem;
+    --content-container-width: var(--content-width-small-tablet);
+    --fs-h1: var(--fs-900);
+    --fs-about-text: var(--fs-500);
+    --fs-fields-footer: var(--fs-200);
+    --fs-fields-footer-display: var(--fs-200);
   }
 }
 
 @media (width >= 1024px) {
   :root {
-    --fs-h1: var(--fs-900);
-    --content-container-width: var(--large-tablet-content-width);
-
-    --info-content-left-grid-column: 1 / 7;
-    --info-content-right-grid-column: 7 / 13;
-    --info-content-left-grid-row: 1 / 2;
+    --content-container-width: var(--content-width-large-tablet);
   }
 }
 
 @media (width >= 1280px) {
   :root {
-    --content-container-width: var(--small-pc-content-width);
+    --content-container-width: var(--content-width-small-pc);
+    --fs-cta-main-heading: var(--fs-900);
   }
 }
 
 @media (width >= 1440px) {
   :root {
-    --fs-h1: 4.7rem;
-    --content-container-width: var(--large-pc-content-width);
+    --content-container-width: var(--content-width-large-pc);
+  }
+}
+
+@media (width >= 1600px) {
+  :root {
+    --content-container-width: var(--content-width-xl-pc);
   }
 }

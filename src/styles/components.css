@@ -7,9 +7,9 @@ input-number {
       width: inherit;
       height: var(--thumb-size);
       border-radius: calc(var(--thumb-size) / 2);
-      border: 1px solid var(--bg-color-primary);
-      padding: 2px 40px;
-      font-size: var(--fs-250);
+      border: 1px solid var(--bg-color-secondary);
+      padding: 4px 40px;
+      font-size: var(--fs-300);
     }
 
     input:focus {
@@ -55,7 +55,7 @@ radio-button {
       background-color: var(--bg-color-primary-contrast);
       display: flex;
       align-items: center;
-      font-size: var(--fs-250);
+      font-size: var(--fs-300);
       cursor: pointer;
 
       span {
@@ -76,9 +76,83 @@ drop-down {
   select {
     width: 100%;
     height: var(--thumb-size);
-    border: 1px solid var(--bg-color-primary);
+    border: 1px solid var(--bg-color-secondary);
     border-radius: calc(var(--thumb-size) / 2);
     text-align: center;
     background-color: var(--bg-color-primary-contrast);
+  }
+}
+
+main-footer {
+  footer {
+    height: 80px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+
+    nav {
+      display: inherit;
+      align-items: inherit;
+      height: inherit;
+      justify-content: space-between;
+      width: 100%;
+
+      ul {
+        display: inherit;
+        align-items: inherit;
+        gap: 16px;
+        width: fit-content;
+        li {
+          width: fit-content;
+        }
+      }
+
+      a {
+        font-size: var(--fs-100);
+      }
+    }
+  }
+}
+
+main-header {
+  header {
+    height: 80px;
+    position: relative;
+
+     {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+fields-footer {
+  .result {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+
+    .left,
+    .right {
+      min-height: inherit;
+      display: inherit;
+      align-items: end;
+    }
+
+    .left {
+      p {
+        font-size: var(--fs-fields-footer);
+      }
+    }
+    .right {
+      p {
+        font-size: var(--fs-fields-footer-display);
+      }
+    }
   }
 }
