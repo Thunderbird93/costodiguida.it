@@ -74,6 +74,11 @@
         font-size: var(--fs-heading-large);
         font-weight: 400;
       }
+      .results {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
       .result {
         display: flex;
         .number {
