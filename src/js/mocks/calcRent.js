@@ -16,7 +16,6 @@ export function calcRent() {
 
       const monthly = store.rentCost / 12;
       store.rentMonthlyCost = num(monthly);
-      console.log("store", store.annualRent);
 
       return store.rentCost;
     }

@@ -5,7 +5,11 @@ class PeriodCost extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    document.addEventListener("annualCostChange", this.render());
+    window.addEventListener("annualCostChange", this.render.bind(this));
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener("annualCostChange", this.render.bind(this));
   }
 
   get cost() {
@@ -18,15 +22,19 @@ class PeriodCost extends HTMLElement {
   setElement() {
     let int = 0;
     if (window.app?.store) {
-      //   const store = window.app.store;
-      //   let fuel = 0;
-      //   if (store.fuelCost != null) {
-      //     fuel = store.fuelCost;
-      //   }
-      //   if (store.rentCost != null) {
-      //     fuel = store.rentCost;
-      //   }
-      // to be continued
+      const rent = window.app.store.rentCost;
+      const fuel = window.app.store.fuelCost;
+      const tax = window.app.store.taxes;
+
+      const annualCost = rent + fuel + tax;
+
+      if (this.cost === "yearly") {
+        int = Number.parseFloat(annualCost).toFixed(0);
+      } else if (this.cost === "monthly") {
+        int = Number.parseFloat(annualCost / 12).toFixed(0);
+      } else if (this.cost === "daily") {
+        int = Number.parseFloat(annualCost / 365).toFixed(2);
+      }
     }
     this.innerHTML = `€ ${int}`;
   }

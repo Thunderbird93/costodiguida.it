@@ -85,7 +85,11 @@ const proxiedStore = new Proxy(Store, {
       window.dispatchEvent(new Event("fuelDataChange"));
     }
 
-    if (["rentCost", "fuelCost", "taxes"].includes(property)) {
+    if (
+      property === "rentCost" ||
+      property === "fuelCost" ||
+      property === "taxes"
+    ) {
       window.dispatchEvent(new Event("annualCostChange"));
     }
 
