@@ -112,7 +112,7 @@
   }
 }
 
-@media (width >= 572px) {
+@media (width >= 768px) {
   .info-display {
     display: grid;
     grid-template-columns: repeat(2, calc(50% - 73px));

@@ -73,8 +73,8 @@
   --fs-input-text: var(--fs-300);
   --fs-fields-footer: var(--fs-300);
   --fs-fields-footer-display: var(--fs-600);
-  --fs-cost-display-primary: var(--fs-800);
-  --fs-cost-display-secondary: var(--fs-700);
+  --fs-cost-display-primary: var(--fs-500);
+  --fs-cost-display-secondary: var(--fs-500);
   --fs-cost-display-label: var(--fs-300);
 
   --content-container-width: var(--content-width-default);
@@ -93,6 +93,8 @@
 @media (width >= 1024px) {
   :root {
     --content-container-width: var(--content-width-large-tablet);
+    --fs-cost-display-primary: var(--fs-700);
+    --fs-cost-display-secondary: var(--fs-600);
   }
 }
 
@@ -100,6 +102,8 @@
   :root {
     --content-container-width: var(--content-width-small-pc);
     --fs-cta-main-heading: var(--fs-900);
+    --fs-cost-display-primary: var(--fs-800);
+    --fs-cost-display-secondary: var(--fs-700);
   }
 }
 

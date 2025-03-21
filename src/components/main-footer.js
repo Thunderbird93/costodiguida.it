@@ -6,7 +6,7 @@ class MainFooter extends HTMLElement {
         <div></div>
         <ul role="list">
           <li>
-            <a href="/mission.html">Obiettivo del sito</a>
+            <a href="/privacy.html">Cookie policy</a>
           </li>
           <li>
             <a href="/privacy.html">Privacy policy</a>

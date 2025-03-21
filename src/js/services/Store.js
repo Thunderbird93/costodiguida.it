@@ -40,6 +40,8 @@ const Store = {
   //
   italianRegions: null,
   italianRegionsTaxation: null,
+  //
+  navMenu: null,
 };
 
 const proxiedStore = new Proxy(Store, {

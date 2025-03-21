@@ -66,6 +66,30 @@ body {
   overflow-x: hidden;
 }
 
+body:has(#toggleMenuButton[aria-expanded="true"]) {
+  overflow-y: hidden;
+
+  main-header {
+    header {
+      background-color: var(--bg-color-light-yellow);
+
+      #toggleMenuButton {
+        img.close {
+          display: inline;
+        }
+        img.menu {
+          display: none;
+        }
+      }
+    }
+  }
+  toggle-menu {
+    #toggleMenu {
+      display: flex;
+    }
+  }
+}
+
 h1,
 h2,
 h3,

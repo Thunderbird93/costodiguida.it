@@ -6,30 +6,39 @@ class MainHeader extends HTMLElement {
   connectedCallback() {
     this.render();
     this.headerTag = this.querySelector("header");
-    this.toggleMenu = document.getElementById("toggleMenu");
-    this.toggleMenu.addEventListener("click", this.doSomething.bind(this));
+    this.toggleMenuButton = document.getElementById("toggleMenuButton");
+    this.toggleMenuButton.addEventListener(
+      "click",
+      this.changeAriaExpandedAttribute.bind(this),
+    );
   }
 
   disconnectedCallback() {
-    this.headerTag.removeEventListener("click", this.doSomething.bind(this));
+    this.headerTag.removeEventListener(
+      "click",
+      this.changeAriaExpandedAttribute.bind(this),
+    );
   }
 
-  doSomething(e) {
-    console.log("e", e);
+  changeAriaExpandedAttribute() {
+    let ariaExpanded = this.toggleMenuButton.getAttribute("aria-expanded");
+
+    this.toggleMenuButton.setAttribute(
+      "aria-expanded",
+      ariaExpanded === "false" ? "true" : "false",
+    );
   }
 
   setElement() {
     this.innerHTML = `
       <header>
       <nav class="content-container">
-        <a href="/" class="logo">
-          <span class="font-accent">CONSULENZA</span>
-          <br />NOLEGGIO AUTO
-        </a>
+        <div></div>
         <ul role="list">
           <li>
-            <button type="button" id="toggleMenu">
-              <img src="/src/assets/icons/menu.svg" alt="menu" />
+            <button type="button" id="toggleMenuButton" aria-expanded="false">
+              <img class="menu" src="/src/assets/icons/menu.svg" alt="menu" />
+              <img class="close" src="/src/assets/icons/close.svg" alt="menu" />
             </button>
           </li>
         </ul>
