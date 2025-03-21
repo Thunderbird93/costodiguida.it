@@ -8,6 +8,21 @@ class InputNumber extends HTMLElement {
     this.inputElement = this.querySelector("input");
     this.inputElement.addEventListener("keydown", this.filterKeys.bind(this));
     this.inputElement.addEventListener("input", this.updateStore.bind(this));
+    if (
+      app &&
+      app.store &&
+      this.storepath &&
+      app.store[this.storepath] === null &&
+      (this.storepath === "petrolPrice" ||
+        this.storepath === "dieselPrice" ||
+        this.storepath === "electricityPrice")
+    ) {
+      window.addEventListener(
+        `${this.storepath}Change`,
+        this.setNewValue.bind(this),
+        { once: true },
+      );
+    }
   }
 
   disconnectedCallback() {
@@ -18,15 +33,15 @@ class InputNumber extends HTMLElement {
     );
   }
 
-  static get observedAttributes() {
-    return ["storepath", "icon", "detail", "min", "max", "step", "inputmode"];
+  setNewValue() {
+    const element = this.inputElement.getAttribute("value");
+    if (!element) {
+      this.inputElement.setAttribute("value", app.store[this.storepath]);
+    }
   }
 
-  get value() {
-    return this.getAttribute("value");
-  }
-  set value(val) {
-    return this.setAttribute("value", val);
+  static get observedAttributes() {
+    return ["storepath", "icon", "detail", "min", "max", "step", "inputmode"];
   }
 
   get storepath() {
@@ -104,10 +119,13 @@ class InputNumber extends HTMLElement {
     const max = this.max ? `max="${this.max}"` : "";
     const step = this.step ? `step="${this.step}"` : "";
     const inputmode = this.inputmode ? this.inputmode : "numeric";
-    const val = this.value ? `value="${this.value}"` : "";
+    let val = "";
+    if (app?.store && this.storepath && app.store[this.storepath] !== null) {
+      val = `value="${app.store[this.storepath]}"`;
+    }
+
     const input = `<input type="number" id="${this.storepath}"  inputmode="${inputmode}" ${min} ${max} ${step} ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
-    const detail = this.detail ? `<p>${this.detail}</p>` : "";
     const feedback = `<img src="./src/assets/icons/check_circle.svg"  alt="" />`;
 
     this.innerHTML = `

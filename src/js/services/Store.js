@@ -82,7 +82,10 @@ const proxiedStore = new Proxy(Store, {
       property === "tankCapacity" ||
       property === "electricAutonomy" ||
       property === "fullAutonomy" ||
-      property === "thermicFuelType"
+      property === "thermicFuelType" ||
+      property === "petrolPrice" ||
+      property === "dieselPrice" ||
+      property === "electricityPrice"
     ) {
       window.dispatchEvent(new Event("fuelDataChange"));
     }

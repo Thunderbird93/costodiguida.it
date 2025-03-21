@@ -115,6 +115,7 @@ toggle-menu {
     background-color: var(--bg-color-light-yellow);
     position: fixed;
     z-index: 3;
+    border: 0;
   }
 
   .navMenuGrid {
@@ -139,6 +140,30 @@ toggle-menu {
 
       li:last-of-type {
         margin-bottom: 80px;
+      }
+    }
+  }
+
+  @media (width >= 768px) {
+    .navMenuGrid {
+      grid-template-columns: repeat(8, 1fr);
+
+      .navMenuList {
+        grid-column: 4 / span 4;
+        li {
+          a {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  @media (width >= 1280px) {
+    .navMenuGrid {
+      grid-template-columns: repeat(12, 1fr);
+      .navMenuList {
+        grid-column: 8 / span 4;
       }
     }
   }

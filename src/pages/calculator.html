@@ -22,7 +22,7 @@
       <section id="hero-calc">
         <div class="content-container">
           <div class="hero-card bgLightYellow">
-            <h1 class="heading">Quanto mi costa?</h1>
+            <h1 class="heading">Cos'è il costo di guida?</h1>
             <p>
               Calcola di seguito il costo di guida della tua prossiama auto.
             </p>
@@ -67,7 +67,6 @@
                       <input-number
                         storepath="months"
                         icon="calendar"
-                        value="36"
                         detail="mesi"
                         min="12"
                         max="60"
@@ -187,7 +186,6 @@
                         storepath="distanceInElectric"
                         icon="electric_car"
                         detail="%"
-                        value="50"
                         min="0"
                         max="100"
                         inputmode="decimal"></input-number>
@@ -245,12 +243,13 @@
                         detail="km"
                         min="100"></input-number>
                     </div>
-                    <div class="field">
+
+                    <div class="field petrolPrice">
                       <label class="field-title" for="petrolPrice"
-                        >Prezzo Benzina</label
+                        >Prezzo della benzina</label
                       >
-                      <label class="field-subheading" for="distanceInElectric"
-                        >Prezzo medio. Modificabile</label
+                      <label class="field-subheading" for="petrolPrice"
+                        >Prezzo medio al litro. Modificabile</label
                       >
                       <input-number
                         storepath="petrolPrice"
@@ -258,6 +257,35 @@
                         min="0.001"
                         step="0.001"></input-number>
                     </div>
+
+                    <div class="field dieselPrice">
+                      <label class="field-title" for="dieselPrice"
+                        >Prezzo del diesel</label
+                      >
+                      <label class="field-subheading" for="dieselPrice"
+                        >Prezzo medio al litro. Modificabile</label
+                      >
+                      <input-number
+                        storepath="dieselPrice"
+                        icon="euro_symbol"
+                        min="0.001"
+                        step="0.001"></input-number>
+                    </div>
+
+                    <div class="field electricityPrice">
+                      <label class="field-title" for="electricityPrice"
+                        >Prezzo dell'elettricità</label
+                      >
+                      <label class="field-subheading" for="electricityPrice"
+                        >Prezzo medio per kWh. Modificabile</label
+                      >
+                      <input-number
+                        storepath="electricityPrice"
+                        icon="euro_symbol"
+                        min="0.001"
+                        step="0.001"></input-number>
+                    </div>
+
                     <div class="field">
                       <fields-footer calc="fuel"></fields-footer>
                     </div>

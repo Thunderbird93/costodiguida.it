@@ -8,7 +8,10 @@
 #thermicChoice,
 .field.thermic,
 .field.electric,
-.field.plugIn {
+.field.plugIn,
+.field.petrolPrice,
+.field.dieselPrice,
+.field.electricityPrice {
   display: none;
 }
 
@@ -130,12 +133,6 @@
   }
 }
 
-/* @media (width >= 1280px) {
-  .info-display {
-    gap: 263px;
-  }
-} */
-
 a.action-button-primary {
   display: flex;
   border: 1px solid var(--font-color-accent);
@@ -149,5 +146,190 @@ a.action-button-primary {
   img {
     filter: brightness(0) invert(1);
     margin-left: 4px;
+  }
+}
+
+/* display second step  */
+.info-cards-organizer:has(input[name="isItHybrid"][value="true"]:checked) {
+  #carIsHybrid {
+    display: flex;
+  }
+  #carIsNotHybrid {
+    display: none;
+  }
+}
+
+.info-cards-organizer:has(input[name="isItHybrid"][value="false"]:checked) {
+  #carIsHybrid {
+    display: none;
+  }
+  #carIsNotHybrid {
+    display: flex;
+  }
+}
+
+/* display third step  */
+.info-cards-organizer:has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="true"]:checked
+  ) {
+  #thermicChoice {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="false"]:checked
+  ) {
+  #thermicChoice {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(input[name="isItHybrid"][value="false"]:checked):has(
+    input[name="isItElectric"][value="false"]:checked
+  ) {
+  #thermicChoice {
+    display: flex;
+  }
+}
+
+/* display fuel and tax cards */
+.info-cards-organizer:has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="true"]:checked
+  ) {
+  #fuelCostCard {
+    display: flex;
+    .field.plugIn {
+      display: flex;
+    }
+    .field.thermic {
+      display: none;
+    }
+    .field.electric {
+      display: none;
+    }
+  }
+
+  #taxCard {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="false"]:checked
+  ) {
+  #fuelCostCard {
+    display: flex;
+    .field.thermic {
+      display: flex;
+    }
+    .field.plugIn {
+      display: none;
+    }
+    .field.electric {
+      display: none;
+    }
+  }
+
+  #taxCard {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(input[name="isItHybrid"][value="false"]:checked):has(
+    input[name="isItElectric"][value="false"]:checked
+  ) {
+  #fuelCostCard {
+    display: flex;
+    .field.thermic {
+      display: flex;
+    }
+    .field.plugIn {
+      display: none;
+    }
+    .field.electric {
+      display: none;
+    }
+  }
+
+  #taxCard {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(input[name="isItHybrid"][value="false"]:checked):has(
+    input[name="isItElectric"][value="true"]:checked
+  ) {
+  #fuelCostCard {
+    display: flex;
+    .field.electric {
+      display: flex;
+    }
+    .field.thermic {
+      display: none;
+    }
+    .field.plugIn {
+      display: none;
+    }
+  }
+
+  #taxCard {
+    display: none;
+  }
+}
+
+/* View petrol price */
+.info-cards-organizer:has(
+    input[name="thermicFuelType"][value="petrol"]:checked
+  ):has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="false"]:checked,
+    input[name="isItPlugIn"][value="true"]:checked
+  ) {
+  .field.petrolPrice {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(
+    input[name="thermicFuelType"][value="petrol"]:checked
+  ):has(input[name="isItHybrid"][value="false"]:checked):has(
+    input[name="isItElectric"][value="false"]:checked
+  ) {
+  .field.petrolPrice {
+    display: flex;
+  }
+}
+
+/* View diesel price */
+.info-cards-organizer:has(
+    input[name="thermicFuelType"][value="diesel"]:checked
+  ):has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="false"]:checked,
+    input[name="isItPlugIn"][value="true"]:checked
+  ) {
+  .field.dieselPrice {
+    display: flex;
+  }
+}
+
+.info-cards-organizer:has(
+    input[name="thermicFuelType"][value="diesel"]:checked
+  ):has(input[name="isItHybrid"][value="false"]:checked):has(
+    input[name="isItElectric"][value="false"]:checked
+  ) {
+  .field.dieselPrice {
+    display: flex;
+  }
+}
+
+/* View electricity price */
+.info-cards-organizer:has(input[name="isItHybrid"][value="true"]:checked):has(
+    input[name="isItPlugIn"][value="true"]:checked
+  ),
+.info-cards-organizer:has(input[name="isItHybrid"][value="false"]:checked):has(
+    input[name="isItElectric"][value="true"]:checked
+  ) {
+  .field.electricityPrice {
+    display: flex;
   }
 }

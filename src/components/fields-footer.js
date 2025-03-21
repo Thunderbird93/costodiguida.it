@@ -60,7 +60,7 @@ class FieldsFooter extends HTMLElement {
   }
 
   async render() {
-    let html;
+    let html = "";
     if (
       this.calc &&
       (this.calc === "rent" || this.calc === "fuel" || this.calc === "tax")

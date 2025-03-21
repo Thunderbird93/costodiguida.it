@@ -21,10 +21,23 @@ class PeriodCost extends HTMLElement {
 
   setElement() {
     let int = 0;
-    if (window.app?.store) {
-      const rent = window.app.store.rentCost;
-      const fuel = window.app.store.fuelCost;
-      const tax = window.app.store.taxes;
+    if (app?.store) {
+      const store = app.store;
+
+      let fuel = store.fuelCost;
+
+      if (store.isItHybrid === true) {
+        if (store.isItPlugIn === null) {
+          fuel = 0;
+        }
+      } else if (store.isItHybrid === false) {
+        if (store.isItElectric === null) {
+          fuel = 0;
+        }
+      }
+
+      const rent = store.rentCost;
+      const tax = store.taxes;
 
       const annualCost = rent + fuel + tax;
 
