@@ -7,6 +7,10 @@ app.store = Store;
 app.router = Router;
 app.api = API;
 
+(async () => {
+  await import("../../components/index.js");
+})();
+
 document.addEventListener("DOMContentLoaded", async () => {
   console.info("Page loaded.");
 
