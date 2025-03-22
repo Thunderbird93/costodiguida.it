@@ -106,12 +106,34 @@ main-header {
       }
     }
 
+    #toggleMenuButton {
+      height: 30px;
+      width: 30px;
+      border-radius: 15px;
+    }
+
     .navDynamicStyle {
       width: 64px;
       left: auto;
       .homeButton {
         display: none;
       }
+    }
+  }
+
+  header:has(.navDynamicStyle) {
+    button {
+      background-color: var(--bg-color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img.menu {
+        height: 24px;
+        aspect-ratio: 1;
+      }
+    }
+    button[aria-expanded="true"] {
+      background-color: transparent;
     }
   }
 }

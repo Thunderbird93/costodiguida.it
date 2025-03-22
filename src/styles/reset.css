@@ -76,6 +76,13 @@ body:has(#toggleMenuButton[aria-expanded="true"]) {
       nav {
         background-color: var(--bg-color-light-yellow);
       }
+      .navDynamicStyle {
+        width: auto;
+        left: 0;
+        .homeButton {
+          display: block;
+        }
+      }
 
       #toggleMenuButton {
         img.close {
