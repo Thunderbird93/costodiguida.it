@@ -11,6 +11,8 @@ class MainHeader extends HTMLElement {
       "click",
       this.changeAriaExpandedAttribute.bind(this),
     );
+
+    this.handleObserver();
   }
 
   disconnectedCallback() {
@@ -18,6 +20,29 @@ class MainHeader extends HTMLElement {
       "click",
       this.changeAriaExpandedAttribute.bind(this),
     );
+  }
+
+  handleObserver() {
+    const header = this.querySelector("header");
+    const nav = this.querySelector("nav");
+
+    if (!header || !nav) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const exists = nav.classList.contains("navDynamicStyle");
+          if (exists) {
+            nav.classList.remove("navDynamicStyle");
+          }
+        } else {
+          nav.classList.add("navDynamicStyle");
+        }
+      },
+      { root: null, threshold: 0 },
+    );
+
+    observer.observe(header);
   }
 
   changeAriaExpandedAttribute() {
@@ -33,12 +58,14 @@ class MainHeader extends HTMLElement {
     this.innerHTML = `
       <header>
       <nav class="content-container">
-        <div></div>
+        <a class="homeButton" href="/">
+          <img class="menu" src="/src/assets/icons/garage.svg" alt="Vai alla homepage" />
+        </a>
         <ul role="list">
           <li>
             <button type="button" id="toggleMenuButton" aria-expanded="false">
-              <img class="menu" src="/src/assets/icons/menu.svg" alt="menu" />
-              <img class="close" src="/src/assets/icons/close.svg" alt="menu" />
+              <img class="menu" src="/src/assets/icons/menu.svg" alt="Apri il menu" />
+              <img class="close" src="/src/assets/icons/close.svg" alt="Chiudi il menu" />
             </button>
           </li>
         </ul>

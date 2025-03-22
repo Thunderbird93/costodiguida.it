@@ -99,8 +99,17 @@ main-header {
       left: 0;
       right: 0;
       z-index: 3;
+      transition: width 0.3s ease;
 
       img.close {
+        display: none;
+      }
+    }
+
+    .navDynamicStyle {
+      width: 64px;
+      left: auto;
+      .homeButton {
         display: none;
       }
     }
