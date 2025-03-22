@@ -146,7 +146,6 @@ toggle-menu {
     background-color: var(--bg-color-light-yellow);
     position: fixed;
     z-index: 3;
-    border-top: 1px solid var(--bg-color-light-yellow);
   }
 
   .navMenuGrid {

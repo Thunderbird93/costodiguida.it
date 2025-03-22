@@ -73,7 +73,6 @@ body:has(#toggleMenuButton[aria-expanded="true"]) {
   main-header {
     header {
       background-color: var(--bg-color-light-yellow);
-      border-bottom: 1px var(--bg-color-light-yellow);
       nav {
         background-color: var(--bg-color-light-yellow);
       }

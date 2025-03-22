@@ -23,6 +23,11 @@ header {
   margin-bottom: 120px;
   margin-top: 96px;
 
+  p {
+    max-width: 26rem;
+    margin: 0 auto;
+  }
+
   .cta-buttons {
     display: flex;
     flex-direction: column;
