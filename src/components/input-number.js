@@ -126,7 +126,8 @@ class InputNumber extends HTMLElement {
 
     const input = `<input type="number" id="${this.storepath}"  inputmode="${inputmode}" ${min} ${max} ${step} ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
-    const feedback = `<img src="./src/assets/icons/check_circle.svg"  alt="" />`;
+    let feedback = `<img src="./src/assets/icons/check_circle.svg"  alt="" />`;
+    feedback = "";
 
     this.innerHTML = `
          <div>
