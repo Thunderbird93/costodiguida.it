@@ -14,11 +14,12 @@ export async function calcBollo(power) {
   } = payment;
 
   if (power > 100) {
-    return 100 * baseEuroPerKw + (power - 100) * surplusEuroPerKw;
+    return num(100 * baseEuroPerKw + (power - 100) * surplusEuroPerKw);
   }
 
-  const tax = power * baseEuroPerKw;
-  return minPayment > tax ? minPayment : num(tax);
+  const tax = num(power * baseEuroPerKw);
+
+  return minPayment > tax ? minPayment : tax;
 }
 
 export function calcSuperbollo(power) {

@@ -6,6 +6,12 @@
 
 @font-face {
   font-family: "Mulish";
+  font-weight: 600;
+  src: url(../../public/fonts/Mulish/Mulish-SemiBold.woff2);
+}
+
+@font-face {
+  font-family: "Mulish";
   font-weight: 700;
   src: url(../../public/fonts/Mulish/Mulish-Bold.woff2);
 }

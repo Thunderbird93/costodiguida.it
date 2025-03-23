@@ -28,17 +28,6 @@ class FieldsFooter extends HTMLElement {
     return this.setAttribute("calc", val);
   }
 
-  get message() {
-    return this.getAttribute("message");
-  }
-  set message(val) {
-    return this.setAttribute("message", val);
-  }
-
-  num(val) {
-    return +Number.parseFloat(val).toFixed(2);
-  }
-
   handleListeners(action) {
     if (!this.calc) return;
 
@@ -66,6 +55,7 @@ class FieldsFooter extends HTMLElement {
       (this.calc === "rent" || this.calc === "fuel" || this.calc === "tax")
     ) {
       let annualCost = 0;
+
       if (this.calc === "rent") {
         annualCost = calcRent();
       } else if (this.calc === "fuel") {
@@ -73,32 +63,31 @@ class FieldsFooter extends HTMLElement {
       } else if (this.calc === "tax") {
         annualCost = await calcTaxes();
       }
+      const total = `<p>€ ${annualCost}</p>`;
+
+      let details = "";
+      if (this.calc === "tax") {
+        details = `
+        <div class="details">
+          <div class="detail" ><p>Bollo</p><p>€ ${app.store.bollo}</p></div>
+          <div class="detail" ><p>Superbollo</p><p>€ ${app.store.superbollo}</p></div>
+        </div>
+        `;
+      }
+
       html = `
          <div class="result">
             <div class="left">
                 <p>Costo annuo</p>
             </div>
             <div class="right">
-                <p>€ ${annualCost}</p>
+                ${total}
             </div>
         </div>
-      `;
-    } else if (this.message) {
-      html = `
-        <div class="result">
-            <div class="left"></div>
-            <div class="right">
-                <p>${this.message}</p>
-            </div>
-        </div>
+        ${details}
       `;
     } else {
-      html = `
-        <div class="result">
-            <div class="left"></div>
-            <div class="right"></div>
-        </div>
-          `;
+      return;
     }
     this.innerHTML = html;
   }

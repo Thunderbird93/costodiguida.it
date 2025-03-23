@@ -241,7 +241,8 @@ fields-footer {
     .right {
       min-height: inherit;
       display: inherit;
-      align-items: end;
+      flex-direction: column;
+      justify-content: end;
     }
 
     .left {
@@ -252,6 +253,17 @@ fields-footer {
     .right {
       p {
         font-size: var(--fs-fields-footer-display);
+      }
+    }
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      p {
+        color: var(--font-color-secondary-light);
       }
     }
   }
