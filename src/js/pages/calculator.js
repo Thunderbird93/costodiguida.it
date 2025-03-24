@@ -18,8 +18,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   app.store.petrolPrice = prices.petrol.price;
   app.store.dieselPrice = prices.diesel.price;
   app.store.electricityPrice = prices.electricity.price;
-
-  window.addEventListener("engineTypeChange", () => {
-    console.log("Engine type:", app.store.engineType);
-  });
 });
