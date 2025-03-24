@@ -58,14 +58,6 @@ const proxiedStore = new Proxy(Store, {
     }
 
     if (
-      property === "isItHybrid" ||
-      property === "isItPlugIn" ||
-      property === "isItElectric"
-    ) {
-      window.dispatchEvent(new Event("carTypeChange"));
-    }
-
-    if (
       property === "region" ||
       property === "enginePower" ||
       property === "enginePowerUnit"
