@@ -6,10 +6,12 @@ class PeriodCost extends HTMLElement {
   connectedCallback() {
     this.render();
     window.addEventListener("annualCostChange", this.render.bind(this));
+    window.addEventListener("carTypeChange", this.render.bind(this));
   }
 
   disconnectedCallback() {
     window.removeEventListener("annualCostChange", this.render.bind(this));
+    window.removeEventListener("carTypeChange", this.render.bind(this));
   }
 
   get cost() {
@@ -39,7 +41,21 @@ class PeriodCost extends HTMLElement {
       const rent = store.rentCost;
       const tax = store.taxes;
 
-      const annualCost = rent + fuel + tax;
+      let annualCost = 0;
+
+      if (app.store.isItElectric) {
+        annualCost = rent + fuel;
+      } else {
+        annualCost = rent + fuel + tax;
+      }
+
+      const hybrid = app.store.isItHybrid;
+      const plugin = app.store.isItPlugIn;
+      const electric = app.store.isItElectric;
+
+      if (hybrid === electric) {
+        annualCost = rent;
+      }
 
       if (this.cost === "yearly") {
         int = Number.parseFloat(annualCost).toFixed(0);
