@@ -1,16 +1,19 @@
+import { num } from "../js/mocks/helpers.js";
 class InputNumber extends HTMLElement {
   constructor() {
     super();
   }
 
   connectedCallback() {
+    this.imgFeedback = "";
+    this.textFeedback = "";
     this.render();
     this.inputElement = this.querySelector("input");
+    this.feedbackEl = this.querySelector(".feedback-text");
     this.inputElement.addEventListener("keydown", this.filterKeys.bind(this));
     this.inputElement.addEventListener("input", this.updateStore.bind(this));
     if (
-      app &&
-      app.store &&
+      app?.store &&
       this.storepath &&
       app.store[this.storepath] === null &&
       (this.storepath === "petrolPrice" ||
@@ -95,18 +98,35 @@ class InputNumber extends HTMLElement {
 
   filterValueToNumber(val) {
     if (!val) return null;
-    return +val;
+    return Number(val);
   }
 
   updateStore({ target }) {
-    if (window.app && window.app.store) {
-      window.app.store[this.storepath] = this.filterValueToNumber(target.value);
+    if (!app || !app.store) return;
+    app.store[this.storepath] = this.filterValueToNumber(target.value);
+    this.checkParamsValidation();
+  }
+
+  checkParamsValidation() {
+    if (this.min && app.store[this.storepath] < this.min) {
+      this.textFeedback = `Digita un numero uguale o superiore a ${this.min}`;
+      this.feedbackEl.textContent = this.textFeedback;
+      return;
     }
+
+    if (this.max && app.store[this.storepath] > this.max) {
+      this.textFeedback = `Digita un numero uguale o inferiore a ${this.max}`;
+      this.feedbackEl.textContent = this.textFeedback;
+      return;
+    }
+
+    this.textFeedback = "";
+    this.feedbackEl.textContent = "";
   }
 
   filterKeys(e) {
     if (
-      ["KeyE", "Slash"].includes(e.code) ||
+      ["KeyE", "KeyV", "Slash", "BracketRight"].includes(e.code) ||
       (["Comma", "Period"].includes(e.code) &&
         (!this.inputmode || this.inputmode !== "decimal"))
     ) {
@@ -126,19 +146,20 @@ class InputNumber extends HTMLElement {
 
     const input = `<input type="number" id="${this.storepath}"  inputmode="${inputmode}" ${min} ${max} ${step} ${val}>`;
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
-    let feedback = `<img src="./src/assets/icons/check_circle.svg"  alt="" />`;
-    feedback = "";
 
     this.innerHTML = `
-         <div>
+         <div class="input-area" >
                 ${input}
-                <div class="left-box">
+               <div class="left-box">
                   ${img}
-                </div>
+              </div>
                 <div class="right-box">
-                  ${feedback}
+                  ${this.imgFeedback}
                 </div>
         </div>
+      <div class="feedback-text">
+        ${this.textFeedback}
+      </div>
     `;
   }
 

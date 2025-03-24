@@ -1,5 +1,5 @@
 input-number {
-  div {
+  .input-area {
     width: 100%;
     position: relative;
 
@@ -43,6 +43,11 @@ input-number {
       padding-right: 16px;
     }
   }
+  .feedback-text {
+    color: var(--font-color-error);
+    margin-top: 8px;
+  }
+  /* TODO refactor input-number style */
 }
 
 radio-button {

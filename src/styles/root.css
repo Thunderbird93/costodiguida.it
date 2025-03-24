@@ -47,6 +47,7 @@
   --font-color-secondary-light: var(--clr-gray-light);
   --font-color-secondary-medium: var(--clr-gray-medium);
   --font-color-secondary-dark: var(--clr-gray-dark);
+  --font-color-error: var(--clr-red);
 
   /* background colors */
   --bg-color-primary: var(--clr-white);
@@ -56,7 +57,6 @@
   --bg-color-light-green: var(--clr-mint-cream);
   --bg-color-light-blue: var(--clr-alice-blue);
   --bg-color-light-yellow: var(--clr-floral-white);
-  --bg-color-error: var(--clr-red);
   --bg-color-success: var(--clr-green);
 
   /* sizes */
