@@ -182,9 +182,18 @@ header {
 }
 
 .video {
-  background-color: blueviolet;
+  background-color: var(--bg-color-light-blue);
   width: 100%;
   aspect-ratio: 3 / 2;
+}
+
+.grid-wrapper {
+  .card {
+    .img100 {
+      height: inherit;
+      margin: auto;
+    }
+  }
 }
 
 @media (width >= 572px) {

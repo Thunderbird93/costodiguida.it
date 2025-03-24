@@ -25,15 +25,18 @@ class PeriodCost extends HTMLElement {
     let int = 0;
     if (app?.store) {
       const store = app.store;
+      const hybrid = store.isItHybrid;
+      const plugin = store.isItPlugIn;
+      const electric = store.isItElectric;
 
       let fuel = store.fuelCost;
 
-      if (store.isItHybrid === true) {
-        if (store.isItPlugIn === null) {
+      if (hybrid === true) {
+        if (plugin === null) {
           fuel = 0;
         }
-      } else if (store.isItHybrid === false) {
-        if (store.isItElectric === null) {
+      } else if (hybrid === false) {
+        if (electric === null) {
           fuel = 0;
         }
       }
@@ -43,18 +46,10 @@ class PeriodCost extends HTMLElement {
 
       let annualCost = 0;
 
-      if (app.store.isItElectric) {
+      if (electric) {
         annualCost = rent + fuel;
       } else {
         annualCost = rent + fuel + tax;
-      }
-
-      const hybrid = app.store.isItHybrid;
-      const plugin = app.store.isItPlugIn;
-      const electric = app.store.isItElectric;
-
-      if (hybrid === electric) {
-        annualCost = rent;
       }
 
       if (this.cost === "yearly") {
