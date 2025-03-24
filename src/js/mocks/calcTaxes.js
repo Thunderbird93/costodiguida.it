@@ -1,7 +1,7 @@
 import { num, getEngineKwPower } from "../mocks/helpers.js";
 
 export async function calcBollo(power) {
-  const { store } = window.app;
+  const { store } = app;
 
   if (!store.italianRegionsTaxation) {
     store.italianRegionsTaxation = await app.api.fetchRegionsTaxation();
@@ -30,22 +30,29 @@ export function calcSuperbollo(power) {
 }
 
 export async function calcTaxes() {
-  if (window.app && window.app.store && window.app.api) {
-    const store = window.app.store;
-    if (store.region && store.region !== "" && store.enginePower !== null) {
-      let engineKwPower = getEngineKwPower(
-        store.enginePower,
-        store.enginePowerUnit,
-      );
+  if (!app) return 0;
+  const { store, api } = app;
 
-      window.app.store.bollo = await calcBollo(engineKwPower);
-      window.app.store.superbollo = calcSuperbollo(engineKwPower);
-
-      window.app.store.taxes = num(
-        window.app.store.bollo + window.app.store.superbollo,
-      );
-      return window.app.store.taxes;
-    }
+  if (
+    !store ||
+    store.engineType === "electric" ||
+    store.enginePower === null ||
+    !store.region ||
+    store.region === "" ||
+    !api
+  ) {
+    return 0;
   }
-  return 0;
+
+  let engineKwPower = getEngineKwPower(
+    store.enginePower,
+    store.enginePowerUnit,
+  );
+
+  app.store.bollo = await calcBollo(engineKwPower);
+  app.store.superbollo = calcSuperbollo(engineKwPower);
+
+  app.store.taxes = num(app.store.bollo + app.store.superbollo);
+
+  return app.store.taxes;
 }

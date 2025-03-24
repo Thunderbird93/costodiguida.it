@@ -1,4 +1,5 @@
 const Store = {
+  engineType: null,
   upfront: null,
   monthly: null,
   months: 36,
@@ -47,6 +48,7 @@ const Store = {
 const proxiedStore = new Proxy(Store, {
   set(target, property, value) {
     target[property] = value;
+
     if (
       property === "upfront" ||
       property === "monthly" ||

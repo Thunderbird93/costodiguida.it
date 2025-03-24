@@ -51,15 +51,66 @@ class RadioButton extends HTMLElement {
     return this.setAttribute("checked", val);
   }
 
-  updateStore(event) {
-    if (window.app && window.app.store) {
-      let val;
-      if (event.target.value === "true" || event.target.value === "false") {
-        val = event.target.value === "true";
-      } else {
-        val = event.target.value;
+  updateStore({ target }) {
+    if (!app || !app.store) return;
+
+    let val;
+    if (target.value === "true" || target.value === "false") {
+      val = target.value === "true";
+    } else {
+      val = target.value;
+    }
+
+    if (
+      this.storepath === "isItHybrid" ||
+      this.storepath === "isItPlugIn" ||
+      this.storepath === "isItElectric"
+    ) {
+      const newVal = val;
+      const oldVal = app.store[this.storepath];
+
+      if (
+        this.storepath === "isItHybrid" &&
+        oldVal != null &&
+        newVal !== oldVal
+      ) {
+        const nullifyList = ["isItElectric", "isItPlugIn"];
+
+        nullifyList.forEach((listName) => {
+          app.store[listName] = null;
+
+          const radioButtons = document.querySelectorAll(
+            `input[name='${listName}']`,
+          );
+
+          if (radioButtons) {
+            radioButtons.forEach((el) => {
+              if (el.checked === true) {
+                el.checked = false;
+              }
+            });
+          }
+        });
       }
-      window.app.store[this.storepath] = val;
+    }
+
+    app.store[this.storepath] = val;
+
+    const plugin = app.store.isItPlugIn;
+    const electric = app.store.isItElectric;
+
+    if (this.storepath === "isItHybrid" && app.store.engineType != null) {
+      app.store.engineType = null;
+    }
+
+    if (typeof electric === "boolean") {
+      app.store.engineType = electric ? "electric" : "thermic";
+    } else if (typeof plugin === "boolean") {
+      app.store.engineType = plugin ? "plugin-hybrid" : "full-hybrid";
+    } else {
+      if (app.store.engineType != null) {
+        app.store.engineType = null;
+      }
     }
   }
 

@@ -33,8 +33,8 @@ class FieldsFooter extends HTMLElement {
 
     const eventMap = {
       rent: ["financeDataChange"],
-      fuel: ["fuelDataChange", "carTypeChange"],
-      tax: ["taxDataChange"],
+      fuel: ["fuelDataChange", "engineTypeChange"],
+      tax: ["taxDataChange", "engineTypeChange"],
     };
 
     const events = eventMap[this.calc] || [];

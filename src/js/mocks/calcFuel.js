@@ -1,11 +1,11 @@
 import { num } from "../mocks/helpers.js";
 
 export function calcElectric() {
-  const efficiency = window.app.store.electricFuelEfficiency;
+  const efficiency = app.store.electricFuelEfficiency;
   if (!efficiency) return 0;
-  const distance = window.app.store.distance;
+  const distance = app.store.distance;
 
-  const unit = window.app.store.electricFuelEfficiencyUnit;
+  const unit = app.store.electricFuelEfficiencyUnit;
   let kW;
   if (unit === "km/kWh") {
     kW = distance / efficiency;
@@ -13,7 +13,7 @@ export function calcElectric() {
     kW = (distance / 100) * efficiency;
   }
 
-  return kW * window.app.store.electricityPrice;
+  return kW * app.store.electricityPrice;
 }
 
 export function calcPlugIn() {
@@ -25,7 +25,7 @@ export function calcPlugIn() {
     electricAutonomy: eAutonomy,
     fullAutonomy: autonomy,
     electricityPrice,
-  } = window.app.store;
+  } = app.store;
 
   if (
     electricShare == null ||
@@ -49,18 +49,18 @@ export function calcPlugIn() {
   const thermicAutonomy = autonomy - eAutonomy;
   const fuelEfficiency = thermicAutonomy / tank;
   const requiredLitres = thermicDistance / fuelEfficiency;
-  const fuelType = `${window.app.store.thermicFuelType}Price`;
-  const thermicCost = window.app.store[fuelType] * requiredLitres;
+  const fuelType = `${app.store.thermicFuelType}Price`;
+  const thermicCost = app.store[fuelType] * requiredLitres;
 
   return electricityCost + thermicCost;
 }
 
 export function calcThermic() {
-  const efficiency = window.app.store.thermicFuelEfficiency;
+  const efficiency = app.store.thermicFuelEfficiency;
 
   if (!efficiency) return 0;
-  const distance = window.app.store.distance;
-  const unit = window.app.store.thermicFuelEfficiencyUnit;
+  const distance = app.store.distance;
+  const unit = app.store.thermicFuelEfficiencyUnit;
 
   let litres = 0;
   if (unit === "km/L") {
@@ -68,31 +68,41 @@ export function calcThermic() {
   } else {
     litres = (distance / 100) * efficiency;
   }
-  const fuelType = `${window.app.store.thermicFuelType}Price`;
-  const thermicCost = window.app.store[fuelType];
+  const fuelType = `${app.store.thermicFuelType}Price`;
+  const thermicCost = app.store[fuelType];
 
   return litres * thermicCost;
 }
 
 export function calcFuel() {
-  if (window.app?.store) {
-    if (window.app.store.distance == null || window.app.store.distance === 0) {
-      return 0;
-    }
-
-    let annualCost = 0;
-    if (window.app.store.isItPlugIn === true) {
-      annualCost = calcPlugIn();
-    } else if (window.app.store.isItElectric === true) {
-      annualCost = calcElectric();
-    } else {
-      annualCost = calcThermic();
-    }
-
-    window.app.store.fuelCost = num(annualCost);
-    window.app.store.monthlyFuelCost = num(annualCost / 12);
-
-    return window.app.store.fuelCost;
+  if (
+    !app ||
+    !app.store ||
+    app.store.distance == null ||
+    app.store.distance === 0
+  ) {
+    return 0;
   }
-  return 0;
+
+  let annualCost;
+
+  switch (app.store.engineType) {
+    case "electric":
+      annualCost = calcElectric();
+      break;
+    case "plugin-hybrid":
+      annualCost = calcPlugIn();
+      break;
+    case "thermic":
+    case "full-hybrid":
+      annualCost = calcThermic();
+      break;
+    default:
+      annualCost = 0;
+      break;
+  }
+
+  app.store.fuelCost = num(annualCost);
+
+  return app.store.fuelCost;
 }

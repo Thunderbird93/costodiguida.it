@@ -6,12 +6,12 @@ class PeriodCost extends HTMLElement {
   connectedCallback() {
     this.render();
     window.addEventListener("annualCostChange", this.render.bind(this));
-    window.addEventListener("carTypeChange", this.render.bind(this));
+    window.addEventListener("engineTypeChange", this.render.bind(this));
   }
 
   disconnectedCallback() {
     window.removeEventListener("annualCostChange", this.render.bind(this));
-    window.removeEventListener("carTypeChange", this.render.bind(this));
+    window.removeEventListener("engineTypeChange", this.render.bind(this));
   }
 
   get cost() {
@@ -24,40 +24,26 @@ class PeriodCost extends HTMLElement {
   setElement() {
     let int = 0;
     if (app?.store) {
-      const store = app.store;
-      const hybrid = store.isItHybrid;
-      const plugin = store.isItPlugIn;
-      const electric = store.isItElectric;
+      const { store } = app;
 
-      let fuel = store.fuelCost;
-
-      if (hybrid === true) {
-        if (plugin === null) {
-          fuel = 0;
-        }
-      } else if (hybrid === false) {
-        if (electric === null) {
-          fuel = 0;
-        }
-      }
-
+      const fuel = store.fuelCost;
       const rent = store.rentCost;
       const tax = store.taxes;
 
-      let annualCost = 0;
+      const annualCost = rent + fuel + tax;
 
-      if (electric) {
-        annualCost = rent + fuel;
-      } else {
-        annualCost = rent + fuel + tax;
-      }
-
-      if (this.cost === "yearly") {
-        int = Number.parseFloat(annualCost).toFixed(0);
-      } else if (this.cost === "monthly") {
-        int = Number.parseFloat(annualCost / 12).toFixed(0);
-      } else if (this.cost === "daily") {
-        int = Number.parseFloat(annualCost / 365).toFixed(2);
+      switch (this.cost) {
+        case "yearly":
+          int = parseFloat(annualCost).toFixed(0);
+          break;
+        case "monthly":
+          int = parseFloat(annualCost / 12).toFixed(0);
+          break;
+        case "daily":
+          int = parseFloat(annualCost / 365).toFixed(2);
+          break;
+        default:
+          int = annualCost.toString();
       }
     }
     this.innerHTML = `€ ${int}`;
