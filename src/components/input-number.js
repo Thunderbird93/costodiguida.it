@@ -148,15 +148,15 @@ class InputNumber extends HTMLElement {
     const img = `<img src="./src/assets/icons/${this.icon}.svg"  alt="" />`;
 
     this.innerHTML = `
-         <div class="input-area" >
-                ${input}
-               <div class="left-box">
-                  ${img}
-              </div>
-                <div class="right-box">
-                  ${this.imgFeedback}
-                </div>
+      <div class="input-area" >
+          ${input}
+        <div class="left-box">
+          ${img}
         </div>
+        <div class="right-box">
+          ${this.imgFeedback}
+        </div>
+      </div>
       <div class="feedback-text">
         ${this.textFeedback}
       </div>

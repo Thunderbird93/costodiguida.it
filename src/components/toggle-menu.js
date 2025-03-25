@@ -4,67 +4,47 @@ class ToggleMenu extends HTMLElement {
   }
 
   async connectedCallback() {
-    // const ul = await this.setNavMenu();
-    // this.innerHTML = `
-    // <nav id="toggleMenu" class="content-container navMenuGrid">
-    //     ${ul}
-    // </nav>
-    // `;
-    this.innerHTML = `
-    <nav id="toggleMenu" class="content-container navMenuGrid">
-        <ul role="list" class="navMenuList">
-            <li>
-            <a href="/"> Home </a>
-        </li>
-        <li>
-            <a href="/calculator.html"> Calcolatore </a>
-        </li>
-        <li>
-            <a href="/privacy.html"> Privacy policy </a>
-        </li>
-            </nav>
-        </ul>
-    `;
+    await this.getNavMenu();
+    this.setNavMenu();
   }
 
-  //   async setNavMenu() {
-  //     let nav = null;
+  async getNavMenu() {
+    if (!app || !app.api || !app.store || app.store.navMenu != null) return;
+    app.store.navMenu = await app.api.fetchNav();
+  }
 
-  //     const ul = document.createElement("ul");
-  //     ul.role = "list";
-  //     ul.classList = "navMenuList";
+  setNavMenu() {
+    const ul = document.createElement("ul");
+    ul.role = "list";
+    ul.classList = "navMenuList";
 
-  //     const createLiAndAnchorElements = (href, content) => {
-  //       const liEl = document.createElement("li");
-  //       const aEl = document.createElement("a");
-  //       aEl.href = href;
-  //       aEl.innerText = content;
-  //       liEl.appendChild(aEl);
-  //       return liEl;
-  //     };
+    const createLiAndAnchorElements = (href, content) => {
+      const liEl = document.createElement("li");
+      const aEl = document.createElement("a");
+      aEl.href = href;
+      aEl.innerText = content;
+      if (location.pathname === href) {
+        aEl.classList.add("underlineAnchorText");
+      }
+      liEl.appendChild(aEl);
+      return liEl;
+    };
 
-  //     const defaultMenu = createLiAndAnchorElements("/", "Home");
+    app.store.navMenu.menu.pagesList.forEach((page) => {
+      const li = createLiAndAnchorElements(
+        app.store.navMenu.menu.pages[page].href,
+        page,
+      );
+      ul.appendChild(li);
+    });
 
-  //     if (app && app.store && (app.store.navMenu != null || app.api)) {
-  //       if (app.store.navMenu != null) {
-  //         nav = app.store.navMenu;
-  //       } else if (app.api) {
-  //         const response = await app.api.fetchNav();
-  //         if (response?.menu) {
-  //           app.store.navMenu = response.menu;
-  //           nav = app.store.navMenu;
-  //         } else {
-  //           ul.appendChild(defaultMenu);
-  //         }
-  //       }
-  //     } else {
-  //       ul.appendChild(defaultMenu);
-  //     }
+    const nav = document.createElement("nav");
+    nav.id = "toggleMenu";
+    nav.classList.add("content-container", "navMenuGrid");
+    nav.appendChild(ul);
 
-  //     console.log("ul", ul);
-
-  //     return ul;
-  //   }
+    this.appendChild(nav);
+  }
 }
 
 customElements.define("toggle-menu", ToggleMenu);

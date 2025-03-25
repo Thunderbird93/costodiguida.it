@@ -171,6 +171,11 @@ toggle-menu {
           display: block;
           text-align: center;
         }
+        a.underlineAnchorText {
+          text-decoration: underline;
+          text-underline-offset: 8px;
+          text-decoration-thickness: 2px;
+        }
       }
 
       li:last-of-type {
