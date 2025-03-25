@@ -131,11 +131,11 @@ header {
   }
 
   .imgOne {
-    background-image: url(/src/assets/images/handshake.png);
+    background-image: url(/src/assets/images/handshake.webp);
   }
 
   .imgTwo {
-    background-image: url(/src/assets/images/smartphone.png);
+    background-image: url(/src/assets/images/smartphone.webp);
   }
 
   .imgOne,

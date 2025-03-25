@@ -3,7 +3,6 @@ const Store = {
   upfront: null,
   monthly: null,
   months: 36,
-  rentMonthlyCost: 0,
   rentCost: 0,
   //
   isItHybrid: null,
@@ -25,7 +24,6 @@ const Store = {
   tankCapacity: null,
   electricAutonomy: null,
   fullAutonomy: null,
-  monthlyFuelCost: 0,
   fuelCost: 0,
   //
   region: "",

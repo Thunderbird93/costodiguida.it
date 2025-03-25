@@ -260,7 +260,7 @@
                       <input-number
                         storepath="petrolPrice"
                         icon="euro_symbol"
-                        min="0.001"
+                        min="0.01"
                         step="0.001"></input-number>
                     </div>
 
@@ -306,13 +306,6 @@
                 <form>
                   <div class="fields">
                     <div class="field">
-                      <label class="field-title" for="regions"
-                        >Residenza / sede legale
-                      </label>
-
-                      <drop-down storepath="region"></drop-down>
-                    </div>
-                    <div class="field">
                       <label class="field-title" for="enginePower">
                         Potenza motore</label
                       >
@@ -329,6 +322,14 @@
                         storepath="enginePowerUnit"
                         checked="cv"></radio-button>
                     </div>
+                    <div class="field">
+                      <label class="field-title" for="regions"
+                        >Residenza / sede legale
+                      </label>
+
+                      <drop-down storepath="region"></drop-down>
+                    </div>
+
                     <div class="field">
                       <fields-footer calc="tax"></fields-footer>
                     </div>

@@ -1,24 +1,21 @@
 import { num } from "../mocks/helpers.js";
 
 export function calcRent() {
-  if (window.app && window.app.store) {
-    const store = window.app.store;
+  if (!app || !app.store) return 0;
 
-    if (
-      store.upfront !== null &&
-      store.monthly !== null &&
-      store.months !== null
-    ) {
-      const deferredUpfrontPayment = num((store.upfront / store.months) * 12);
-      const yearlyRent = store.monthly * 12;
-      const fullYearly = yearlyRent + deferredUpfrontPayment;
-      store.rentCost = num(fullYearly);
+  const { store } = app;
 
-      const monthly = store.rentCost / 12;
-      store.rentMonthlyCost = num(monthly);
-
-      return store.rentCost;
-    }
+  if (store.months <= 0) {
+    store.rentCost = 0;
+    return store.rentCost;
   }
-  return 0;
+
+  if (!isNaN(store.upfront) && !isNaN(store.monthly) && !isNaN(store.months)) {
+    const deferredUpfrontPayment = num((store.upfront / store.months) * 12);
+    const yearlyRent = store.monthly * 12;
+    const fullYearly = yearlyRent + deferredUpfrontPayment;
+    store.rentCost = num(fullYearly);
+
+    return store.rentCost;
+  }
 }
