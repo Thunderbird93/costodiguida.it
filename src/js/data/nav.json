@@ -1,12 +1,12 @@
 {
   "menu": {
-    "pagesList": ["Home", "Calcolatore", "Privacy"],
+    "pagesList": ["Home", "Calcola", "Privacy"],
     "pages": {
       "Home": {
         "href": "/"
       },
-      "Calcolatore": {
-        "href": "/calculator.html"
+      "Calcola": {
+        "href": "/calcola.html"
       },
       "Privacy": {
         "href": "/privacy.html"

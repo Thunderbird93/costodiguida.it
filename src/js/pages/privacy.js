@@ -8,7 +8,6 @@ app.api = API;
 (async () => {
   await import("../../components/main-header.js");
   await import("../../components/toggle-menu.js");
-  await import("../../components/main-footer.js");
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
