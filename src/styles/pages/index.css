@@ -68,7 +68,7 @@ header {
 }
 
 .action-button-primary {
-  background-color: var(--bg-color-accent);
+  background-color: var(--clr-orange-dark);
   color: var(--font-color-contrast);
 }
 
@@ -118,7 +118,7 @@ header {
       flex-direction: column;
       gap: 12px;
 
-      [role="heading"] {
+      .heading {
         font-weight: 700;
         color: var(--font-color-secondary-dark);
         font-size: var(--fs-400);
