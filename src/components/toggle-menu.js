@@ -30,11 +30,9 @@ class ToggleMenu extends HTMLElement {
       return liEl;
     };
 
-    app.store.navMenu.menu.pagesList.forEach((page) => {
-      const li = createLiAndAnchorElements(
-        app.store.navMenu.menu.pages[page].href,
-        page,
-      );
+    const { menu } = app.store.navMenu;
+    menu.pagesList.forEach((page) => {
+      const li = createLiAndAnchorElements(menu.pages[page].href, page);
       ul.appendChild(li);
     });
 
