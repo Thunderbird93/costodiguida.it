@@ -532,16 +532,6 @@ main-header {
       border-radius: 15px;
     }
 
-    .navDynamicStyle {
-      width: 64px;
-      left: auto;
-      .homeButton {
-        display: none;
-      }
-    }
-  }
-
-  header:has(.navDynamicStyle) {
     button {
       background-color: var(--bg-color-accent);
       display: flex;
@@ -552,6 +542,9 @@ main-header {
         aspect-ratio: 1;
       }
     }
+  }
+
+  header:has(.navDynamicStyle) {
     button[aria-expanded="true"] {
       background-color: transparent;
     }

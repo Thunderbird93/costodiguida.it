@@ -11,8 +11,6 @@ class MainHeader extends HTMLElement {
       "click",
       this.changeAriaExpandedAttribute.bind(this),
     );
-
-    this.handleObserver();
   }
 
   disconnectedCallback() {
@@ -20,29 +18,6 @@ class MainHeader extends HTMLElement {
       "click",
       this.changeAriaExpandedAttribute.bind(this),
     );
-  }
-
-  handleObserver() {
-    const header = this.querySelector("header");
-    const nav = this.querySelector("nav");
-
-    if (!header || !nav) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const exists = nav.classList.contains("navDynamicStyle");
-          if (exists) {
-            nav.classList.remove("navDynamicStyle");
-          }
-        } else {
-          nav.classList.add("navDynamicStyle");
-        }
-      },
-      { root: null, threshold: 0 },
-    );
-
-    observer.observe(header);
   }
 
   changeAriaExpandedAttribute() {
@@ -58,9 +33,8 @@ class MainHeader extends HTMLElement {
     this.innerHTML = `
       <header>
       <nav class="content-container">
-        <a class="homeButton" href="/">
-          <img class="menu" src="/src/assets/icons/garage.svg" alt="Vai alla homepage" />
-        </a>
+        <div>
+        </div>
         <ul role="list">
           <li>
             <button type="button" id="toggleMenuButton" aria-expanded="false">
