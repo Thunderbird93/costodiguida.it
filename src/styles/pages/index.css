@@ -68,7 +68,7 @@ header {
 }
 
 .action-button-primary {
-  background-color: var(--clr-orange-dark);
+  background-color: var(--bg-color-accent);
   color: var(--font-color-contrast);
 }
 

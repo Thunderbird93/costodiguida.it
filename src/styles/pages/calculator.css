@@ -141,7 +141,7 @@ a.action-button-primary {
   border-radius: var(--thumb-size);
   padding: var(--fs-100);
   width: fit-content;
-  background-color: var(--clr-orange-dark);
+  background-color: var(--bg-color-accent);
   color: var(--font-color-contrast);
   img {
     filter: brightness(0) invert(1);

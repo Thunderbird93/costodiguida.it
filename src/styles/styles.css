@@ -25,8 +25,8 @@
   /* colors */
   --clr-black: hsl(0, 0%, 20%);
   --clr-white: hsl(0, 0%, 100%);
-  --clr-orange: hsl(20, 100%, 56%);
-  --clr-orange-dark: hsl(20, 100%, 41%);
+  --clr-blue: hsl(210, 100%, 40%);
+  --clr-blue-dark: hsl(210, 100%, 36%);
   --clr-floral-white: hsl(53, 36%, 95%);
   --clr-mint-cream: hsl(127, 36%, 95%);
   --clr-alice-blue: hsl(207, 36%, 95%);
@@ -64,7 +64,7 @@
   /* font colors */
   --font-color-primary: var(--clr-black);
   --font-color-contrast: var(--clr-white);
-  --font-color-accent: var(--clr-orange-dark);
+  --font-color-accent: var(--clr-blue);
   --font-color-secondary-light: var(--clr-gray-light);
   --font-color-secondary-medium: var(--clr-gray-medium);
   --font-color-secondary-dark: var(--clr-gray-dark);
@@ -72,9 +72,9 @@
 
   /* background colors */
   --bg-color-primary: var(--clr-white);
-  --bg-color-accent: var(--clr-orange);
+  --bg-color-accent: var(--clr-blue);
   --bg-color-secondary: var(--clr-black);
-  --bg-color-accent-hover: var(--clr-orange-dark);
+  --bg-color-accent-hover: var(--clr-blue-dark);
   --bg-color-light-green: var(--clr-mint-cream);
   --bg-color-light-blue: var(--clr-alice-blue);
   --bg-color-light-yellow: var(--clr-floral-white);
