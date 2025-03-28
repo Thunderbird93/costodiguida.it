@@ -105,7 +105,7 @@
   :root {
     --content-container-width: var(--content-width-small-tablet);
     --fs-h1: var(--fs-900);
-    --fs-about-text: var(--fs-500);
+    /* --fs-about-text: var(--fs-500); */
     --fs-fields-footer: var(--fs-200);
     --fs-fields-footer-display: var(--fs-200);
   }

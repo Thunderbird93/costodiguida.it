@@ -229,12 +229,12 @@ header {
       text-align: center;
       margin: 0 auto;
     }
+  }
+}
 
-    @media (width >= 1280px) {
-      .big-paragraph {
-        width: 80%;
-      }
-    }
+@media (width >= 1280px) {
+  .big-paragraph {
+    width: 80%;
   }
 }
 
