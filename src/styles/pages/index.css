@@ -27,32 +27,32 @@ header {
     max-width: 26rem;
     margin: 0 auto;
   }
+}
 
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-a);
+}
+
+@media (width >= 768px) {
   .cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--fs-a);
-  }
-
-  @media (width >= 768px) {
-    .cta-buttons {
-      flex-direction: row;
-      justify-content: center;
-      .action-button-primary,
-      .action-button-secondary {
-        width: fit-content;
-      }
+    flex-direction: row;
+    justify-content: center;
+    .action-button-primary,
+    .action-button-secondary {
+      width: fit-content;
     }
   }
+}
 
-  @media (width >= 768px) {
-    .cta-buttons {
-      flex-direction: row;
-      justify-content: center;
-      .action-button-primary,
-      .action-button-secondary {
-        width: fit-content;
-      }
+@media (width >= 768px) {
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    .action-button-primary,
+    .action-button-secondary {
+      width: fit-content;
     }
   }
 }
@@ -182,7 +182,7 @@ header {
 }
 
 .video {
-  background-color: var(--bg-color-light-blue);
+  /* background-color: var(--bg-color-light-blue); */
   width: 100%;
   aspect-ratio: 3 / 2;
 }
@@ -245,10 +245,10 @@ header {
 }
 
 #cta {
-  padding: 120px 0;
   display: flex;
   flex-direction: column;
   gap: 60px;
+  padding-bottom: 60px;
   .cta-grid-wrapper {
     display: grid;
     row-gap: 40px;
@@ -278,35 +278,6 @@ header {
       width: fit-content;
       img {
         filter: brightness(0) invert(1);
-      }
-    }
-  }
-}
-
-@media (width >= 572px) {
-  #cta {
-    gap: 120px;
-  }
-}
-
-@media (width >= 1280px) {
-  #cta {
-    .cta-grid-wrapper {
-      grid-template-columns: repeat(12, 1fr);
-      .heading {
-        grid-column: span 3;
-        text-align: left;
-      }
-      .grid-wrapper {
-        grid-column: span 9;
-        .card {
-          grid-column: span 4;
-        }
-      }
-    }
-    .cta-card {
-      .heading {
-        font-weight: 700;
       }
     }
   }
@@ -361,5 +332,34 @@ header {
   }
   .cta-card {
     background-image: url(/src/assets/images/doodles/doodle-d-2.png);
+  }
+}
+
+.cardHeading {
+  font-weight: 700;
+  font-size: var(--fs-400);
+  color: var(--font-color-secondary-dark);
+}
+
+@media (width >= 1280px) {
+  #cta {
+    .cta-grid-wrapper {
+      grid-template-columns: repeat(12, 1fr);
+      .heading {
+        grid-column: span 3;
+        text-align: left;
+      }
+      .grid-wrapper {
+        grid-column: span 9;
+        .card {
+          grid-column: span 4;
+        }
+      }
+    }
+    .cta-card {
+      .heading {
+        font-weight: 700;
+      }
+    }
   }
 }
