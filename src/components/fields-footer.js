@@ -69,8 +69,10 @@ class FieldsFooter extends HTMLElement {
       if (this.calc === "tax") {
         details = `
         <div class="details">
-          <div class="detail" ><p>Bollo</p><p>€ ${app.store.bollo}</p></div>
+          <div class="detail" ><p>Bollo*</p><p>€ ${app.store.bollo}</p></div>
           <div class="detail" ><p>Superbollo</p><p>€ ${app.store.superbollo}</p></div>
+          <br/>
+          <div class="detail"><p>*per il calcolo del bollo consultare le fonti di ciascuna regione. Il calcolo del bollo è indicativo e senza valore legale.</p></div>
         </div>
         `;
       }
