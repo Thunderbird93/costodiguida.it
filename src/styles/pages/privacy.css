@@ -1,10 +1,10 @@
 @import url(../styles.css);
 
-.center {
-  display: grid;
-  gap: 5rem;
-  h1,
-  div > p {
-    text-align: center;
-  }
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
