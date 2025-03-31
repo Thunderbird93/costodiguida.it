@@ -34,7 +34,11 @@ class MainHeader extends HTMLElement {
       "<a class='homeIcon' href='/'> <img src='/src/assets/icons/home.svg' alt='Torna alla homepage' />  </a>";
     const homepage = `
         <div>
-          ${location.pathname === "/" ? "" : goBackHome}
+          ${
+            location.pathname === "/" || location.pathname === "/calcola"
+              ? ""
+              : goBackHome
+          }
         </div>
     `;
     this.innerHTML = `
