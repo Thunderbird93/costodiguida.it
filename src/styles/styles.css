@@ -215,6 +215,9 @@ body:has(#toggleMenuButton[aria-expanded="true"]) {
   background-color: var(--bg-color-light-yellow);
 
   main-header {
+    .homeIcon {
+      display: none;
+    }
     header {
       background-color: var(--bg-color-light-yellow);
       nav {
@@ -583,6 +586,7 @@ toggle-menu {
           text-decoration: underline;
           text-underline-offset: 8px;
           text-decoration-thickness: 2px;
+          text-decoration-color: var(--bg-color-accent);
         }
       }
 

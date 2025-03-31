@@ -30,11 +30,17 @@ class MainHeader extends HTMLElement {
   }
 
   setElement() {
+    const goBackHome =
+      "<a class='homeIcon' href='/'> <img src='/src/assets/icons/home.svg' alt='Torna alla homepage' />  </a>";
+    const homepage = `
+        <div>
+          ${location.pathname === "/" ? "" : goBackHome}
+        </div>
+    `;
     this.innerHTML = `
       <header>
       <nav class="content-container">
-        <div>
-        </div>
+        ${homepage}
         <ul role="list">
           <li>
             <button type="button" id="toggleMenuButton" aria-expanded="false">
