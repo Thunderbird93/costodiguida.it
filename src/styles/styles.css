@@ -84,6 +84,7 @@
   --fs: var(--fs-200);
   --fs-a: var(--fs-300);
   --fs-h1: var(--fs-600);
+  --fs-cta-p: calc(var(--fs-200) + 1px);
   --fs-heading-small: var(--fs-400);
   --fs-cta-main-heading: var(--fs-600);
   --fs-cta-heading: var(--fs-600);
@@ -388,6 +389,13 @@ main {
   h1,
   p {
     text-align: center;
+  }
+}
+
+.cta-card,
+.results-cta {
+  p {
+    font-size: var(--fs-cta-p);
   }
 }
 
